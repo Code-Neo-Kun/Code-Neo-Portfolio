@@ -1,0 +1,14 @@
+{
+  "name": "codneo-portfolio",
+  "version": "1.0.0",
+  "description": "Code Neo — Uddhav Shrimali Portfolio",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/css/style.css -o ./dist/css/style.min.css --minify",
+    "dev": "npx tailwindcss -i ./src/css/style.css -o ./dist/css/style.min.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  }
+}

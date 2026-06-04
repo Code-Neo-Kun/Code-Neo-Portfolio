@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Code Neo</title>
+  <meta name="description" content="Portfolio of WordPress, Shopify, and custom web development projects by Uddhav Shrimali.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/css/style.min.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","YOUR_CLARITY_ID");</script>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo"><span class="bracket">[</span><span class="name">Code Neo</span><span class="bracket">]</span><span class="dot">_</span></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="contact.html">Contact</a></li></ul>
+  <a href="book.html" class="nav-cta">Book a Call</a>
+  <button class="nav-mob-btn" id="mob-btn"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</nav>
+<div class="mob-menu" id="mob-menu">
+  <button class="mob-close" id="mob-close"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="work.html">Work</a><a href="contact.html">Contact</a><a href="book.html" style="color:var(--cyan)">Book a Call</a>
+</div>
+
+<!-- HEADER -->
+<section style="padding-top:8rem;padding-bottom:3.5rem;background:var(--bg-1);border-bottom:1px solid var(--border-soft);position:relative;overflow:hidden;">
+  <div style="position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(57,255,20,0.05),transparent 70%);top:-100px;right:-100px;pointer-events:none;"></div>
+  <div class="wrap">
+    <p class="label fade-up-1" style="margin-bottom:1rem;">Work Archive</p>
+    <h1 class="display-lg fade-up-2" style="margin-bottom:0.75rem;">Projects shipped.</h1>
+    <p class="fade-up-3" style="color:var(--text-soft);font-size:0.95rem;">WordPress, Shopify, custom plugins, and integrations — placeholder cards until your real work is added.</p>
+  </div>
+</section>
+
+<!-- STICKY FILTER -->
+<div style="position:sticky;top:64px;z-index:50;background:rgba(8,11,16,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-soft);padding:1rem 0;">
+  <div class="wrap">
+    <div class="filter-bar-wrap" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div class="filter-bar">
+        <button class="filter-btn" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="wordpress">WordPress</button>
+        <button class="filter-btn" data-filter="shopify">Shopify</button>
+        <button class="filter-btn" data-filter="plugin">Plugin Dev</button>
+        <button class="filter-btn" data-filter="integration">Integrations</button>
+      </div>
+      <p style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);">8 projects</p>
+    </div>
+  </div>
+</div>
+
+<!-- GRID -->
+<section class="section">
+  <div class="wrap">
+    <div class="g-3" id="projects-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;">
+
+      <!-- WP Store -->
+      <article class="card portfolio-item" data-categories="wordpress" data-project-id="woo-marketplace">
+        <div class="card-img" style="background:linear-gradient(135deg,#0d1f33,#080b10);height:170px;">
+          <svg width="44" height="44" fill="none" viewBox="0 0 64 64" opacity="0.4"><rect x="8" y="8" width="48" height="32" rx="3" stroke="#00F5FF" stroke-width="1.5"/><path d="M8 20h48" stroke="#00F5FF" stroke-width="1" opacity="0.5"/><rect x="12" y="46" width="8" height="10" rx="1" stroke="#39FF14" stroke-width="1.5"/><rect x="24" y="46" width="8" height="10" rx="1" stroke="#39FF14" stroke-width="1.5"/><rect x="36" y="46" width="16" height="4" rx="1" stroke="#00F5FF" stroke-width="1" opacity="0.4"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;"><span class="badge badge-cyan">WordPress</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">2024</span></div>
+          <h3 style="font-weight:600;font-size:0.95rem;margin-bottom:0.375rem;">WooCommerce Marketplace</h3>
+          <p style="color:var(--text-soft);font-size:0.8rem;line-height:1.6;margin-bottom:0.875rem;">Multi-vendor marketplace with custom plugin, Stripe payments, automated order routing, and vendor dashboards.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.875rem;"><span class="badge">PHP</span><span class="badge">WooCommerce</span><span class="badge">MySQL</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.75rem;border-top:1px solid var(--border-soft);">
+            <div style="display:flex;gap:1rem;"><span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">+40% GMV</span><span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">12 vendors</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Shopify -->
+      <article class="card portfolio-item" data-categories="shopify" data-project-id="shopify-fashion">
+        <div class="card-img" style="background:linear-gradient(135deg,#0a1f0d,#080b10);height:170px;">
+          <svg width="44" height="44" fill="none" viewBox="0 0 64 64" opacity="0.4"><path d="M20 12h24l8 40H12L20 12z" stroke="#39FF14" stroke-width="1.5"/><path d="M24 12L20 52M40 12l4 40M12 32h40" stroke="#00F5FF" stroke-width="1" opacity="0.5"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;"><span class="badge badge-green">Shopify</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">2024</span></div>
+          <h3 style="font-weight:600;font-size:0.95rem;margin-bottom:0.375rem;">Fashion Brand Storefront</h3>
+          <p style="color:var(--text-soft);font-size:0.8rem;line-height:1.6;margin-bottom:0.875rem;">Custom Liquid theme built from scratch. Mobile-first, sub-2s load time, upsell flows, and metafield-driven product pages.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.875rem;"><span class="badge">Liquid</span><span class="badge">Shopify</span><span class="badge">JS</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.75rem;border-top:1px solid var(--border-soft);">
+            <div style="display:flex;gap:1rem;"><span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">+28% CVR</span><span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">1.9s load</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Plugin -->
+      <article class="card portfolio-item" data-categories="plugin wordpress" data-project-id="rest-api-plugin">
+        <div class="card-img" style="background:linear-gradient(135deg,#1a0d2a,#080b10);height:170px;">
+          <svg width="44" height="44" fill="none" viewBox="0 0 64 64" opacity="0.4"><rect x="12" y="12" width="40" height="40" rx="4" stroke="#00F5FF" stroke-width="1.5"/><path d="M24 24h16M24 32h12M24 40h8" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round"/><circle cx="44" cy="20" r="8" stroke="#00F5FF" stroke-width="1.5" fill="var(--bg)"/><path d="M41 20h6M44 17v6" stroke="#00F5FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;"><span class="badge badge-cyan">Plugin Dev</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">2023</span></div>
+          <h3 style="font-weight:600;font-size:0.95rem;margin-bottom:0.375rem;">REST API Sync Plugin</h3>
+          <p style="color:var(--text-soft);font-size:0.8rem;line-height:1.6;margin-bottom:0.875rem;">OOP WordPress plugin syncing CRM data bidirectionally. Custom REST endpoints, cron jobs, conflict resolution, and logging.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.875rem;"><span class="badge">PHP OOP</span><span class="badge">REST API</span><span class="badge">Cron</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:0.75rem;border-top:1px solid var(--border-soft);">
+            <div style="display:flex;gap:1rem;"><span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">10k/day records</span><span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">99.9% uptime</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Integration -->
+      <article class="card portfolio-item" data-categories="integration" data-project-id="payment-gateway">
+        <div class="card-img" style="background:linear-gradient(135deg,#0a1a10,#080b10);height:170px;">
+          <svg width="44" height="44" fill="none" viewBox="0 0 64 64" opacity="0.4"><circle cx="16" cy="32" r="10" stroke="#39FF14" stroke-width="1.5"/><circle cx="48" cy="32" r="10" stroke="#00F5FF" stroke-width="1.5"/><path d="M26 32h12M32 26l6 6-6 6" stroke="#00F5FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;"><span class="badge badge-green">Integration</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">2023</span></div>
+          <h3 style="font-weight:600;font-size:0.95rem;margin-bottom:0.375rem;">Payment Gateway Connector</h3>
+          <p style="color:var(--text-soft);font-size:0.8rem;line-height:1.6;margin-bottom:0.875rem;">Custom WooCommerce payment gateway plugin integrating a regional payment provider — webhook handling, refunds, logging.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.875rem;"><span class="badge">PHP</span><span class="badge">WooCommerce</span><span class="badge">Webhooks</span></div>
+          <div style="display:flex;gap:1rem;padding-top:0.75rem;border-top:1px solid var(--border-soft);">
+            <span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">Zero payment failures</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- WP Custom Theme -->
+      <article class="card portfolio-item" data-categories="wordpress" data-project-id="agency-theme">
+        <div class="card-img" style="background:linear-gradient(135deg,#0d1f1a,#080b10);height:170px;">
+          <svg width="44" height="44" fill="none" viewBox="0 0 64 64" opacity="0.4"><path d="M8 16h48v32H8z" stroke="#00F5FF" stroke-width="1.5" rx="2"/><path d="M8 24h48" stroke="#00F5FF" stroke-width="1" opacity="0.4"/><rect x="12" y="28" width="16" height="14" rx="1" stroke="#39FF14" stroke-width="1.5"/><path d="M32 30h16M32 36h12M32 42h8" stroke="#00F5FF" stroke-width="1" opacity="0.5"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;"><span class="badge badge-cyan">WordPress</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">2023</span></div>
+          <h3 style="font-weight:600;font-size:0.95rem;margin-bottom:0.375rem;">Agency Website Rebuild</h3>
+          <p style="color:var(--text-soft);font-size:0.8rem;line-height:1.6;margin-bottom:0.875rem;">Ground-up custom WordPress theme for a digital agency. ACF-driven flexible layouts, WPML multilingual, 95+ PageSpeed.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.875rem;"><span class="badge">Custom Theme</span><span class="badge">ACF</span><span class="badge">WPML</span></div>
+          <div style="display:flex;gap:1rem;padding-top:0.75rem;border-top:1px solid var(--border-soft);">
+            <span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">95+ PageSpeed</span><span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">Multilingual</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bug Fix / Audit -->
+      <article class="card portfolio-item" data-categories="wordpress shopify" data-project-id="speed-audit">
+        <div class="card-img" style="background:linear-gradient(135deg,#1f1000,#080b10);height:170px;">
+          <svg width="44" height="44" fill="none" viewBox="0 0 64 64" opacity="0.4"><path d="M32 8l4 8h8l-6 6 2 8-8-5-8 5 2-8-6-6h8L32 8z" stroke="#39FF14" stroke-width="1.5" stroke-linejoin="round"/><path d="M20 44l-8 8M44 44l8 8M32 36v12" stroke="#00F5FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;"><span class="badge badge-green">Bug Fix & Audit</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">2022</span></div>
+          <h3 style="font-weight:600;font-size:0.95rem;margin-bottom:0.375rem;">Speed & Security Overhaul</h3>
+          <p style="color:var(--text-soft);font-size:0.8rem;line-height:1.6;margin-bottom:0.875rem;">Full audit of a broken WooCommerce store — fixed plugin conflicts, resolved memory leaks, patched 3 security vulnerabilities, improved load time by 60%.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.875rem;"><span class="badge">Debugging</span><span class="badge">Security</span><span class="badge">Performance</span></div>
+          <div style="display:flex;gap:1rem;padding-top:0.75rem;border-top:1px solid var(--border-soft);">
+            <span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">60% faster</span><span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">0 vulnerabilities</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Shopify App -->
+      <article class="card portfolio-item" data-categories="shopify integration" data-project-id="shopify-inventory">
+        <div class="card-img" style="background:linear-gradient(135deg,#0d1a0a,#080b10);height:170px;">
+          <svg width="44" height="44" fill="none" viewBox="0 0 64 64" opacity="0.4"><rect x="8" y="8" width="20" height="20" rx="2" stroke="#39FF14" stroke-width="1.5"/><rect x="36" y="8" width="20" height="20" rx="2" stroke="#00F5FF" stroke-width="1.5"/><rect x="8" y="36" width="20" height="20" rx="2" stroke="#00F5FF" stroke-width="1.5"/><rect x="36" y="36" width="20" height="20" rx="2" stroke="#39FF14" stroke-width="1.5"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;"><span class="badge badge-green">Shopify + API</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">2022</span></div>
+          <h3 style="font-weight:600;font-size:0.95rem;margin-bottom:0.375rem;">Inventory Sync Integration</h3>
+          <p style="color:var(--text-soft);font-size:0.8rem;line-height:1.6;margin-bottom:0.875rem;">Real-time bidirectional inventory sync between Shopify and a warehouse management system via REST API.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.875rem;"><span class="badge">Shopify API</span><span class="badge">REST</span><span class="badge">Cron</span></div>
+          <div style="display:flex;gap:1rem;padding-top:0.75rem;border-top:1px solid var(--border-soft);">
+            <span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">5-min sync</span><span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">500 SKUs</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Plugin — Subscription -->
+      <article class="card portfolio-item" data-categories="plugin wordpress" data-project-id="membership-plugin">
+        <div class="card-img" style="background:linear-gradient(135deg,#1a0a1a,#080b10);height:170px;">
+          <svg width="44" height="44" fill="none" viewBox="0 0 64 64" opacity="0.4"><path d="M32 12c11 0 20 9 20 20S43 52 32 52 12 43 12 32s9-20 20-20z" stroke="#00F5FF" stroke-width="1.5"/><path d="M32 20v12l8 4" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;"><span class="badge badge-cyan">Plugin Dev</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">2022</span></div>
+          <h3 style="font-weight:600;font-size:0.95rem;margin-bottom:0.375rem;">Membership & Access Plugin</h3>
+          <p style="color:var(--text-soft);font-size:0.8rem;line-height:1.6;margin-bottom:0.875rem;">Custom WordPress membership plugin with content gating, Stripe subscription billing, and user role management.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.875rem;"><span class="badge">PHP OOP</span><span class="badge">Stripe</span><span class="badge">WordPress</span></div>
+          <div style="display:flex;gap:1rem;padding-top:0.75rem;border-top:1px solid var(--border-soft);">
+            <span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">300+ members</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:4rem 0;background:var(--bg-1);border-top:1px solid var(--border-soft);">
+  <div class="wrap cta-band" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;">
+    <div>
+      <p class="label" style="margin-bottom:0.75rem;">Open to Work</p>
+      <h2 class="display-md">Your project could be next.</h2>
+    </div>
+    <a href="contact.html" class="btn btn-cyan">Start a Project →</a>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="wrap footer-inner" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+  <a href="index.html" class="nav-logo" style="font-size:0.9rem;"><span class="bracket">[</span><span class="name">Code Neo</span><span class="bracket">]</span><span class="dot">_</span></a>
+  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">© 2025 Uddhav Shrimali // Code Neo</p>
+</div></footer>
+<script src="../src/js/main.js"></script>
+<script src="../src/js/filter.js"></script>
+
+<!-- ═══ PROJECT MODAL ═══════════════════════════════════════════════════════ -->
+<div id="project-modal" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(4,6,10,0.88);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:1.5rem;opacity:0;transition:opacity 0.28s ease;">
+  <div id="modal-inner" style="background:var(--bg-1);border:1px solid var(--border-soft);border-radius:12px;width:100%;max-width:900px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;transform:translateY(24px);transition:transform 0.32s cubic-bezier(0.16,1,0.3,1);box-shadow:0 32px 80px rgba(0,0,0,0.6),0 0 60px rgba(0,245,255,0.04);">
+  </div>
+</div>
+
+<script src="../src/js/modal.js"></script>
+</body>
+</html>
