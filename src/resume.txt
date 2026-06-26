@@ -1,0 +1,19 @@
+Code Neo
+Full-Stack & WordPress Developer
+
+Contact
+Email: hello@codeneo.dev
+Portfolio: https://code-neo-portfolio.vercel.app/
+
+Summary
+Full-stack web developer and WordPress specialist focused on custom builds, plugins, themes, APIs, and performance-driven websites.
+
+Skills
+- WordPress, WooCommerce, PHP, Laravel
+- Shopify, Liquid, REST APIs
+- HTML, CSS, JavaScript, Tailwind
+
+Experience
+- Custom website and plugin development
+- E-commerce storefront builds
+- API integrations and maintenance
