@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Code Neo</title>
+  <meta name="description" content="Case studies and projects by Uddhav Shrimali — WordPress, Shopify, custom plugins, REST APIs, and web development work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/neo-style.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <!-- Microsoft Clarity -->
+  <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","YOUR_CLARITY_ID");</script>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <span class="logo-bracket">[</span><span class="logo-name">Code Neo</span><span class="logo-bracket">]</span><span class="logo-cursor">_</span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link active">Portfolio</a>
+      <a href="index.html#pricing" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary header-cta">Hire Me</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-close" aria-label="Close menu">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="index.html#about" class="mobile-nav-link">About</a>
+    <a href="index.html#services" class="mobile-nav-link">Services</a>
+    <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
+    <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+    <a href="index.html#contact" class="btn btn-primary mobile-cta">Hire Me</a>
+  </nav>
+</div>
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<!-- ══ PAGE HERO ════════════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <nav class="breadcrumb fade-in-up" style="--delay:0s" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      <span>Portfolio</span>
+    </nav>
+    <div class="page-hero-content">
+      <div class="section-tag fade-in-up" style="--delay:0.05s">PORTFOLIO</div>
+      <h1 class="page-hero-title fade-in-up" style="--delay:0.1s">PROJECTS &amp; CASE STUDIES</h1>
+      <p class="page-hero-desc fade-in-up" style="--delay:0.15s">
+        Real problems. Real solutions. Each project below includes the task, the challenge I hit, and exactly how I solved it.
+      </p>
+    </div>
+    <div class="blog-hero-stats fade-in-up" style="--delay:0.2s">
+      <div class="bhs-item"><span class="bhs-num">40+</span><span class="bhs-label">Projects</span></div>
+      <div class="bhs-divider"></div>
+      <div class="bhs-item"><span class="bhs-num">5+</span><span class="bhs-label">Years</span></div>
+      <div class="bhs-divider"></div>
+      <div class="bhs-item"><span class="bhs-num">100%</span><span class="bhs-label">On-Time</span></div>
+      <div class="bhs-divider"></div>
+      <div class="bhs-item"><span class="bhs-num">6</span><span class="bhs-label">Categories</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LISTING LAYOUT ════════════════════════════════════════════════════════ -->
+<section class="pf-listing-section section-pad">
+  <div class="container">
+    <div class="pf-listing-layout">
+
+      <!-- ── MAIN ───────────────────────────────────────────── -->
+      <main class="pf-main">
+
+        <!-- Filter + Search -->
+        <div class="bl-filter-row reveal">
+          <div class="bl-filter-tabs">
+            <button class="bl-tab active" data-cat="all">All</button>
+            <button class="bl-tab" data-cat="wordpress">WordPress</button>
+            <button class="bl-tab" data-cat="woocommerce">WooCommerce</button>
+            <button class="bl-tab" data-cat="shopify">Shopify</button>
+            <button class="bl-tab" data-cat="plugin">Plugin Dev</button>
+            <button class="bl-tab" data-cat="landing">Landing Page</button>
+          </div>
+          <div class="bl-search-wrap">
+            <svg class="bl-search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="search" id="pf-search" class="bl-search" placeholder="Search projects…" aria-label="Search projects">
+          </div>
+        </div>
+        <p class="bl-count reveal" id="pf-count">Showing <strong>8</strong> projects</p>
+
+        <!-- ── PROJECTS ────────────────────────────────────── -->
+        <div class="pf-grid" id="pf-grid">
+
+          <!-- PROJECT 1: WooCommerce Fashion Store -->
+          <article class="pf-card reveal" data-cat="woocommerce wordpress" data-title="e-commerce fashion store woocommerce multi-vendor">
+            <a href="portfolio-detail.html?slug=ecommerce-fashion-store" class="pf-card-img-link">
+              <div class="pf-card-img">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&h=560&fit=crop" alt="E-commerce fashion store" loading="lazy">
+                <div class="pf-card-img-overlay">
+                  <span class="pf-view-label">View Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+                </div>
+                <span class="project-cat-badge">WOOCOMMERCE</span>
+              </div>
+            </a>
+            <div class="pf-card-body">
+              <div class="pf-card-meta">
+                <span class="pf-year">2024</span>
+                <span class="bl-meta-sep">·</span>
+                <span class="pf-type">E-Commerce</span>
+              </div>
+              <h2 class="pf-card-title">
+                <a href="portfolio-detail.html?slug=ecommerce-fashion-store">E-Commerce Fashion Store</a>
+              </h2>
+              <p class="pf-card-task"><span class="pf-task-label">Task:</span> Build a multi-vendor WooCommerce marketplace with split payouts and vendor dashboards from scratch.</p>
+              <div class="pf-card-metrics">
+                <div class="pf-metric"><span class="pf-metric-val">+40%</span><span class="pf-metric-key">GMV Growth</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">12</span><span class="pf-metric-key">Vendors</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">99.9%</span><span class="pf-metric-key">Uptime</span></div>
+              </div>
+              <div class="pf-card-tags">
+                <span class="ptag">WordPress</span><span class="ptag">WooCommerce</span><span class="ptag">PHP OOP</span><span class="ptag">Stripe</span>
+              </div>
+              <a href="portfolio-detail.html?slug=ecommerce-fashion-store" class="pf-card-link">
+                Read Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: Business Consulting -->
+          <article class="pf-card reveal" data-cat="wordpress" data-title="business consulting website booking system client portal">
+            <a href="portfolio-detail.html?slug=business-consulting-website" class="pf-card-img-link">
+              <div class="pf-card-img">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&h=560&fit=crop" alt="Business consulting website" loading="lazy">
+                <div class="pf-card-img-overlay">
+                  <span class="pf-view-label">View Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+                </div>
+                <span class="project-cat-badge">WORDPRESS</span>
+              </div>
+            </a>
+            <div class="pf-card-body">
+              <div class="pf-card-meta">
+                <span class="pf-year">2024</span>
+                <span class="bl-meta-sep">·</span>
+                <span class="pf-type">Corporate Website</span>
+              </div>
+              <h2 class="pf-card-title">
+                <a href="portfolio-detail.html?slug=business-consulting-website">Business Consulting Website</a>
+              </h2>
+              <p class="pf-card-task"><span class="pf-task-label">Task:</span> Rebuild a slow, builder-dependent agency site with a fast custom theme, ACF layouts, and an integrated booking system.</p>
+              <div class="pf-card-metrics">
+                <div class="pf-metric"><span class="pf-metric-val">1.4s</span><span class="pf-metric-key">Load Time</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">97</span><span class="pf-metric-key">PageSpeed</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">3</span><span class="pf-metric-key">Languages</span></div>
+              </div>
+              <div class="pf-card-tags">
+                <span class="ptag">WordPress</span><span class="ptag">ACF</span><span class="ptag">WPML</span><span class="ptag">Custom Theme</span>
+              </div>
+              <a href="portfolio-detail.html?slug=business-consulting-website" class="pf-card-link">
+                Read Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: Shopify Fashion Brand -->
+          <article class="pf-card reveal" data-cat="shopify" data-title="shopify fashion brand custom liquid theme performance">
+            <a href="portfolio-detail.html?slug=shopify-fashion-brand" class="pf-card-img-link">
+              <div class="pf-card-img">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&h=560&fit=crop" alt="Shopify fashion brand" loading="lazy">
+                <div class="pf-card-img-overlay">
+                  <span class="pf-view-label">View Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+                </div>
+                <span class="project-cat-badge">SHOPIFY</span>
+              </div>
+            </a>
+            <div class="pf-card-body">
+              <div class="pf-card-meta">
+                <span class="pf-year">2024</span>
+                <span class="bl-meta-sep">·</span>
+                <span class="pf-type">E-Commerce</span>
+              </div>
+              <h2 class="pf-card-title">
+                <a href="portfolio-detail.html?slug=shopify-fashion-brand">Shopify Fashion Brand Storefront</a>
+              </h2>
+              <p class="pf-card-task"><span class="pf-task-label">Task:</span> Replace a sluggish third-party theme with a ground-up custom Liquid build — mobile-first, sub-2s load, and upsell flows.</p>
+              <div class="pf-card-metrics">
+                <div class="pf-metric"><span class="pf-metric-val">+28%</span><span class="pf-metric-key">Conversion</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">1.9s</span><span class="pf-metric-key">Load Time</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">97</span><span class="pf-metric-key">Mobile Score</span></div>
+              </div>
+              <div class="pf-card-tags">
+                <span class="ptag">Shopify</span><span class="ptag">Liquid</span><span class="ptag">JavaScript</span><span class="ptag">CSS</span>
+              </div>
+              <a href="portfolio-detail.html?slug=shopify-fashion-brand" class="pf-card-link">
+                Read Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: REST API Plugin -->
+          <article class="pf-card reveal" data-cat="plugin wordpress" data-title="rest api sync plugin crm wordpress custom plugin php oop">
+            <a href="portfolio-detail.html?slug=rest-api-sync-plugin" class="pf-card-img-link">
+              <div class="pf-card-img">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900&h=560&fit=crop" alt="REST API sync plugin" loading="lazy">
+                <div class="pf-card-img-overlay">
+                  <span class="pf-view-label">View Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+                </div>
+                <span class="project-cat-badge">PLUGIN DEV</span>
+              </div>
+            </a>
+            <div class="pf-card-body">
+              <div class="pf-card-meta">
+                <span class="pf-year">2023</span>
+                <span class="bl-meta-sep">·</span>
+                <span class="pf-type">Custom Plugin</span>
+              </div>
+              <h2 class="pf-card-title">
+                <a href="portfolio-detail.html?slug=rest-api-sync-plugin">CRM ↔ WordPress REST API Sync Plugin</a>
+              </h2>
+              <p class="pf-card-task"><span class="pf-task-label">Task:</span> Replace a failing Zapier integration with a robust OOP plugin handling bidirectional CRM sync — 10k+ records daily, zero data loss.</p>
+              <div class="pf-card-metrics">
+                <div class="pf-metric"><span class="pf-metric-val">10k+</span><span class="pf-metric-key">Records/Day</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">&lt;5min</span><span class="pf-metric-key">Sync Lag</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">0</span><span class="pf-metric-key">Failures</span></div>
+              </div>
+              <div class="pf-card-tags">
+                <span class="ptag">PHP OOP</span><span class="ptag">REST API</span><span class="ptag">WP-Cron</span><span class="ptag">MySQL</span>
+              </div>
+              <a href="portfolio-detail.html?slug=rest-api-sync-plugin" class="pf-card-link">
+                Read Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: Real Estate -->
+          <article class="pf-card reveal" data-cat="wordpress" data-title="real estate website property listings idx integration lead generation">
+            <a href="portfolio-detail.html?slug=real-estate-website" class="pf-card-img-link">
+              <div class="pf-card-img">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&h=560&fit=crop" alt="Real estate agency website" loading="lazy">
+                <div class="pf-card-img-overlay">
+                  <span class="pf-view-label">View Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+                </div>
+                <span class="project-cat-badge">WORDPRESS</span>
+              </div>
+            </a>
+            <div class="pf-card-body">
+              <div class="pf-card-meta">
+                <span class="pf-year">2023</span>
+                <span class="bl-meta-sep">·</span>
+                <span class="pf-type">Agency Website</span>
+              </div>
+              <h2 class="pf-card-title">
+                <a href="portfolio-detail.html?slug=real-estate-website">Real Estate Agency Website</a>
+              </h2>
+              <p class="pf-card-task"><span class="pf-task-label">Task:</span> Build a property-listing platform with IDX feed integration, advanced search filters, and automated lead-capture forms.</p>
+              <div class="pf-card-metrics">
+                <div class="pf-metric"><span class="pf-metric-val">500+</span><span class="pf-metric-key">Listings</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">3×</span><span class="pf-metric-key">More Leads</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">95</span><span class="pf-metric-key">PageSpeed</span></div>
+              </div>
+              <div class="pf-card-tags">
+                <span class="ptag">WordPress</span><span class="ptag">IDX</span><span class="ptag">Custom CPT</span><span class="ptag">Lead Gen</span>
+              </div>
+              <a href="portfolio-detail.html?slug=real-estate-website" class="pf-card-link">
+                Read Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 6: Landing Page -->
+          <article class="pf-card reveal" data-cat="landing" data-title="landing page cro webflow paid ads conversion rate optimisation">
+            <a href="portfolio-detail.html?slug=high-converting-landing-page" class="pf-card-img-link">
+              <div class="pf-card-img">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=560&fit=crop" alt="Landing page" loading="lazy">
+                <div class="pf-card-img-overlay">
+                  <span class="pf-view-label">View Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+                </div>
+                <span class="project-cat-badge">LANDING PAGE</span>
+              </div>
+            </a>
+            <div class="pf-card-body">
+              <div class="pf-card-meta">
+                <span class="pf-year">2023</span>
+                <span class="bl-meta-sep">·</span>
+                <span class="pf-type">CRO / Marketing</span>
+              </div>
+              <h2 class="pf-card-title">
+                <a href="portfolio-detail.html?slug=high-converting-landing-page">High-Converting Ad Landing Page</a>
+              </h2>
+              <p class="pf-card-task"><span class="pf-task-label">Task:</span> Design and build a landing page for a Google Ads campaign — fast load, single CTA focus, A/B test-ready layout.</p>
+              <div class="pf-card-metrics">
+                <div class="pf-metric"><span class="pf-metric-val">4.7%</span><span class="pf-metric-key">CVR</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">–38%</span><span class="pf-metric-key">Bounce Rate</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">0.9s</span><span class="pf-metric-key">LCP</span></div>
+              </div>
+              <div class="pf-card-tags">
+                <span class="ptag">Webflow</span><span class="ptag">CRO</span><span class="ptag">A/B Testing</span><span class="ptag">GTM</span>
+              </div>
+              <a href="portfolio-detail.html?slug=high-converting-landing-page" class="pf-card-link">
+                Read Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 7: Payment Gateway -->
+          <article class="pf-card reveal" data-cat="woocommerce plugin" data-title="payment gateway woocommerce custom plugin stripe webhooks">
+            <a href="portfolio-detail.html?slug=payment-gateway-plugin" class="pf-card-img-link">
+              <div class="pf-card-img">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&h=560&fit=crop" alt="Payment gateway plugin" loading="lazy">
+                <div class="pf-card-img-overlay">
+                  <span class="pf-view-label">View Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+                </div>
+                <span class="project-cat-badge">PLUGIN DEV</span>
+              </div>
+            </a>
+            <div class="pf-card-body">
+              <div class="pf-card-meta">
+                <span class="pf-year">2023</span>
+                <span class="bl-meta-sep">·</span>
+                <span class="pf-type">WooCommerce Plugin</span>
+              </div>
+              <h2 class="pf-card-title">
+                <a href="portfolio-detail.html?slug=payment-gateway-plugin">Custom WooCommerce Payment Gateway</a>
+              </h2>
+              <p class="pf-card-task"><span class="pf-task-label">Task:</span> Build a native WooCommerce payment gateway plugin for a regional provider with no official WP integration.</p>
+              <div class="pf-card-metrics">
+                <div class="pf-metric"><span class="pf-metric-val">0</span><span class="pf-metric-key">Failures</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">&lt;2min</span><span class="pf-metric-key">Refund Time</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">100%</span><span class="pf-metric-key">Uptime</span></div>
+              </div>
+              <div class="pf-card-tags">
+                <span class="ptag">PHP</span><span class="ptag">WooCommerce</span><span class="ptag">Webhooks</span><span class="ptag">REST</span>
+              </div>
+              <a href="portfolio-detail.html?slug=payment-gateway-plugin" class="pf-card-link">
+                Read Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 8: Jewelry Shopify -->
+          <article class="pf-card reveal" data-cat="shopify" data-title="jewelry shopify store luxury brand custom theme product filtering">
+            <a href="portfolio-detail.html?slug=jewelry-shopify-store" class="pf-card-img-link">
+              <div class="pf-card-img">
+                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&h=560&fit=crop" alt="Jewelry Shopify store" loading="lazy">
+                <div class="pf-card-img-overlay">
+                  <span class="pf-view-label">View Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+                </div>
+                <span class="project-cat-badge">SHOPIFY</span>
+              </div>
+            </a>
+            <div class="pf-card-body">
+              <div class="pf-card-meta">
+                <span class="pf-year">2022</span>
+                <span class="bl-meta-sep">·</span>
+                <span class="pf-type">Luxury E-Commerce</span>
+              </div>
+              <h2 class="pf-card-title">
+                <a href="portfolio-detail.html?slug=jewelry-shopify-store">Luxury Jewelry Shopify Store</a>
+              </h2>
+              <p class="pf-card-task"><span class="pf-task-label">Task:</span> Build an elegant Shopify store with advanced product filtering by metal, stone, and price — and a wishlist saved to localStorage.</p>
+              <div class="pf-card-metrics">
+                <div class="pf-metric"><span class="pf-metric-val">+22%</span><span class="pf-metric-key">AOV</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">98</span><span class="pf-metric-key">PageSpeed</span></div>
+                <div class="pf-metric"><span class="pf-metric-val">2.1s</span><span class="pf-metric-key">Load Time</span></div>
+              </div>
+              <div class="pf-card-tags">
+                <span class="ptag">Shopify</span><span class="ptag">Liquid</span><span class="ptag">JS</span><span class="ptag">Metafields</span>
+              </div>
+              <a href="portfolio-detail.html?slug=jewelry-shopify-store" class="pf-card-link">
+                Read Case Study <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /#pf-grid -->
+
+        <!-- Empty state -->
+        <div class="bl-empty" id="pf-empty" hidden>
+          <svg width="48" height="48" fill="none" stroke="var(--text-4)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <p>No projects found for "<strong id="pf-empty-term"></strong>"</p>
+          <button class="btn btn-outline" id="pf-clear">Clear search</button>
+        </div>
+
+      </main><!-- /.pf-main -->
+
+      <!-- ── SIDEBAR ────────────────────────────────────────── -->
+      <aside class="blog-sidebar">
+
+        <div class="sidebar-card reveal">
+          <div class="sidebar-author">
+            <div class="sidebar-author-avatar">UN</div>
+            <div>
+              <p class="sidebar-author-name">Uddhav Shrimali</p>
+              <p class="sidebar-author-role">Full-Stack Developer</p>
+            </div>
+          </div>
+          <p class="sidebar-author-bio">5+ years building custom WordPress, Shopify, and full-stack solutions. Every project here is a real problem I solved for a real client.</p>
+          <a href="index.html#contact" class="btn btn-primary sidebar-hire-btn">Hire Me</a>
+        </div>
+
+        <div class="sidebar-card reveal">
+          <h3 class="sidebar-card-title">Filter by Type</h3>
+          <ul class="sidebar-cats">
+            <li><button class="sidebar-cat-btn" data-cat="all">All Projects <span class="sidebar-cat-count">8</span></button></li>
+            <li><button class="sidebar-cat-btn" data-cat="wordpress">WordPress <span class="sidebar-cat-count">3</span></button></li>
+            <li><button class="sidebar-cat-btn" data-cat="woocommerce">WooCommerce <span class="sidebar-cat-count">2</span></button></li>
+            <li><button class="sidebar-cat-btn" data-cat="shopify">Shopify <span class="sidebar-cat-count">2</span></button></li>
+            <li><button class="sidebar-cat-btn" data-cat="plugin">Plugin Dev <span class="sidebar-cat-count">2</span></button></li>
+            <li><button class="sidebar-cat-btn" data-cat="landing">Landing Page <span class="sidebar-cat-count">1</span></button></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card reveal">
+          <h3 class="sidebar-card-title">Tech Stack</h3>
+          <div class="sidebar-tags">
+            <span class="sidebar-tag">WordPress</span>
+            <span class="sidebar-tag">PHP OOP</span>
+            <span class="sidebar-tag">WooCommerce</span>
+            <span class="sidebar-tag">Shopify</span>
+            <span class="sidebar-tag">Liquid</span>
+            <span class="sidebar-tag">REST API</span>
+            <span class="sidebar-tag">MySQL</span>
+            <span class="sidebar-tag">JavaScript</span>
+            <span class="sidebar-tag">ACF</span>
+            <span class="sidebar-tag">WPML</span>
+            <span class="sidebar-tag">Stripe</span>
+            <span class="sidebar-tag">Webhooks</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card sidebar-cta-card reveal">
+          <p class="sidebar-cta-pre">Have a project?</p>
+          <h3 class="sidebar-cta-title">Let's solve it together</h3>
+          <p class="sidebar-cta-desc">Tell me the problem. I'll scope the solution.</p>
+          <a href="index.html#contact" class="btn btn-primary">GET IN TOUCH</a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-link footer-logo">
+          <span class="logo-bracket">[</span><span class="logo-name">Code Neo</span><span class="logo-bracket">]</span><span class="logo-cursor">_</span>
+        </a>
+        <p class="footer-tagline">Helping businesses grow with powerful web solutions. Specialising in WordPress, Shopify, and custom development to create websites that convert.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-link" aria-label="Twitter"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">QUICK LINKS</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">SERVICES</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#services">WordPress Development</a></li>
+          <li><a href="index.html#services">WooCommerce Store</a></li>
+          <li><a href="index.html#services">Shopify Development</a></li>
+          <li><a href="index.html#services">Custom Plugin Dev</a></li>
+          <li><a href="index.html#services">Speed Optimisation</a></li>
+          <li><a href="index.html#services">Bug Fixing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">GET IN TOUCH</h4>
+        <div class="footer-contact-items">
+          <a href="mailto:hello@codeneo.dev" class="footer-contact-item">hello@codeneo.dev</a>
+          <a href="tel:+15551234567" class="footer-contact-item">+1 555 123 4567</a>
+          <span class="footer-contact-item">Available Worldwide</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Uddhav Shrimali (Code Neo). Crafted with ❤️ All rights reserved.</p>
+      <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to top">
+        BACK TO TOP <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/neo-main.js"></script>
+<script src="js/portfolio.js"></script>
+</body>
+</html>
