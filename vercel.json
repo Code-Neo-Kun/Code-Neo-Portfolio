@@ -1,5 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "routes": [
+    { "src": "^/$", "dest": "/src/index.html" },
+    { "src": "^/src/(.*)", "dest": "/src/$1" },
+    { "src": "^/(.*)", "dest": "/$1" }
+  ]
 }

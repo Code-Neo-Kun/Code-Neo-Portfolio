@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM ↔ WordPress REST API Sync Plugin — Case Study — Code Neo</title>
+  <meta name="description" content="How I replaced a failing Zapier integration with a robust OOP WordPress plugin handling bidirectional CRM sync — 10k+ records daily, zero data loss.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/neo-style.css">
+  <link rel="stylesheet" href="css/blog.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <!-- Microsoft Clarity -->
+  <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","YOUR_CLARITY_ID");</script>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <span class="logo-bracket">[</span><span class="logo-name">Code Neo</span><span class="logo-bracket">]</span><span class="logo-cursor">_</span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link active">Portfolio</a>
+      <a href="index.html#pricing" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary header-cta">Hire Me</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-close" aria-label="Close menu">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="index.html#about" class="mobile-nav-link">About</a>
+    <a href="index.html#services" class="mobile-nav-link">Services</a>
+    <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
+    <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+    <a href="index.html#contact" class="btn btn-primary mobile-cta">Hire Me</a>
+  </nav>
+</div>
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<!-- ══ CASE STUDY HERO ════════════════════════════════════════════════════════ -->
+<section class="cs-hero">
+  <div class="cs-hero-img-wrap">
+    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1400&h=700&fit=crop" alt="CRM REST API Sync Plugin" class="cs-hero-img">
+    <div class="cs-hero-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="cs-hero-content">
+      <nav class="breadcrumb breadcrumb--light fade-in-up" style="--delay:0s" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <a href="portfolio.html">Portfolio</a>
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Case Study</span>
+      </nav>
+      <div class="cs-hero-meta fade-in-up" style="--delay:0.05s">
+        <span class="project-cat-badge">PLUGIN DEV</span>
+        <span class="post-meta-dot">·</span>
+        <span class="post-meta-item">2023</span>
+        <span class="post-meta-dot">·</span>
+        <span class="post-meta-item">Custom WordPress Plugin</span>
+      </div>
+      <h1 class="cs-hero-title fade-in-up" style="--delay:0.1s">
+        CRM ↔ WordPress<br>REST API Sync Plugin
+      </h1>
+      <p class="cs-hero-subtitle fade-in-up" style="--delay:0.15s">
+        How I replaced a failing Zapier integration with a zero-loss OOP plugin handling bidirectional CRM sync at 10k+ records per day.
+      </p>
+
+      <!-- Outcome metrics strip -->
+      <div class="cs-hero-metrics fade-in-up" style="--delay:0.2s">
+        <div class="cs-metric">
+          <span class="cs-metric-val">10k+</span>
+          <span class="cs-metric-key">Records/Day</span>
+        </div>
+        <div class="cs-metric-sep"></div>
+        <div class="cs-metric">
+          <span class="cs-metric-val">0</span>
+          <span class="cs-metric-key">Data Failures</span>
+        </div>
+        <div class="cs-metric-sep"></div>
+        <div class="cs-metric">
+          <span class="cs-metric-val">&lt;5min</span>
+          <span class="cs-metric-key">Sync Lag</span>
+        </div>
+        <div class="cs-metric-sep"></div>
+        <div class="cs-metric">
+          <span class="cs-metric-val">99.9%</span>
+          <span class="cs-metric-key">Uptime</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CASE STUDY BODY ════════════════════════════════════════════════════════ -->
+<div class="cs-body-wrap">
+  <div class="container">
+    <div class="cs-layout">
+
+      <!-- ── MAIN ARTICLE ────────────────────────────────────── -->
+      <article class="cs-article">
+        <div class="reading-progress" id="reading-progress"></div>
+
+        <!-- Project overview bar -->
+        <div class="cs-overview-bar reveal">
+          <div class="cs-overview-item">
+            <span class="cs-overview-label">Client</span>
+            <span class="cs-overview-val">SaaS CRM Company</span>
+          </div>
+          <div class="cs-overview-item">
+            <span class="cs-overview-label">Timeline</span>
+            <span class="cs-overview-val">3 Weeks</span>
+          </div>
+          <div class="cs-overview-item">
+            <span class="cs-overview-label">My Role</span>
+            <span class="cs-overview-val">Sole Developer</span>
+          </div>
+          <div class="cs-overview-item">
+            <span class="cs-overview-label">Stack</span>
+            <span class="cs-overview-val">PHP 8.1 · WP REST API · MySQL · WP-Cron</span>
+          </div>
+        </div>
+
+        <!-- ── SECTION 1: THE TASK ──────────────────────────── -->
+        <div class="cs-section reveal" id="cs-task">
+          <div class="cs-section-label">
+            <span class="cs-step-num">01</span>
+            <span class="cs-step-title">THE TASK</span>
+          </div>
+          <h2 class="cs-section-heading">What the client needed</h2>
+          <p class="cs-lead">
+            The client runs a SaaS platform alongside a WordPress-powered marketing site and WooCommerce store. Every time a user registered, placed an order, or filled in a form on WP, that data needed to live in their CRM — and CRM contact updates needed to flow back into WordPress user profiles.
+          </p>
+          <p>They had been using Zapier to bridge the two systems. It worked well enough at low volume, but as traffic grew the cracks showed. They came to me with a specific brief:</p>
+
+          <div class="cs-task-list">
+            <div class="cs-task-item">
+              <div class="cs-task-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <strong>Bidirectional sync</strong> — WP → CRM for new registrations, orders, and form submissions; CRM → WP for contact field updates.
+              </div>
+            </div>
+            <div class="cs-task-item">
+              <div class="cs-task-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <strong>Zero data loss</strong> — every record must eventually sync, even if the CRM API is temporarily down.
+              </div>
+            </div>
+            <div class="cs-task-item">
+              <div class="cs-task-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <strong>Admin visibility</strong> — a log dashboard inside WP admin showing every sync job, its status, and any errors.
+              </div>
+            </div>
+            <div class="cs-task-item">
+              <div class="cs-task-icon">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <strong>No third-party dependency</strong> — the new system must run entirely inside their existing WordPress host, no external automation tools.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── SECTION 2: THE PROBLEM ───────────────────────── -->
+        <div class="cs-section reveal" id="cs-problem">
+          <div class="cs-section-label cs-section-label--problem">
+            <span class="cs-step-num">02</span>
+            <span class="cs-step-title">THE PROBLEM</span>
+          </div>
+          <h2 class="cs-section-heading">What was actually breaking</h2>
+          <p>Zapier hit three hard walls that made it unsuitable once volume crossed ~500 tasks/day:</p>
+
+          <div class="cs-problem-grid">
+            <div class="cs-problem-card">
+              <div class="cs-problem-icon">⚠️</div>
+              <h3>Rate Limits</h3>
+              <p>Zapier's free and Starter tiers throttle task execution. Peak WooCommerce order bursts were exceeding the quota, silently dropping records mid-day.</p>
+            </div>
+            <div class="cs-problem-card">
+              <div class="cs-problem-icon">🔁</div>
+              <h3>No Retry Logic</h3>
+              <p>If the CRM API timed out during a Zap run, the task marked as failed with no automatic retry. Every failure meant a manual re-trigger — which nobody was actually doing.</p>
+            </div>
+            <div class="cs-problem-card">
+              <div class="cs-problem-icon">🔍</div>
+              <h3>Zero Observability</h3>
+              <p>There was no way to see which records synced, which failed, or how far behind the queue was at any given moment — unless someone logged into Zapier and dug through task history.</p>
+            </div>
+            <div class="cs-problem-card">
+              <div class="cs-problem-icon">💸</div>
+              <h3>Escalating Cost</h3>
+              <p>At the required task volume they were looking at $100+/month just for the automation layer — with no ownership, no portability, and no control over execution timing.</p>
+            </div>
+          </div>
+
+          <div class="post-callout post-callout--warn">
+            <div class="post-callout-icon">⚠️</div>
+            <div>The real damage: an audit I ran before starting found <strong>847 unsynced records</strong> sitting in failed Zap history over a 60-day period — customer orders, registrations, and contact updates that never reached the CRM. The sales team had no idea.</div>
+          </div>
+        </div>
+
+        <!-- ── SECTION 3: THE SOLUTION ──────────────────────── -->
+        <div class="cs-section reveal" id="cs-solution">
+          <div class="cs-section-label cs-section-label--solution">
+            <span class="cs-step-num">03</span>
+            <span class="cs-step-title">THE SOLUTION</span>
+          </div>
+          <h2 class="cs-section-heading">How I built it</h2>
+          <p>
+            I architected a standalone OOP WordPress plugin — <code>neo-crm-sync</code> — that owns the entire integration layer. No external service, no recurring cost, no rate limit it can't control.
+          </p>
+
+          <h3>Architecture Overview</h3>
+          <div class="cs-arch-diagram reveal">
+            <div class="cs-arch-col">
+              <p class="cs-arch-col-label">WP Events</p>
+              <div class="cs-arch-node">user_register</div>
+              <div class="cs-arch-node">woocommerce_order_complete</div>
+              <div class="cs-arch-node">gform_after_submission</div>
+              <div class="cs-arch-node cs-arch-node--inbound">CRM Webhook → WP REST</div>
+            </div>
+            <div class="cs-arch-arrow">
+              <svg width="40" height="40" fill="none" stroke="var(--accent)" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span>Job Queue<br><small>DB-backed</small></span>
+              <svg width="40" height="40" fill="none" stroke="var(--accent)" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div class="cs-arch-col">
+              <p class="cs-arch-col-label">Outputs</p>
+              <div class="cs-arch-node cs-arch-node--out">CRM REST API Push</div>
+              <div class="cs-arch-node cs-arch-node--out">WP User Profile Update</div>
+              <div class="cs-arch-node cs-arch-node--out">Admin Log Entry</div>
+              <div class="cs-arch-node cs-arch-node--out">Retry / Dead-letter</div>
+            </div>
+          </div>
+
+          <h3>The Job Queue</h3>
+          <p>Every triggering event pushes a row into a custom <code>wp_neo_sync_queue</code> table instead of making an API call directly. WP-Cron processes the queue every 5 minutes in batches of 200, so a spike in orders never causes a spike in outbound API calls.</p>
+
+          <div class="post-code-block">
+            <div class="post-code-header">
+              <span class="post-code-lang">PHP</span>
+              <button class="post-code-copy">Copy</button>
+            </div>
+<pre><code><span class="code-comment">// Enqueue a sync job on order completion</span>
+<span class="code-fn">add_action</span>( <span class="code-str">'woocommerce_order_status_completed'</span>, <span class="code-kw">function</span>( <span class="code-var">$order_id</span> ) {
+    Neo_Sync\Queue::push( [
+        <span class="code-str">'type'</span>    =&gt; <span class="code-str">'order_complete'</span>,
+        <span class="code-str">'payload'</span> =&gt; [ <span class="code-str">'order_id'</span> =&gt; <span class="code-var">$order_id</span> ],
+        <span class="code-str">'status'</span>  =&gt; <span class="code-str">'pending'</span>,
+    ] );
+} );</code></pre>
+          </div>
+
+          <h3>Retry with Exponential Backoff</h3>
+          <p>If a CRM API call fails (timeout, 5xx, rate limit), the job isn't dropped — it's rescheduled with an exponentially increasing delay: 5min → 15min → 45min. After three retries with no success the job moves to a dead-letter table and fires an admin email alert. Nothing disappears silently.</p>
+
+          <div class="post-code-block">
+            <div class="post-code-header">
+              <span class="post-code-lang">PHP</span>
+              <button class="post-code-copy">Copy</button>
+            </div>
+<pre><code><span class="code-comment">// Retry logic inside the processor</span>
+<span class="code-kw">if</span> ( <span class="code-var">$response</span>-&gt;is_error() ) {
+    <span class="code-var">$attempts</span> = <span class="code-var">$job</span>-&gt;attempts + <span class="code-num">1</span>;
+    <span class="code-kw">if</span> ( <span class="code-var">$attempts</span> &gt;= <span class="code-num">3</span> ) {
+        <span class="code-fn">$this</span>-&gt;dead_letter( <span class="code-var">$job</span>, <span class="code-var">$response</span>-&gt;error() );
+    } <span class="code-kw">else</span> {
+        <span class="code-var">$delay</span> = <span class="code-fn">pow</span>( <span class="code-num">3</span>, <span class="code-var">$attempts</span> ) * <span class="code-num">300</span>; <span class="code-comment">// 5min, 15min, 45min</span>
+        <span class="code-fn">$this</span>-&gt;reschedule( <span class="code-var">$job</span>, <span class="code-var">$delay</span>, <span class="code-var">$attempts</span> );
+    }
+}</code></pre>
+          </div>
+
+          <h3>Inbound Webhook (CRM → WordPress)</h3>
+          <p>I registered a custom REST endpoint at <code>/wp-json/neo-sync/v1/crm-push</code>. The CRM posts contact field changes here whenever a record is updated on its side. The endpoint validates an HMAC signature, then updates the corresponding WordPress user meta in real-time.</p>
+
+          <h3>Admin Dashboard</h3>
+          <p>A custom WP Admin page shows a live table of every sync job — pending, processing, completed, failed, and dead-lettered — with the full payload, response body, and timestamps. No more digging through Zapier history.</p>
+        </div>
+
+        <!-- ── SECTION 4: RESULTS ────────────────────────────── -->
+        <div class="cs-section reveal" id="cs-results">
+          <div class="cs-section-label cs-section-label--results">
+            <span class="cs-step-num">04</span>
+            <span class="cs-step-title">THE RESULTS</span>
+          </div>
+          <h2 class="cs-section-heading">What changed after launch</h2>
+
+          <div class="cs-results-grid">
+            <div class="cs-result-card">
+              <div class="cs-result-val">10,247</div>
+              <div class="cs-result-key">Records synced on day one</div>
+              <p class="cs-result-note">Batch-backfilled all 847 previously failed records plus the day's new traffic in the first cron run.</p>
+            </div>
+            <div class="cs-result-card">
+              <div class="cs-result-val">0</div>
+              <div class="cs-result-key">Data failures in 6 months</div>
+              <p class="cs-result-note">Every job that hit a temporary API error self-recovered via retry. Zero records required manual intervention.</p>
+            </div>
+            <div class="cs-result-card">
+              <div class="cs-result-val">$0</div>
+              <div class="cs-result-key">Ongoing automation cost</div>
+              <p class="cs-result-note">Replaced a $100+/month Zapier plan. Runs entirely on their existing host with no ongoing licence fees.</p>
+            </div>
+            <div class="cs-result-card">
+              <div class="cs-result-val">&lt;5min</div>
+              <div class="cs-result-key">Maximum sync lag</div>
+              <p class="cs-result-note">WP-Cron fires every 5 minutes. Real-time inbound CRM webhook updates WP user profiles instantly.</p>
+            </div>
+          </div>
+
+          <div class="post-callout post-callout--success">
+            <div class="post-callout-icon">✅</div>
+            <div><strong>Client feedback:</strong> "The sales team noticed within a week — they were seeing fresh WooCommerce purchase data in the CRM the same day instead of days later. The admin log alone saved us hours of debugging every month."</div>
+          </div>
+        </div>
+
+        <!-- ── SECTION 5: TECH BREAKDOWN ──────────────────────── -->
+        <div class="cs-section reveal" id="cs-tech">
+          <div class="cs-section-label">
+            <span class="cs-step-num">05</span>
+            <span class="cs-step-title">TECH BREAKDOWN</span>
+          </div>
+          <h2 class="cs-section-heading">How it's built under the hood</h2>
+
+          <div class="post-table-wrap">
+            <table class="post-table">
+              <thead><tr><th>Layer</th><th>Approach</th><th>Why</th></tr></thead>
+              <tbody>
+                <tr><td>Plugin structure</td><td>OOP PHP 8.1 — Service Container, Repository pattern</td><td>Testable, extensible, avoids globals</td></tr>
+                <tr><td>Queue storage</td><td>Custom <code>wp_neo_sync_queue</code> table via <code>dbDelta()</code></td><td>Full control, no postmeta overhead</td></tr>
+                <tr><td>Scheduling</td><td>WP-Cron every 5 min, batches of 200</td><td>Predictable load, no PHP timeout risk</td></tr>
+                <tr><td>API calls</td><td><code>wp_remote_post()</code> with 15s timeout + HMAC auth</td><td>Uses WP's HTTP API — portable, loggable</td></tr>
+                <tr><td>Retry logic</td><td>Exponential backoff ×3, then dead-letter</td><td>Handles transient failures without data loss</td></tr>
+                <tr><td>Inbound endpoint</td><td>Custom WP REST route + HMAC signature validation</td><td>Secure, native to WP, no extra auth plugins</td></tr>
+                <tr><td>Admin UI</td><td>Custom WP Admin page with live queue table</td><td>Full visibility without leaving WP admin</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Project tags -->
+        <div class="post-tags reveal">
+          <span class="post-tags-label">Tags:</span>
+          <span class="ptag">WordPress</span>
+          <span class="ptag">PHP OOP</span>
+          <span class="ptag">REST API</span>
+          <span class="ptag">WP-Cron</span>
+          <span class="ptag">MySQL</span>
+          <span class="ptag">Plugin Dev</span>
+        </div>
+
+        <!-- Post nav -->
+        <nav class="post-nav reveal" aria-label="Project navigation">
+          <a href="portfolio-detail.html?slug=business-consulting-website" class="post-nav-item post-nav-prev">
+            <span class="post-nav-dir">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+              Previous
+            </span>
+            <span class="post-nav-title">Business Consulting Website</span>
+          </a>
+          <a href="portfolio-detail.html?slug=payment-gateway-plugin" class="post-nav-item post-nav-next">
+            <span class="post-nav-dir">
+              Next
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+            <span class="post-nav-title">Custom WooCommerce Payment Gateway</span>
+          </a>
+        </nav>
+
+      </article><!-- /.cs-article -->
+
+      <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+      <aside class="post-sidebar">
+
+        <!-- TOC -->
+        <div class="sidebar-card post-toc-card reveal">
+          <h3 class="sidebar-card-title">Case Study</h3>
+          <ol class="toc-list" id="toc-list">
+            <li><a href="#cs-task" class="toc-link active">01 — The Task</a></li>
+            <li><a href="#cs-problem" class="toc-link">02 — The Problem</a></li>
+            <li><a href="#cs-solution" class="toc-link">03 — The Solution</a></li>
+            <li><a href="#cs-results" class="toc-link">04 — The Results</a></li>
+            <li><a href="#cs-tech" class="toc-link">05 — Tech Breakdown</a></li>
+          </ol>
+        </div>
+
+        <!-- Project meta -->
+        <div class="sidebar-card reveal">
+          <h3 class="sidebar-card-title">Project Info</h3>
+          <div class="cs-meta-list">
+            <div class="cs-meta-row">
+              <span class="cs-meta-key">Type</span>
+              <span class="cs-meta-val">Custom WordPress Plugin</span>
+            </div>
+            <div class="cs-meta-row">
+              <span class="cs-meta-key">Year</span>
+              <span class="cs-meta-val">2023</span>
+            </div>
+            <div class="cs-meta-row">
+              <span class="cs-meta-key">Duration</span>
+              <span class="cs-meta-val">3 weeks</span>
+            </div>
+            <div class="cs-meta-row">
+              <span class="cs-meta-key">Role</span>
+              <span class="cs-meta-val">Sole Developer</span>
+            </div>
+            <div class="cs-meta-row">
+              <span class="cs-meta-key">Stack</span>
+              <span class="cs-meta-val">PHP 8.1 · REST API · MySQL · WP-Cron</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outcome metrics -->
+        <div class="sidebar-card reveal">
+          <h3 class="sidebar-card-title">Outcomes</h3>
+          <div class="cs-sidebar-metrics">
+            <div class="cs-sidebar-metric">
+              <span class="cs-sidebar-metric-val">10k+</span>
+              <span class="cs-sidebar-metric-key">Records/Day</span>
+            </div>
+            <div class="cs-sidebar-metric">
+              <span class="cs-sidebar-metric-val">0</span>
+              <span class="cs-sidebar-metric-key">Data Failures</span>
+            </div>
+            <div class="cs-sidebar-metric">
+              <span class="cs-sidebar-metric-val">$0</span>
+              <span class="cs-sidebar-metric-key">Ongoing Cost</span>
+            </div>
+            <div class="cs-sidebar-metric">
+              <span class="cs-sidebar-metric-val">&lt;5min</span>
+              <span class="cs-sidebar-metric-key">Sync Lag</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Author card -->
+        <div class="sidebar-card reveal">
+          <div class="sidebar-author">
+            <div class="sidebar-author-avatar">UN</div>
+            <div>
+              <p class="sidebar-author-name">Uddhav Shrimali</p>
+              <p class="sidebar-author-role">Full-Stack Developer</p>
+            </div>
+          </div>
+          <p class="sidebar-author-bio">WordPress plugin developer, API integration specialist, and performance-focused builder. Taking projects from problem to production.</p>
+          <a href="index.html#contact" class="btn btn-primary sidebar-hire-btn">Work With Me</a>
+        </div>
+
+        <!-- CTA -->
+        <div class="sidebar-card sidebar-cta-card reveal">
+          <p class="sidebar-cta-pre">Similar problem?</p>
+          <h3 class="sidebar-cta-title">I can build this for you</h3>
+          <p class="sidebar-cta-desc">Tell me about your integration challenge and I'll scope the solution.</p>
+          <a href="index.html#contact" class="btn btn-primary">GET IN TOUCH</a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</div><!-- /.cs-body-wrap -->
+
+<!-- ══ MORE PROJECTS ══════════════════════════════════════════════════════════ -->
+<section class="more-articles section-pad">
+  <div class="container">
+    <div class="more-articles-header reveal">
+      <h2 class="more-articles-title">More Case Studies</h2>
+      <a href="portfolio.html" class="btn btn-outline">View All</a>
+    </div>
+    <div class="pf-more-grid">
+
+      <article class="pf-more-card reveal">
+        <a href="portfolio-detail.html?slug=ecommerce-fashion-store" class="pf-more-img-link">
+          <div class="pf-more-img">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=380&fit=crop" alt="E-commerce fashion store" loading="lazy">
+            <span class="project-cat-badge">WOOCOMMERCE</span>
+          </div>
+        </a>
+        <div class="pf-more-body">
+          <span class="pf-year">2024</span>
+          <h3 class="pf-more-title"><a href="portfolio-detail.html?slug=ecommerce-fashion-store">E-Commerce Fashion Store</a></h3>
+          <p class="pf-more-task"><span class="pf-task-label">Task:</span> Multi-vendor WooCommerce marketplace with Stripe split payouts.</p>
+          <div class="pf-more-metrics">
+            <span class="pf-more-metric">+40% GMV</span>
+            <span class="pf-more-metric">12 Vendors</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pf-more-card reveal">
+        <a href="portfolio-detail.html?slug=shopify-fashion-brand" class="pf-more-img-link">
+          <div class="pf-more-img">
+            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&h=380&fit=crop" alt="Shopify fashion brand" loading="lazy">
+            <span class="project-cat-badge">SHOPIFY</span>
+          </div>
+        </a>
+        <div class="pf-more-body">
+          <span class="pf-year">2024</span>
+          <h3 class="pf-more-title"><a href="portfolio-detail.html?slug=shopify-fashion-brand">Shopify Fashion Brand Storefront</a></h3>
+          <p class="pf-more-task"><span class="pf-task-label">Task:</span> Ground-up custom Liquid theme — mobile-first, sub-2s load.</p>
+          <div class="pf-more-metrics">
+            <span class="pf-more-metric">+28% CVR</span>
+            <span class="pf-more-metric">97 PageSpeed</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pf-more-card reveal">
+        <a href="portfolio-detail.html?slug=payment-gateway-plugin" class="pf-more-img-link">
+          <div class="pf-more-img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=380&fit=crop" alt="Payment gateway plugin" loading="lazy">
+            <span class="project-cat-badge">PLUGIN DEV</span>
+          </div>
+        </a>
+        <div class="pf-more-body">
+          <span class="pf-year">2023</span>
+          <h3 class="pf-more-title"><a href="portfolio-detail.html?slug=payment-gateway-plugin">Custom WooCommerce Payment Gateway</a></h3>
+          <p class="pf-more-task"><span class="pf-task-label">Task:</span> Native WooCommerce gateway for a regional provider with no official plugin.</p>
+          <div class="pf-more-metrics">
+            <span class="pf-more-metric">0 Failures</span>
+            <span class="pf-more-metric">100% Uptime</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-link footer-logo">
+          <span class="logo-bracket">[</span><span class="logo-name">Code Neo</span><span class="logo-bracket">]</span><span class="logo-cursor">_</span>
+        </a>
+        <p class="footer-tagline">Helping businesses grow with powerful web solutions. Specialising in WordPress, Shopify, and custom development to create websites that convert.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-link" aria-label="Twitter"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">QUICK LINKS</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">SERVICES</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#services">WordPress Development</a></li>
+          <li><a href="index.html#services">WooCommerce Store</a></li>
+          <li><a href="index.html#services">Shopify Development</a></li>
+          <li><a href="index.html#services">Custom Plugin Dev</a></li>
+          <li><a href="index.html#services">Speed Optimisation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">GET IN TOUCH</h4>
+        <div class="footer-contact-items">
+          <a href="mailto:hello@codeneo.dev" class="footer-contact-item">hello@codeneo.dev</a>
+          <a href="tel:+15551234567" class="footer-contact-item">+1 555 123 4567</a>
+          <span class="footer-contact-item">Available Worldwide</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Uddhav Shrimali (Code Neo). Crafted with ❤️ All rights reserved.</p>
+      <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to top">
+        BACK TO TOP <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/neo-main.js"></script>
+<script src="js/blog-post.js"></script>
+</body>
+</html>

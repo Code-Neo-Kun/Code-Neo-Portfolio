@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Speed Up Your WordPress Website in 2025 — Code Neo</title>
+  <meta name="description" content="Essential techniques to optimise your WordPress site for lightning-fast loading times, improved Core Web Vitals, and better search engine rankings.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/neo-style.css">
+  <link rel="stylesheet" href="css/blog.css">
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <!-- Microsoft Clarity -->
+  <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","YOUR_CLARITY_ID");</script>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <span class="logo-bracket">[</span><span class="logo-name">Code Neo</span><span class="logo-bracket">]</span><span class="logo-cursor">_</span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+      <a href="index.html#pricing" class="nav-link">Pricing</a>
+      <a href="blog.html" class="nav-link active">Blog</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary header-cta">Hire Me</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-close" aria-label="Close menu">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="index.html#about" class="mobile-nav-link">About</a>
+    <a href="index.html#services" class="mobile-nav-link">Services</a>
+    <a href="index.html#portfolio" class="mobile-nav-link">Portfolio</a>
+    <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+    <a href="index.html#contact" class="btn btn-primary mobile-cta">Hire Me</a>
+  </nav>
+</div>
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<!-- ══ POST HERO ════════════════════════════════════════════════════════════ -->
+<section class="post-hero">
+  <div class="post-hero-img-wrap">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=700&fit=crop" alt="WordPress speed optimisation" class="post-hero-img">
+    <div class="post-hero-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="post-hero-content">
+      <nav class="breadcrumb breadcrumb--light fade-in-up" style="--delay:0s" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <a href="blog.html">Blog</a>
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Performance</span>
+      </nav>
+      <div class="post-hero-meta fade-in-up" style="--delay:0.05s">
+        <span class="blog-category-badge">PERFORMANCE</span>
+        <span class="post-meta-dot">·</span>
+        <span class="post-meta-item">May 12, 2025</span>
+        <span class="post-meta-dot">·</span>
+        <span class="post-meta-item">5 min read</span>
+      </div>
+      <h1 class="post-hero-title fade-in-up" style="--delay:0.1s">
+        How to Speed Up Your WordPress<br>Website in 2025
+      </h1>
+      <div class="post-hero-author fade-in-up" style="--delay:0.15s">
+        <div class="post-author-avatar">UN</div>
+        <div>
+          <p class="post-author-name">Uddhav Shrimali</p>
+          <p class="post-author-role">Full-Stack Developer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST BODY ═════════════════════════════════════════════════════════════ -->
+<div class="post-layout-wrap">
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ── ARTICLE ──────────────────────────────────────────── -->
+      <article class="post-article">
+
+        <!-- Reading progress bar -->
+        <div class="reading-progress" id="reading-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+        <!-- Share / TOC toolbar -->
+        <div class="post-toolbar reveal">
+          <div class="post-toolbar-left">
+            <span class="post-toolbar-label">Share:</span>
+            <a href="https://twitter.com/intent/tweet?text=How+to+Speed+Up+Your+WordPress+Website+in+2025&url=" class="share-btn" target="_blank" rel="noopener" aria-label="Share on Twitter">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=" class="share-btn" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <button class="share-btn copy-link-btn" id="copy-link-btn" aria-label="Copy link">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </button>
+          </div>
+          <button class="post-toc-toggle" id="toc-toggle" aria-expanded="false">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            Table of contents
+          </button>
+        </div>
+
+        <!-- Mobile TOC (toggleable) -->
+        <div class="post-toc-mobile" id="post-toc-mobile" hidden>
+          <p class="toc-heading">Contents</p>
+          <ol class="toc-list">
+            <li><a href="#why-speed-matters">Why WordPress Speed Matters More Than Ever</a></li>
+            <li><a href="#choose-good-hosting">1. Start With Quality Hosting</a></li>
+            <li><a href="#caching">2. Implement Server-Side Caching</a></li>
+            <li><a href="#images">3. Optimise Every Image</a></li>
+            <li><a href="#minify-assets">4. Minify & Defer CSS and JS</a></li>
+            <li><a href="#database">5. Clean Up Your Database</a></li>
+            <li><a href="#cdn">6. Use a CDN</a></li>
+            <li><a href="#plugins">7. Audit Your Plugin Load</a></li>
+            <li><a href="#measure">Measure, Fix, Repeat</a></li>
+          </ol>
+        </div>
+
+        <!-- ── POST CONTENT ──────────────────────────────────── -->
+        <div class="post-content" id="post-content">
+
+          <p class="post-lead">A slow website isn't just annoying — it costs you rankings, conversions, and credibility. Google made page speed a ranking factor years ago, and the Core Web Vitals update made it even more decisive. This guide covers the practical fixes that actually move the needle.</p>
+
+          <h2 id="why-speed-matters">Why WordPress Speed Matters More Than Ever</h2>
+          <p>Studies consistently show that a one-second delay in page load time can reduce conversions by up to 7%. On mobile, users expect pages to load in under three seconds — and most WordPress sites out of the box don't come close.</p>
+          <p>Core Web Vitals — LCP, INP, and CLS — are now direct ranking signals. A site with poor scores will lose ground to a faster competitor even if the content is better. The good news: most WordPress speed problems have the same small set of root causes, and fixing them is well within reach.</p>
+
+          <div class="post-callout post-callout--tip">
+            <div class="post-callout-icon">💡</div>
+            <div>
+              <strong>Before you start:</strong> Benchmark your current performance with <a href="https://pagespeed.web.dev" target="_blank" rel="noopener">PageSpeed Insights</a> and <a href="https://gtmetrix.com" target="_blank" rel="noopener">GTmetrix</a>. Screenshot the results. You need a baseline to know whether your changes are working.
+            </div>
+          </div>
+
+          <h2 id="choose-good-hosting">1. Start With Quality Hosting</h2>
+          <p>This is the biggest single variable and the one most people underestimate. Shared hosting with hundreds of sites on one server creates resource contention that no plugin can fix. If you're on bargain shared hosting, you're fighting uphill on every other optimisation.</p>
+          <p>For WordPress specifically, look for:</p>
+          <ul>
+            <li><strong>PHP 8.2+</strong> — each major PHP version brings meaningful performance gains</li>
+            <li><strong>LiteSpeed or Nginx</strong> over Apache — both handle concurrent requests more efficiently</li>
+            <li><strong>Server-side object caching</strong> (Redis or Memcached) included or available</li>
+            <li><strong>A data centre close to your primary audience</strong> — physical distance is latency you can't code away</li>
+          </ul>
+          <p>Managed WordPress hosts like Kinsta, WP Engine, and Cloudways handle a lot of the infrastructure for you and are worth the cost once your site is generating real traffic.</p>
+
+          <h2 id="caching">2. Implement Server-Side Caching</h2>
+          <p>WordPress is dynamic by default — every page request triggers PHP execution and database queries. Caching short-circuits that by serving a pre-built HTML file instead.</p>
+          <p>There are three layers to get right:</p>
+
+          <div class="post-table-wrap">
+            <table class="post-table">
+              <thead>
+                <tr><th>Cache Type</th><th>What it Does</th><th>Plugin Options</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Page cache</td><td>Stores the full HTML output of a page</td><td>WP Rocket, W3 Total Cache, LiteSpeed Cache</td></tr>
+                <tr><td>Object cache</td><td>Stores DB query results in memory (Redis/Memcached)</td><td>Redis Object Cache, W3 Total Cache</td></tr>
+                <tr><td>Browser cache</td><td>Tells browsers how long to store static assets</td><td>Configured via plugin or <code>.htaccess</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>WP Rocket is the easiest all-in-one solution and worth the licence fee for most sites. LiteSpeed Cache is free and excellent if you're on a LiteSpeed server.</p>
+
+          <div class="post-callout post-callout--warn">
+            <div class="post-callout-icon">⚠️</div>
+            <div>
+              <strong>Don't stack caching plugins.</strong> Running WP Rocket and W3 Total Cache simultaneously will cause conflicts. Pick one and configure it well.
+            </div>
+          </div>
+
+          <h2 id="images">3. Optimise Every Image</h2>
+          <p>Images are typically the largest assets on any page and the fastest win available. Three changes cover 90% of image-related slowdowns:</p>
+
+          <h3>Convert to WebP</h3>
+          <p>WebP is 25–35% smaller than JPEG at equivalent quality. Plugins like ShortPixel, Imagify, or the free Squoosh CLI can batch-convert your media library. WordPress 5.8+ supports WebP natively — just upload them directly.</p>
+
+          <h3>Lazy load everything below the fold</h3>
+          <p>WordPress has had native <code>loading="lazy"</code> on images since version 5.5. Make sure you're <em>not</em> lazy-loading your LCP image (usually the hero image above the fold) — that will actually hurt your score. Add <code>loading="eager"</code> and <code>fetchpriority="high"</code> to your hero image explicitly.</p>
+
+          <h3>Use correct dimensions</h3>
+          <p>Never upload a 4000px wide image and scale it down via CSS. Register the exact sizes your theme uses with <code>add_image_size()</code> and use <code>wp_get_attachment_image()</code> to serve the right file for each context.</p>
+
+          <div class="post-code-block">
+            <div class="post-code-header">
+              <span class="post-code-lang">PHP</span>
+              <button class="post-code-copy" data-code="functions.php">Copy</button>
+            </div>
+            <pre><code><span class="code-comment">// Register custom image sizes in functions.php</span>
+<span class="code-fn">add_image_size</span>( <span class="code-str">'hero-xl'</span>, <span class="code-num">1400</span>, <span class="code-num">600</span>, <span class="code-kw">true</span> );
+<span class="code-fn">add_image_size</span>( <span class="code-str">'card-thumb'</span>, <span class="code-num">800</span>, <span class="code-num">500</span>, <span class="code-kw">true</span> );
+<span class="code-fn">add_image_size</span>( <span class="code-str">'sidebar-thumb'</span>, <span class="code-num">400</span>, <span class="code-num">250</span>, <span class="code-kw">true</span> );
+
+<span class="code-comment">// Then output the right size in templates</span>
+<span class="code-fn">echo</span> <span class="code-fn">wp_get_attachment_image</span>( <span class="code-var">$post</span>-&gt;ID, <span class="code-str">'card-thumb'</span>, <span class="code-kw">false</span>, [
+    <span class="code-str">'loading'</span> =&gt; <span class="code-str">'lazy'</span>,
+    <span class="code-str">'class'</span>   =&gt; <span class="code-str">'post-thumbnail'</span>,
+] );</code></pre>
+          </div>
+
+          <h2 id="minify-assets">4. Minify &amp; Defer CSS and JS</h2>
+          <p>Every render-blocking script delays the browser from painting the first pixel. The goal is to eliminate or defer anything that isn't needed for the initial render.</p>
+          <ul>
+            <li><strong>Minify CSS and JS</strong> — removes whitespace and comments. Any caching plugin handles this automatically.</li>
+            <li><strong>Defer non-critical JS</strong> — add <code>defer</code> or <code>async</code> to scripts that don't need to run on parse. WP Rocket's "Delay JavaScript Execution" feature is the easiest way to do this safely.</li>
+            <li><strong>Remove unused CSS</strong> — page builders and theme frameworks often load all their CSS globally. Tools like PurgeCSS or the Critical CSS feature in WP Rocket can strip what's not used per-page.</li>
+            <li><strong>Combine files carefully</strong> — concatenation reduces HTTP requests but can backfire with HTTP/2, which handles multiple parallel requests efficiently. Test before and after.</li>
+          </ul>
+
+          <h2 id="database">5. Clean Up Your Database</h2>
+          <p>WordPress accumulates a lot of overhead over time: post revisions, transients, spam comments, and orphaned metadata. A bloated database means slower queries.</p>
+          <p>Run a cleanup with WP-Optimize or Advanced Database Cleaner, then schedule it to run weekly. Specifically target:</p>
+          <ul>
+            <li>Post revisions — limit to 3–5 per post with <code>WP_POST_REVISIONS</code> in <code>wp-config.php</code></li>
+            <li>Auto-draft posts and trashed content</li>
+            <li>Expired transients — these are temporary cache entries that often never get cleaned up</li>
+            <li>Orphaned postmeta and usermeta rows</li>
+          </ul>
+
+          <div class="post-code-block">
+            <div class="post-code-header">
+              <span class="post-code-lang">PHP</span>
+              <button class="post-code-copy">Copy</button>
+            </div>
+            <pre><code><span class="code-comment">// In wp-config.php — limit revisions and set autosave interval</span>
+<span class="code-fn">define</span>( <span class="code-str">'WP_POST_REVISIONS'</span>, <span class="code-num">3</span> );
+<span class="code-fn">define</span>( <span class="code-str">'AUTOSAVE_INTERVAL'</span>, <span class="code-num">120</span> ); <span class="code-comment">// seconds</span>
+<span class="code-fn">define</span>( <span class="code-str">'EMPTY_TRASH_DAYS'</span>, <span class="code-num">7</span> );</code></pre>
+          </div>
+
+          <h2 id="cdn">6. Use a CDN</h2>
+          <p>A Content Delivery Network caches your static assets — images, CSS, JS, fonts — on servers distributed globally. Visitors load assets from the nearest edge node rather than your origin server, cutting latency dramatically for international audiences.</p>
+          <p>Cloudflare's free tier is excellent for most sites and adds DDoS protection and proxy caching on top of CDN delivery. For more control over asset-level caching rules, BunnyCDN is affordable and very fast.</p>
+
+          <h2 id="plugins">7. Audit Your Plugin Load</h2>
+          <p>Each active plugin adds PHP execution time, database queries, and potentially frontend assets on every request — even on pages where it does nothing. A site with 40+ active plugins is carrying a lot of dead weight.</p>
+          <p>Use <a href="https://wordpress.org/plugins/query-monitor/" target="_blank" rel="noopener">Query Monitor</a> to identify which plugins are generating the most queries or slowest hooks. Then ask for each plugin: does it need to run on every page, or can its assets be loaded conditionally?</p>
+
+          <div class="post-code-block">
+            <div class="post-code-header">
+              <span class="post-code-lang">PHP</span>
+              <button class="post-code-copy">Copy</button>
+            </div>
+            <pre><code><span class="code-comment">// Dequeue a plugin's scripts on pages where it isn't needed</span>
+<span class="code-fn">add_action</span>( <span class="code-str">'wp_enqueue_scripts'</span>, <span class="code-kw">function</span>() {
+    <span class="code-kw">if</span> ( ! <span class="code-fn">is_page</span>( <span class="code-str">'contact'</span> ) ) {
+        <span class="code-fn">wp_dequeue_script</span>( <span class="code-str">'contact-form-7'</span> );
+        <span class="code-fn">wp_dequeue_style</span>( <span class="code-str">'contact-form-7'</span> );
+    }
+}, <span class="code-num">99</span> );</code></pre>
+          </div>
+
+          <h2 id="measure">Measure, Fix, Repeat</h2>
+          <p>Speed optimisation is iterative. Run PageSpeed Insights and GTmetrix after each change. The gains compound — fixing images might lift your LCP score enough to expose the next bottleneck clearly. Work through the list systematically rather than making all changes at once.</p>
+          <p>For ongoing monitoring, set up a free <a href="https://www.webpagetest.org" target="_blank" rel="noopener">WebPageTest</a> account with scheduled tests. You'll catch regressions before they affect your rankings.</p>
+
+          <div class="post-callout post-callout--success">
+            <div class="post-callout-icon">✅</div>
+            <div>
+              <strong>Quick wins checklist:</strong> Good hosting → Page caching → WebP images with lazy load → Minify assets → Database cleanup → CDN → Plugin audit. Work through them in order and you'll typically see 50–80% improvement in load time.
+            </div>
+          </div>
+
+        </div><!-- /.post-content -->
+
+        <!-- Post tags -->
+        <div class="post-tags reveal">
+          <span class="post-tags-label">Tagged:</span>
+          <a href="blog.html?cat=wordpress" class="ptag">WordPress</a>
+          <a href="blog.html?cat=performance" class="ptag">Performance</a>
+          <span class="ptag">Core Web Vitals</span>
+          <span class="ptag">WP Rocket</span>
+          <span class="ptag">Caching</span>
+        </div>
+
+        <!-- Author bio -->
+        <div class="post-author-bio reveal">
+          <div class="post-author-bio-avatar">UN</div>
+          <div class="post-author-bio-body">
+            <p class="post-author-bio-name">Uddhav Shrimali <span class="post-author-bio-handle">// "Neo"</span></p>
+            <p class="post-author-bio-role">Full-Stack Developer &amp; WordPress Specialist</p>
+            <p class="post-author-bio-text">Building custom WordPress sites, plugins, and e-commerce stores for 5+ years. I write about the things I actually run into on client projects — no fluff, just what works.</p>
+            <a href="index.html#contact" class="btn btn-primary post-author-bio-cta">Work With Me</a>
+          </div>
+        </div>
+
+        <!-- Post navigation -->
+        <nav class="post-nav reveal" aria-label="Post navigation">
+          <a href="blog-post.html?slug=image-optimisation-techniques" class="post-nav-item post-nav-prev">
+            <span class="post-nav-dir">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+              Previous
+            </span>
+            <span class="post-nav-title">Image Optimisation Techniques for Faster Websites</span>
+          </a>
+          <a href="blog-post.html?slug=top-wordpress-plugins-2025" class="post-nav-item post-nav-next">
+            <span class="post-nav-dir">
+              Next
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+            <span class="post-nav-title">Top 10 Must-Have WordPress Plugins for 2025</span>
+          </a>
+        </nav>
+
+      </article><!-- /.post-article -->
+
+      <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+      <aside class="post-sidebar">
+
+        <!-- Sticky TOC -->
+        <div class="sidebar-card post-toc-card reveal" id="desktop-toc">
+          <h3 class="sidebar-card-title">Contents</h3>
+          <ol class="toc-list" id="toc-list">
+            <li><a href="#why-speed-matters" class="toc-link active">Why Speed Matters</a></li>
+            <li><a href="#choose-good-hosting" class="toc-link">1. Quality Hosting</a></li>
+            <li><a href="#caching" class="toc-link">2. Server-Side Caching</a></li>
+            <li><a href="#images" class="toc-link">3. Optimise Images</a></li>
+            <li><a href="#minify-assets" class="toc-link">4. Minify &amp; Defer Assets</a></li>
+            <li><a href="#database" class="toc-link">5. Clean Up Database</a></li>
+            <li><a href="#cdn" class="toc-link">6. Use a CDN</a></li>
+            <li><a href="#plugins" class="toc-link">7. Audit Plugins</a></li>
+            <li><a href="#measure" class="toc-link">Measure &amp; Repeat</a></li>
+          </ol>
+        </div>
+
+        <!-- Author card -->
+        <div class="sidebar-card reveal">
+          <div class="sidebar-author">
+            <div class="sidebar-author-avatar">UN</div>
+            <div>
+              <p class="sidebar-author-name">Uddhav Shrimali</p>
+              <p class="sidebar-author-role">Full-Stack Developer</p>
+            </div>
+          </div>
+          <p class="sidebar-author-bio">WordPress specialist, plugin developer, and performance nerd. Building for the web since 2019.</p>
+          <a href="index.html#contact" class="btn btn-primary sidebar-hire-btn">Hire Me</a>
+        </div>
+
+        <!-- Related posts -->
+        <div class="sidebar-card reveal">
+          <h3 class="sidebar-card-title">Related Articles</h3>
+          <div class="sidebar-popular">
+            <a href="blog-post.html?slug=core-web-vitals-explained" class="popular-item">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=120&h=80&fit=crop" alt="Core Web Vitals" loading="lazy">
+              <div>
+                <p class="popular-title">Core Web Vitals Explained — and How to Fix Them</p>
+                <p class="popular-meta">Dec 18, 2024 · 8 min</p>
+              </div>
+            </a>
+            <a href="blog-post.html?slug=top-wordpress-plugins-2025" class="popular-item">
+              <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=120&h=80&fit=crop" alt="WordPress plugins" loading="lazy">
+              <div>
+                <p class="popular-title">Top 10 Must-Have WordPress Plugins for 2025</p>
+                <p class="popular-meta">Apr 28, 2025 · 8 min</p>
+              </div>
+            </a>
+            <a href="blog-post.html?slug=image-optimisation-techniques" class="popular-item">
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=120&h=80&fit=crop" alt="Image optimisation" loading="lazy">
+              <div>
+                <p class="popular-title">Image Optimisation Techniques for Faster Websites</p>
+                <p class="popular-meta">Aug 30, 2024 · 6 min</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-cta-card reveal">
+          <p class="sidebar-cta-pre">Need faster pages?</p>
+          <h3 class="sidebar-cta-title">I offer WordPress speed audits &amp; fixes</h3>
+          <p class="sidebar-cta-desc">Tell me about your site and I'll scope out what's slowing it down.</p>
+          <a href="index.html#contact" class="btn btn-primary">GET IN TOUCH</a>
+        </div>
+
+      </aside>
+
+    </div><!-- /.post-layout -->
+  </div>
+</div><!-- /.post-layout-wrap -->
+
+<!-- ══ MORE ARTICLES ══════════════════════════════════════════════════════════ -->
+<section class="more-articles section-pad">
+  <div class="container">
+    <div class="more-articles-header reveal">
+      <h2 class="more-articles-title">More Articles</h2>
+      <a href="blog.html" class="btn btn-outline">View All</a>
+    </div>
+    <div class="blog-grid more-articles-grid">
+      <article class="blog-card reveal">
+        <div class="blog-img">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="Core Web Vitals" loading="lazy">
+          <span class="blog-category-badge">PERFORMANCE</span>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span class="blog-date">Dec 18, 2024</span>
+            <span class="blog-read">8 min read</span>
+          </div>
+          <h3 class="blog-title"><a href="blog-post.html?slug=core-web-vitals-explained">Core Web Vitals Explained — and How to Fix Them</a></h3>
+          <p class="blog-excerpt">LCP, CLS, INP — what they actually mean and the specific changes that move the needle most.</p>
+          <a href="blog-post.html?slug=core-web-vitals-explained" class="blog-link">READ ARTICLE <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-img">
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=500&fit=crop" alt="WordPress plugins" loading="lazy">
+          <span class="blog-category-badge">WORDPRESS</span>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span class="blog-date">Apr 28, 2025</span>
+            <span class="blog-read">8 min read</span>
+          </div>
+          <h3 class="blog-title"><a href="blog-post.html?slug=top-wordpress-plugins-2025">Top 10 Must-Have WordPress Plugins for 2025</a></h3>
+          <p class="blog-excerpt">The best plugins that will supercharge your website with enhanced functionality and security.</p>
+          <a href="blog-post.html?slug=top-wordpress-plugins-2025" class="blog-link">READ ARTICLE <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-img">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=500&fit=crop" alt="Image optimisation" loading="lazy">
+          <span class="blog-category-badge">PERFORMANCE</span>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span class="blog-date">Aug 30, 2024</span>
+            <span class="blog-read">6 min read</span>
+          </div>
+          <h3 class="blog-title"><a href="blog-post.html?slug=image-optimisation-techniques">Image Optimisation Techniques for Faster Websites</a></h3>
+          <p class="blog-excerpt">WebP, lazy loading, responsive images, and CDN delivery — the full toolkit for getting images right.</p>
+          <a href="blog-post.html?slug=image-optimisation-techniques" class="blog-link">READ ARTICLE <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-link footer-logo">
+          <span class="logo-bracket">[</span><span class="logo-name">Code Neo</span><span class="logo-bracket">]</span><span class="logo-cursor">_</span>
+        </a>
+        <p class="footer-tagline">Helping businesses grow with powerful web solutions. Specialising in WordPress, Shopify, and custom development to create websites that convert.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-link" aria-label="Twitter"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">QUICK LINKS</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">SERVICES</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#services">WordPress Development</a></li>
+          <li><a href="index.html#services">WooCommerce Store</a></li>
+          <li><a href="index.html#services">Shopify Development</a></li>
+          <li><a href="index.html#services">Custom Plugin Dev</a></li>
+          <li><a href="index.html#services">Speed Optimisation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">GET IN TOUCH</h4>
+        <div class="footer-contact-items">
+          <a href="mailto:hello@codeneo.dev" class="footer-contact-item">hello@codeneo.dev</a>
+          <a href="tel:+15551234567" class="footer-contact-item">+1 555 123 4567</a>
+          <span class="footer-contact-item">Available Worldwide</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Uddhav Shrimali (Code Neo). Crafted with ❤️ All rights reserved.</p>
+      <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to top">
+        BACK TO TOP
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/neo-main.js"></script>
+<script src="js/blog-post.js"></script>
+</body>
+</html>
