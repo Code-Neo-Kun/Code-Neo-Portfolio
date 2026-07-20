@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Code Neo — Uddhav Shrimali Portfolio",
   "scripts": {
-    "build": "npx tailwindcss -i ./src/css/style.css -o ./dist/css/style.min.css --minify",
+    "build:css": "npx tailwindcss -i ./src/css/style.css -o ./dist/css/style.min.css --minify",
     "dev": "npx tailwindcss -i ./src/css/style.css -o ./dist/css/style.min.css --watch",
     "copy-css": "node -e \"require('fs').copyFileSync('src/css/style.css','dist/css/style.min.css')\""
   },
