@@ -1,0 +1,1924 @@
+<?php
+/*
+Template Name: Bestellen C New
+*/
+
+?> 
+
+<?php get_header('bestellen'); ?> 
+
+<section class="page-content bestellen bestellen-c"> 
+	<div class="container">
+		
+		<div class="row justify-content-center">
+			 <div class="col-12">
+				
+				<?php the_content(); ?>
+				
+			 </div>
+		</div>
+	  
+	</div>
+</section>
+
+<script>
+
+jQuery(window).on('load', function () {
+
+    function handleTotaalEenmalig() {
+
+        // Original text check
+        let originalExists = false;
+
+        jQuery('#gotrgf_form_overview_container_18 *').each(function () {
+
+            let txt = jQuery(this).text().trim();
+
+            // Original item check
+            if (
+                txt === 'Totaal eenmalig' &&
+                !jQuery(this).closest('.totaal-eenmalig-duplicate-gf').length
+            ) {
+                originalExists = true;
+                return false;
+            }
+
+        });
+
+        // Agar original exist nahi karta
+        if (!originalExists) {
+
+            // Agar custom div remove ho gaya ho ajax se
+            if (jQuery('.totaal-eenmalig-duplicate-gf').length === 0) {
+
+                jQuery('#gsline_18_26').after(`
+                    <div class="totaal-eenmalig-duplicate-gf">
+                        <div class="gotrgf_line_part_left">
+                            Totaal eenmalig
+                        </div>
+                        <div class="gotrgf_line_part_right">€ 0,-</div>
+                    </div>
+                `);
+
+            }
+
+            jQuery('.totaal-eenmalig-duplicate-gf').show();
+
+        } else {
+
+            // Sirf hide karo remove nahi
+            jQuery('.totaal-eenmalig-duplicate-gf').hide();
+
+        }
+
+    }
+
+    // First run
+    handleTotaalEenmalig();
+
+    // Har 500ms me check karo
+    // Kyuki ajax content baar baar replace ho raha hai
+    setInterval(function () {
+
+        handleTotaalEenmalig();
+
+    }, 500);
+
+});    
+
+var savedSavingPrice = ''; // price yahan store hogi
+
+function buildMobileGF() {
+    var $container = jQuery('#gotrgf_form_overview_container_18');
+    if (!$container.length) return;
+
+    if ($container.closest('.gf-mobile-main-wrapper').length > 0) return;
+
+    jQuery('.gf-top-wrapper').remove();
+    jQuery('.gf-mobile-main-wrapper').remove();
+
+    var $mainWrapper     = jQuery('<div class="gf-mobile-main-wrapper"></div>');
+    var $topWrapper      = jQuery(
+        '<div class="gf-top-wrapper">' +
+            '<div class="main-bespaart-gf">' +
+                '<div class="bespaart-gf">Je bespaart <span class="saving-price-moible-gf"></span></div>' +
+                '<div class="bespaart-gf-small">aan opstartkosten</div>' +
+            '</div>' +
+            '<div class="downarrow-gf"></div>' +
+        '</div>'
+    );
+    var $overviewWrapper = jQuery('<div class="gf-overview-wrapper"></div>');
+
+    $container.before($mainWrapper);
+    $overviewWrapper.append($container);
+    $mainWrapper.append($topWrapper).append($overviewWrapper);
+
+    // Rebuild ke baad saved price wapas daalo
+    if (savedSavingPrice) {
+        jQuery('.saving-price-moible-gf').text(savedSavingPrice);
+    }
+}
+
+function cleanupMobileGF() {
+    var $container = jQuery('#gotrgf_form_overview_container_18');
+    if (!$container.length) return;
+
+    // Remove se pehle price save karo
+    var currentPrice = jQuery('.saving-price-moible-gf').text();
+    if (currentPrice) {
+        savedSavingPrice = currentPrice;
+    }
+
+    var $existing = $container.closest('.gf-mobile-main-wrapper');
+    if ($existing.length > 0) {
+        $existing.before($container);
+        $existing.remove();
+    }
+
+    jQuery('.gf-top-wrapper').remove();
+    jQuery('.gf-mobile-main-wrapper').remove();
+    jQuery('.gf-overview-wrapper').remove();
+}
+
+function initMobileGF() {
+    if (jQuery(window).width() <= 767) {
+        buildMobileGF();
+    } else {
+        cleanupMobileGF();
+    }
+}
+
+jQuery(document).ready(function () {
+    initMobileGF();
+});
+
+var gfResizeTimer;
+jQuery(window).on('resize orientationchange', function () {
+    clearTimeout(gfResizeTimer);
+    gfResizeTimer = setTimeout(function () {
+        cleanupMobileGF();
+        initMobileGF();
+    }, 400);
+});
+
+jQuery(document).ready(function () {
+
+    if (jQuery(window).width() <= 767) {
+
+        // Toggle class on click
+        jQuery('.gotrgf_summary_title').hide();
+        jQuery(document).on('click', '.downarrow-gf', function () {
+            const wrapper = jQuery(this).closest('.gf-mobile-main-wrapper');
+            const container = wrapper.find('.gotrgf_form_overview_container');
+            wrapper.toggleClass('active');
+            jQuery('.gotrgf_summary_lines .gotrgf_summary_line:not(.page-3)').attr('style', 'display:flex');
+            if (wrapper.hasClass('active')) {
+                jQuery('.gotrgf_summary_title').show();
+                // Button add (only once)
+                    if (container.find('.custom-btn').length === 0) {
+                        container.append('<button class="custom-btn-gf">Volgende stap</button>');
+                    }
+            } else {
+                jQuery('.gotrgf_summary_title').hide();
+                container.find('.custom-btn-gf').remove();
+                jQuery('.gotrgf_summary_lines .gotrgf_summary_line:not(.page-3)').hide();
+            }
+        });
+
+        jQuery(document).on('click', '.custom-btn-gf', function () {
+            jQuery('.gform_next_button.gform-theme-button.button').trigger('click');
+        });
+
+    }
+
+});
+
+// save box js
+jQuery(window).on('load', function () {
+
+    if (jQuery(window).width() <= 767) {
+
+        //  jQuery('.gotrgf_summary_lines .gotrgf_summary_line:not(.page-3)').hide();
+        // jQuery('.save-total-gf').hide();
+
+    }
+
+    jQuery(".save-total-gf").appendTo(".gotrgf_summary_wrapper");
+
+    function updateSavingAmount() {
+
+        let qty = parseInt(jQuery('#input_18_149_1').val()) || 0;
+
+        // qty * 25 + extra 25
+        let total = (qty * 25) + 25;
+
+        console.log('QTY:', qty);
+        console.log('TOTAL:', total);
+
+        jQuery('#saving_amount').html('€ ' + total+',-');
+        jQuery('.saving-price-moible-gf').html('€ ' + total+',-');
+    }
+
+    updateSavingAmount();
+
+    jQuery(document).on('click', '#field_18_149 .qty-btn', function () {
+
+        setTimeout(function () {
+            updateSavingAmount();
+        }, 200);
+
+    });
+
+    jQuery(document).on('change keyup input', '#input_18_149_1', function () {
+        updateSavingAmount();
+    });
+
+});
+
+jQuery(document).ready(function() {
+	jQuery("#label_18_51_0").click(function(){
+		 jQuery(".gotrgf_summary_wrapper").hide();
+	});
+});
+
+jQuery(document).ready(function() {
+	jQuery("#label_18_51_1").click(function(){
+		 jQuery(".gotrgf_summary_wrapper").show();
+	});
+});
+
+jQuery(document).ready(function() {
+	if (jQuery('#choice_18_51_0').is(':checked')){
+		 jQuery(".gotrgf_summary_wrapper").hide();
+	};
+});
+
+
+jQuery(document).ready(function() {
+	
+	jQuery('#field_18_126, #field_18_125, #field_18_131').wrapAll('<div class="innerbox"></div>'); 
+	
+	jQuery('#field_18_47, #field_18_142, #field_18_17, #field_18_111, #field_18_113').wrapAll('<div class="innerbox"></div>'); 
+
+    jQuery('#field_18_143, #field_18_144, #field_18_28, #field_18_145, #field_18_155').wrapAll('<div class="innerbox"></div>'); 
+	
+	jQuery('#field_18_16, #field_18_133, #field_18_147, #field_18_149, #field_18_150').wrapAll('<div class="innerbox"></div>'); 
+	
+	jQuery('#field_18_53, #field_18_59, #field_18_60, #field_18_105, #field_18_128, #field_18_127, #field_18_139, #field_18_151').wrapAll('<div class="innerbox"></div>'); 
+	
+	jQuery('#field_18_35').wrapAll('<div class="innerbox"></div>'); 
+	
+	//
+	
+	jQuery('#field_18_62, #field_18_64, #field_18_4, #field_18_135, #field_18_67, #field_18_69, #field_18_68, #field_18_2, #field_18_3, #field_18_5, #field_18_101, #field_18_120 ').wrapAll('<div class="innerbox innerbox2"></div>'); 
+	
+	jQuery('#field_18_63, #field_18_12, #field_18_66, #field_18_11, #field_18_117, #field_18_129, #field_18_130').wrapAll('<div class="innerbox innerbox2"></div>');
+	
+	
+	//
+	
+	jQuery('#field_18_70, #field_18_34, #field_18_30, #field_18_71, #field_18_72, #field_18_73, #field_18_74, #field_18_75, #field_18_76, #field_18_104, #field_18_103, #field_18_102').wrapAll('<div class="innerbox innerbox3"></div>'); 
+	
+	jQuery('#field_18_77, #field_18_90, #field_18_79, #field_18_80, #field_18_81, #field_18_82 ').wrapAll('<div class="innerbox innerbox3"></div>');
+	
+	jQuery('#field_18_89, #field_18_78, #field_18_91, #field_18_92, #field_18_93, #field_18_94, #field_18_95, #field_18_96, #field_18_97, #field_18_98, #field_18_99, #field_18_100 ').wrapAll('<div class="innerbox innerbox3"></div>');
+	
+	jQuery('#field_18_106, #field_18_107, #field_18_108, #field_18_109, #field_18_110 ').wrapAll('<div class="innerbox innerbox3"></div>');
+	
+	
+	
+	//
+	
+	
+	jQuery('#field_18_56, #field_18_83, #field_18_84, #field_18_85, #field_18_86, #field_18_87, #field_18_116, #field_18_121 ').wrapAll('<div class="innerbox innerbox2"></div>');
+
+    jQuery('#field_18_153').appendTo('#field_18_127 .ginput_container.ginput_container_singleproduct');
+
+	jQuery('#field_18_154').appendTo('#field_18_151 .ginput_container.ginput_container_singleproduct');
+    
+});
+
+jQuery(document).ready(function() {
+//gets the current time.  
+var d = new Date();
+	if(d.getHours() >= 9 && d.getHours() <= 16 ){
+		jQuery(".status-open").css("display","block")
+		jQuery(".status-closed").hide();
+	}
+	else {  
+		jQuery(".status-closed").css("display","block")
+		jQuery(".status-open").hide();
+	}
+});
+
+
+jQuery(document).ready(function() {
+(function( $ ) {
+
+	$.fn.numberstyle = function(options) {
+
+		/*
+		 * Default settings
+		 */
+		var settings = $.extend({
+			value: 0,
+			step: 1,
+			min: 0,
+			max: 999
+		}, options );
+
+		/*
+		 * Init every element
+		 */
+		return this.each(function(i) {
+				
+      /*
+       * Base options
+       */
+      var input = $(this);
+          
+			/*
+       * Add new DOM
+       */
+      var container = document.createElement('div'),
+          btnAdd = document.createElement('div'),
+          btnRem = document.createElement('div'),
+          min = (settings.min) ? settings.min : input.attr('min'),
+          max = (settings.max) ? settings.max : input.attr('max'),
+          value = (settings.value) ? settings.value : parseFloat(input.val());
+      container.className = 'numberstyle-qty';
+      btnAdd.className = (max && value >= max ) ? 'qty-btn qty-add disabled' : 'qty-btn qty-add';
+      btnAdd.innerHTML = '+';
+      btnRem.className = (min && value <= min) ? 'qty-btn qty-rem disabled' : 'qty-btn qty-rem';
+      btnRem.innerHTML = '-';
+      input.wrap(container);
+      input.closest('.numberstyle-qty').prepend(btnRem).append(btnAdd);
+
+      /*
+       * Attach events
+       */
+      // use .off() to prevent triggering twice
+      $(document).off('click','.qty-btn').on('click','.qty-btn',function(e){
+        
+        var input = $(this).siblings('input'),
+            sibBtn = $(this).siblings('.qty-btn'),
+            step = (settings.step) ? parseFloat(settings.step) : parseFloat(input.attr('step')),
+            min = (settings.min) ? settings.min : ( input.attr('min') ) ? input.attr('min') : undefined,
+            max = (settings.max) ? settings.max : ( input.attr('max') ) ? input.attr('max') : undefined,
+            oldValue = parseFloat(input.val()),
+            newVal;
+        
+        //Add value
+        if ( $(this).hasClass('qty-add') ) {   
+          
+          newVal = (oldValue >= max) ? oldValue : oldValue + step,
+          newVal = (newVal > max) ? max : newVal;
+          
+          if (newVal == max) {
+            $(this).addClass('disabled');
+          }
+          sibBtn.removeClass('disabled');
+         
+        //Remove value
+        } else {
+          
+          newVal = (oldValue <= min) ? oldValue : oldValue - step,
+          newVal = (newVal < min) ? min : newVal; 
+          
+          if (newVal == min) {
+            $(this).addClass('disabled');
+          }
+          sibBtn.removeClass('disabled');
+          
+        }
+          
+        //Update value
+        input.val(newVal).trigger('change');
+            
+      });
+      
+      input.on('change',function(){
+        
+        const val = parseFloat(input.val()),
+              min = (settings.min) ? settings.min : ( input.attr('min') ) ? input.attr('min') : undefined,
+            	max = (settings.max) ? settings.max : ( input.attr('max') ) ? input.attr('max') : undefined;
+        
+        if ( val > max ) {
+          input.val(max);   
+        }
+        
+        if ( val < min ) {
+          input.val(min);
+        }
+      });
+      
+		});
+	};
+
+  
+  /*
+   * Init
+   */
+  
+	$('.ginput_quantity').numberstyle();
+
+}( jQuery ));
+
+});
+
+	jQuery(document).ready(function($) {
+      $('#input_18_16_1').attr('min', 1);      
+      $('#input_18_17_1').attr('min', 0);
+    });
+
+jQuery(document).ready(function () {
+
+    // qty-add click
+    // jQuery(document).on("click", "#field_18_105 .qty-add", function () {
+    //     jQuery("#field_18_105 .qty-add").hide();
+    // });
+
+    // // qty-rem click
+    // jQuery(document).on("click", "#field_18_105 .qty-rem", function () {
+    //     jQuery("#field_18_105 .qty-add").show();
+    // });
+
+    // // qty-add click
+    // jQuery(document).on("click", "#field_18_128 .qty-add", function () {
+    //     jQuery("#field_18_128 .qty-add").hide();
+    // });
+
+    // // qty-rem click
+    // jQuery(document).on("click", "#field_18_128 .qty-rem", function () {
+    //     jQuery("#field_18_128 .qty-add").show();
+    // });
+
+    // qty-add click
+    jQuery(document).on("click", "#field_18_127 .qty-add", function () {
+        jQuery("#field_18_127 .qty-add").hide();
+    });
+
+    // qty-rem click
+    jQuery(document).on("click", "#field_18_127 .qty-rem", function () {
+        jQuery("#field_18_127 .qty-add").show();
+    });
+
+    // qty-add click
+    jQuery(document).on("click", "#field_18_151 .qty-add", function () {
+        jQuery("#field_18_151 .qty-add").hide();
+    });
+
+    // qty-rem click
+    jQuery(document).on("click", "#field_18_151 .qty-rem", function () {
+        jQuery("#field_18_151 .qty-add").show();
+    });
+
+});
+
+
+function checkQtyButtons() {
+
+    // Total Users
+    var totalUsers =
+        (Number(jQuery("#input_18_149_1").val()) || 0) +
+        (Number(jQuery("#input_18_150_1").val()) || 0);
+
+    // Current Values
+    var val105 = Number(jQuery("#input_18_105_1").val()) || 0;
+    var val128 = Number(jQuery("#input_18_128_1").val()) || 0;
+
+    // ===== Field 105 =====
+    if (val105 >= totalUsers) {
+        jQuery("#field_18_105 .qty-add").hide();
+    } else {
+        jQuery("#field_18_105 .qty-add").show();
+    }
+
+    // ===== Field 128 =====
+    if (val128 >= totalUsers) {
+        jQuery("#field_18_128 .qty-add").hide();
+    } else {
+        jQuery("#field_18_128 .qty-add").show();
+    }
+}
+
+// Change / Keyup Event
+jQuery(document).on(
+    "change keyup",
+    "#input_18_149_1, #input_18_150_1, #input_18_105_1, #input_18_128_1",
+    function () {
+        checkQtyButtons();
+    }
+);
+
+// Page Load
+jQuery(document).ready(function () {
+    checkQtyButtons();
+});
+
+
+// jQuery(document).on("change", "#input_18_149_1, #input_18_105_1", function() {
+         
+//         var users = jQuery("#input_18_149_1").val();
+//         var calls = jQuery("#input_18_105_1").val();
+        
+        
+//         if (Number(users) <= Number(calls)) {
+//           jQuery("#field_18_105 .qty-add").hide();
+//         }
+//         else {
+//           jQuery("#field_18_105 .qty-add").show();
+//         } 
+    
+// }); 
+
+// jQuery(document).on("change", "#input_18_150_1, #input_18_128_1", function() {
+         
+//         var users = jQuery("#input_18_150_1").val();
+//         var calls = jQuery("#input_18_128_1").val();
+        
+        
+//         if (Number(users) <= Number(calls)) {
+//           jQuery("#field_18_128 .qty-add").hide();
+//         }
+//         else {
+//           jQuery("#field_18_128 .qty-add").show();
+//         } 
+    
+// });
+
+jQuery(document).on("change", "#input_18_16_1, #input_18_127_1", function() {
+		 
+		var users = jQuery("#input_18_16_1").val();
+		var calls = jQuery("#input_18_127_1").val();
+		
+		
+		if (Number(users) <= Number(calls)) {
+		  jQuery("#field_18_127 .qty-add").hide();
+		}
+		else {
+		  jQuery("#field_18_127 .qty-add").show();
+		} 
+	
+});
+
+// jQuery(document).on("change", "#input_18_16_1, #input_18_128_1", function() {
+		 
+// 		var users = jQuery("#input_18_16_1").val();
+// 		var calls = jQuery("#input_18_128_1").val();
+		
+		
+// 		if (Number(users) <= Number(calls)) {
+// 		  jQuery("#field_18_128 .qty-add").hide();
+// 		}
+// 		else {
+// 		  jQuery("#field_18_128 .qty-add").show();
+// 		} 
+	
+// });
+
+
+jQuery(document).on("change", "#input_18_96_1, #input_18_94_1, #input_18_91_1, #input_18_76_1, #input_18_72_1, #input_18_30_1", function() {
+		 
+		 var vasttoestel1 = jQuery("#input_18_30_1").val()
+		 var vasttoestel2 = jQuery("#input_18_72_1").val()
+		 var vasttoestel3 = jQuery("#input_18_76_1").val()
+		 
+		 var vasttoestellen = Number(vasttoestel1) + Number(vasttoestel2) + Number(vasttoestel3);
+		 
+		 var headset1 = jQuery("#input_18_91_1").val()
+		 var headset2 = jQuery("#input_18_94_1").val()
+		 var headset3 = jQuery("#input_18_96_1").val()
+		 
+		 var headsets = Number(headset1) + Number(headset2) + Number(headset3);
+		 
+		 var ehs = Math.min(headsets, vasttoestellen);
+
+		 jQuery('#input_18_99_1').val(ehs); 
+		 
+		 console.log(ehs);
+	
+});
+
+/*my code to change input_18_140_1 with value in input_18_16_1*/
+jQuery(document).ready(function($) {
+    $('#input_18_16_1').on('input change', function() {
+        $('#input_18_140_1').val($(this).val());
+    });
+
+    $('input[name="input_139"]').on('change', function() {
+        if ($(this).is(':checked')) {
+            val_num = $('#input_18_16_1').val();
+            $('#input_18_140_1').val(val_num);
+        }
+    });
+});
+
+</script>
+
+<script>
+jQuery(document).ready(function($) {
+    var urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.get('order_type') === 'bestellen') {
+        // Pas de selectors aan op basis van jouw formulieropbouw
+        $('.hidden-order-field').hide(); // Verberg het radio button veld
+        $('.order_message').show(); // Toon de melding
+    }
+});
+</script>
+
+
+<script>
+jQuery(document).ready(function($) {
+
+    // Functie die een tooltip toevoegt aan een gegeven selector met de meegegeven tooltiptekst.
+    function addTooltipToField(selector, tooltipText) {
+        // Maak een container met relative positionering
+        var $tooltipContainer = $('<span class="tooltip-container" style="position: relative; display: inline-block;"></span>');
+        
+        // Maak de image aan (dezelfde image voor alle tooltips)
+        var $tooltipImg = $('<img class="custom-tooltip-img" src="https://voip.nl/wp-content/uploads/2025/02/Information-Circle-Streamline-Streamline-3.0-2.svg" alt="Info" style="cursor: pointer; margin-left: 5px;">');
+        
+        // Maak de tooltip-div met absolute positionering ten opzichte van de container
+        // Voor desktop: standaard onder de image; voor mobile wordt dit bij het tonen aangepast.
+        var $tooltipDiv = $('<div class="custom-tooltip" style="display: none; position: absolute; top: 120%; left: 0; z-index: 1000; padding: 10px; max-width:300px;"></div>').text(tooltipText);
+        
+        // Voeg de image en tooltip toe aan de container
+        $tooltipContainer.append($tooltipImg).append($tooltipDiv);
+        
+        // Zoek de target span en voeg daar de container aan toe
+        var $targetSpan = $(selector);
+        if ($targetSpan.length) {
+            $targetSpan.append($tooltipContainer);
+        } else {
+            console.log("Target span niet gevonden voor selector: " + selector);
+            return;
+        }
+        
+        // Detecteer of dit een touch-device is
+        var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        
+        // Flag om bij te houden of de tooltip via click geopend is
+        var clickedOpen = false;
+        
+        // Hulpfuncties voor tonen en verbergen
+        function showTooltip() {
+            // Eerst tonen we de tooltip zodat we de breedte kunnen berekenen
+            $tooltipDiv.show();
+            if (isTouchDevice) {
+                // Zorg dat de tooltip niet breder wordt dan 90% van de viewport
+                $tooltipDiv.css('max-width', '90vw');
+                // Bereken de breedte van de tooltip en de absolute positie van de container
+                var tooltipWidth = $tooltipDiv.outerWidth();
+                var containerOffsetLeft = $tooltipContainer.offset().left;
+                var viewportLeft = $(window).scrollLeft(); // linker viewportrand
+                // Standaard willen we de tooltip links van de image tonen:
+                var desiredLeft = -tooltipWidth;
+                // Als dit ervoor zorgt dat de tooltip buiten het scherm komt, pas dan aan:
+                if (containerOffsetLeft + desiredLeft < viewportLeft) {
+                    desiredLeft = viewportLeft - containerOffsetLeft;
+                }
+                // Plaats de tooltip verticaal gecentreerd naast de image
+                $tooltipDiv.css({ left: desiredLeft, right: 'auto', top: '50%', transform: 'translateY(-50%)' });
+            }
+        }
+        function hideTooltip() {
+            $tooltipDiv.hide();
+        }
+        function toggleTooltip() {
+            // Sluit eerst alle andere tooltips zodat er maar één tegelijk open is.
+            $('.custom-tooltip').not($tooltipDiv).hide();
+            // Toggle de huidige tooltip
+            if ($tooltipDiv.is(":visible")) {
+                hideTooltip();
+                clickedOpen = false;
+            } else {
+                showTooltip();
+                clickedOpen = true;
+            }
+        }
+        
+        // Hover events op de image (voor desktop)
+        $tooltipImg.on("mouseenter", function() {
+            showTooltip();
+        });
+        $tooltipImg.on("mouseleave", function() {
+            setTimeout(function() {
+                if (!$tooltipImg.is(':hover') && !$tooltipDiv.is(':hover') && !clickedOpen) {
+                    hideTooltip();
+                }
+            }, 200);
+        });
+        // Hover events op de tooltip zelf
+        $tooltipDiv.on("mouseenter", function() {
+            showTooltip();
+        });
+        $tooltipDiv.on("mouseleave", function() {
+            setTimeout(function() {
+                if (!$tooltipImg.is(':hover') && !$tooltipDiv.is(':hover') && !clickedOpen) {
+                    hideTooltip();
+                }
+            }, 200);
+        });
+        
+        // Gebruik voor touch-devices of desktops de juiste event handler
+        if (isTouchDevice) {
+            $tooltipImg.on("touchend", function(e) {
+                e.preventDefault(); // voorkom ghost clicks
+                e.stopPropagation();
+                toggleTooltip();
+            });
+        } else {
+            $tooltipImg.on("click", function(e) {
+                e.stopPropagation();
+                toggleTooltip();
+            });
+        }
+        
+        // Klikken buiten de tooltip sluit deze
+        $(document).on("click", function() {
+            $tooltipDiv.hide();
+            clickedOpen = false;
+        });
+        
+        // Klikken binnen de tooltip voorkomt direct sluiten
+        $tooltipDiv.on("click", function(e) {
+            e.stopPropagation();
+        });
+    }
+    
+    // Tooltip voor #field_18_105 label span:first
+    addTooltipToField(
+        "#field_18_105 label span:first",
+        "Met de gespreksopname-functie kan elke gebruiker ervoor kiezen om alle gesprekken op te nemen of per gesprek de opname wel of niet te bewaren. Ook is het mogelijk om tijdens een gesprek de opname te starten en te stopen. Via een webportal zijn alle opgenomen gesprekken van de afgelopen 90 dagen terug te vinden en desgewenst te downloaden."
+    );
+    
+    // Tooltip voor #field_18_128 label span:first
+    addTooltipToField(
+        "#field_18_128 label span:first",
+        "Om de inkomende gesprekken op een goede manier af te handelen, ook bij drukte, kun je gebruik maken van de geavanceerde wachtrij. Welkomstboodschap, aankondiging positie in de wachtrij, comfort massage, escape naar voicemail en overflow zijn enkele features waarmee je jouw bereikbaarheid kunt verbeteren. Medewerkers hebben op verschillende manieren de status van de wachtrij inzichtelijk en bepalen zelf hun persoonlijke status zodat er geen gesprekken verloren gaan."
+    );
+    
+    // Tooltip voor #field_18_127 label span:first
+    addTooltipToField(
+        "#field_18_127 label span:first",
+        "Bij een inkomend gesprek worden de juiste relatiegegevens direct getoond waardoor je niet meer hoeft te zoeken. De gesprekshistorie wordt gelogd onder de relatie in jouw CRM. Je maakt gebruik van de beliconen in jouw CRM waardoor je kunt klikken en bellen. Met CRM integratie bespaar je tijd en behoort verkeerd invoeren van telefoonnummers tot het verleden."
+    );
+    
+
+    // Tooltip voor #field_18_139 legend div:first
+    addTooltipToField(
+        "#field_18_139 legend",
+      'Onbeperkt bellen naar alle vaste- en mobiele telefoonnummer binnen Nederland. Het bellen naar betaalde servicenummers en buitenlandse nummers wordt per seconden in rekening gebracht.'
+    );
+
+    addTooltipToField(
+        "#field_18_133 ul li:first",
+      'Vangt gesprekken op je algemene nummer op die niet worden opgenomen. Ingesproken berichten ontvang je per e-mail, met afzendernummer en tijdstip in het onderwerp van de mail.'
+    );
+
+    addTooltipToField(
+        "#field_18_133 ul li:nth-child(2)",
+      'Schakel gesprekken automatisch door bij geen gehoor, bezet of buiten kantoortijd. Naar een collega, mobiel nummer of voicemail, jij bepaalt waar.'
+    );
+
+    addTooltipToField(
+        "#field_18_133 ul li:nth-child(3)",
+      'Laat bellers zelf kiezen met welke afdeling ze worden verbonden ("toets 1 voor sales, 2 voor support"). Je krijgt twee keuzemenu\'s, elk met onbeperkt veel lagen, plus een nachtstand voor buiten kantoortijd en feestdagen.'
+    );
+
+    addTooltipToField(
+        "#field_18_133 ul li:nth-child(4)",
+      'Speel muziek af terwijl de beller in de wacht staat of wordt doorverbonden. Kies uit onze bibliotheek of upload je eigen audio'
+    );
+
+    addTooltipToField(
+        "#field_18_133 ul li:nth-child(5)",
+      'Bundel collega\'s achter één nummer. Kies of alle toestellen tegelijk rinkelen (simultaan) of één voor één in volgorde. Handig om bijvoorbeeld eerst de receptie te laten rinkelen en daarna pas de backoffice.'
+    );
+
+    addTooltipToField(
+        "#field_18_149 label span:first",
+        "Bij een inkomend gesprek worden de juiste relatiegegevens direct getoond waardoor je niet meer hoeft te zoeken. De gesprekshistorie wordt gelogd onder de relatie in jouw CRM. Je maakt gebruik van de beliconen in jouw CRM waardoor je kunt klikken en bellen. Met CRM integratie bespaar je tijd en behoort verkeerd invoeren van telefoonnummers tot het verleden."
+    );
+
+    addTooltipToField(
+        "#field_18_149 ul li:nth-child(1)",
+        "Alle standaardfuncties zijn inbegrepen: doorverbinden, in de wacht zetten, wisselgesprek, niet storen, telefoonboek, voicemail, anoniem bellen en meer."
+    );
+
+    addTooltipToField(
+        "#field_18_149 ul li:nth-child(2)",
+        "Vang meerdere bellers tegelijk op als je team in gesprek is, met welkomstboodschap en wachtmuziek. Wil je ook rapportages, agent-aan-/afmelden en andere callcenter-functies? Bestel dan onze premium callcenter-licentie mee."
+    );
+
+    addTooltipToField(
+        "#field_18_149 ul li:nth-child(3)",
+        'Stel via de HIPPER+ app automatisch een welkomstboodschap op maat in voor je persoonlijke vaste nummer ("ik ben op vakantie tot 15 juni…"). Geen gedoe meer met zelf voicemails inspreken en aan- of uitzetten. Stel uitzonderingen in voor mensen voor wie je altijd bereikbaar moet zijn.'
+    );
+
+    addTooltipToField(
+        "#field_18_149 ul li:nth-child(4)",
+        "Speel muziek af terwijl de beller in de wacht staat of wordt doorverbonden. Kies uit onze bibliotheek of upload je eigen audio"
+    );
+
+    addTooltipToField(
+        "#field_18_149 ul li:nth-child(5)",
+        "Bel met je vaste zakelijke nummer vanaf elk apparaat: pc, Mac, smartphone en tablet. Je collega's en klanten zien altijd hetzelfde nummer, of je nu op kantoor zit of onderweg bent."
+    );
+
+    addTooltipToField(
+        "#field_18_150 label span:first",
+        "Bij een inkomend gesprek worden de juiste relatiegegevens direct getoond waardoor je niet meer hoeft te zoeken. De gesprekshistorie wordt gelogd onder de relatie in jouw CRM. Je maakt gebruik van de beliconen in jouw CRM waardoor je kunt klikken en bellen. Met CRM integratie bespaar je tijd en behoort verkeerd invoeren van telefoonnummers tot het verleden."
+    );
+
+    addTooltipToField(
+        "#field_18_150 ul li:nth-child(1)",
+        "Bij een inkomend gesprek worden de juiste relatiegegevens direct getoond waardoor je niet meer hoeft te zoeken. De gesprekshistorie wordt gelogd onder de relatie in jouw CRM. Je maakt gebruik van de beliconen in jouw CRM waardoor je kunt klikken en bellen. Met CRM integratie bespaar je tijd en behoort verkeerd invoeren van telefoonnummers tot het verleden."
+    );
+
+    addTooltipToField(
+        "#field_18_150 ul li:nth-child(2)",
+        "Koppel je CRM aan de centrale en zie meteen wie er belt dankzij nummerherkenning. Bellen doe je met één klik vanuit je CRM. We ondersteunen ruim 70 systemen, vrijwel alle gangbare CRM's in Nederland."
+    );
+
+    addTooltipToField(
+        "#field_18_150 ul li:nth-child(3)",
+        "Gebruik Microsoft Teams als telefoon: bel en word gebeld op je vaste zakelijke nummer zonder Teams te verlaten. Alle Teams-functies blijven gewoon werken."
+    );
+
+    addTooltipToField(
+        "#field_18_151 label span:first",
+        "Bij een inkomend gesprek worden de juiste relatiegegevens direct getoond waardoor je niet meer hoeft te zoeken. De gesprekshistorie wordt gelogd onder de relatie in jouw CRM. Je maakt gebruik van de beliconen in jouw CRM waardoor je kunt klikken en bellen. Met CRM integratie bespaar je tijd en behoort verkeerd invoeren van telefoonnummers tot het verleden."
+    );
+
+    
+    
+});
+
+</script>
+
+<script type="text/javascript">
+    function updateRadioOnUrl() {
+        // Controleer of de huidige URL de gewenste URL bevat
+        if (window.location.href.indexOf("https://voip.nl/offerte-omzetten-naar-bestelling/") > -1) {
+            // Zet de "Bestellen" radio button aan en zorg dat "Een offerte" niet geselecteerd is
+            jQuery('input[name="input_125"][value="Bestellen"]').prop('checked', true).trigger('change');
+            jQuery('input[name="input_125"][value="Een offerte"]').prop('checked', false);
+        }
+    }
+    
+    // Voer de functie uit zodra de pagina geladen is
+    jQuery(document).ready(function() {
+        updateRadioOnUrl();
+    });
+    
+    // Zorg dat de functie ook wordt uitgevoerd bij het her-renderen van een multi-page Gravity Forms formulier
+    jQuery(document).on('gform_post_render', function(event, formId) {
+        if (formId == 18) {
+            updateRadioOnUrl();
+        }
+    });
+</script>
+
+
+<script type="text/javascript">
+    function updateSubmitButton() {
+        var selectedValue = jQuery('input[name="input_125"]:checked').val();
+        if (selectedValue === 'Een offerte') {
+            jQuery('#gform_submit_button_18').val('Offerte aanvragen');
+        } else {
+            jQuery('#gform_submit_button_18').val('Bestellen');
+        }
+    }
+    
+    jQuery(document).ready(function() {
+        // Wacht kort zodat alle waarden geladen zijn
+        setTimeout(updateSubmitButton, 500);
+        jQuery('input[name="input_125"]').on('change', updateSubmitButton);
+    });
+    
+    // Als het formulier via AJAX (multi-page) wordt gerenderd:
+    jQuery(document).on('gform_post_render', function(event, formId) {
+        if (formId == 7) {
+            setTimeout(updateSubmitButton, 500);
+        }
+    });
+</script>
+
+<script>
+jQuery(document).ready(function() {
+  jQuery('input[name="input_125"]').on('change', function() {
+    var selectedValue = jQuery(this).val();
+    if (selectedValue === 'Bestellen') {
+      jQuery('.gotrgf_summary_title h5').text('Bestelling');
+    } else if (selectedValue === 'Een offerte') {
+      jQuery('.gotrgf_summary_title h5').text('Offerte');
+    }
+  });
+});
+
+jQuery(document).ready(function() {
+  jQuery('input[name="input_125"]:checked').trigger('change');
+});
+
+
+
+/*Code to kvk*/
+jQuery(document).ready(function($){
+    var kvkClicked = false;
+    $(document).on('click', '.list-group-item', function(){
+        kvkClicked = true;
+    });
+    $(document).ajaxComplete(function(event, xhr, settings){
+        if(kvkClicked){
+            var fields = $('#input_18_67, #input_18_101, #input_18_69, #input_18_68');
+            setTimeout(function(){
+                fields.each(function(){
+                    var $field = $(this);
+                    if($field.val().trim() !== ''){
+                        $field.prop('readonly', true);
+                    }
+                });
+            }, 0);
+            kvkClicked = false; 
+        }
+    });
+});
+
+// 
+
+jQuery(document).ready(function ($) {
+
+    function updateTotalQty() {
+
+        let radioValue = $('input[name="input_153"]:checked').val();
+
+        if (radioValue === 'Ja') {
+
+            let qty1 = parseInt($('#input_18_149_1').val()) || 0;
+            let qty2 = parseInt($('#input_18_150_1').val()) || 0;
+
+            let total = qty1 + qty2;
+
+            $('#input_18_127_1').val(total).trigger('change');
+
+        } else {
+            $('#input_18_127_1').val(0).trigger('change');
+        }
+    }
+
+    // Quantity change
+    $('#input_18_149_1, #input_18_150_1').on('input change', function () {
+        updateTotalQty();
+    });
+
+    // Radio button change
+    $('input[name="input_153"]').on('change', function () {
+        updateTotalQty();
+    });
+
+    // Page load
+    updateTotalQty();
+
+});
+
+// 
+
+jQuery(document).ready(function ($) {
+
+    function updateTotalQtyNew() {
+
+        let radioValue = $('input[name="input_154"]:checked').val();
+
+        if (radioValue === 'Ja') {
+
+            let qty1 = parseInt($('#input_18_149_1').val()) || 0;
+            let qty2 = parseInt($('#input_18_150_1').val()) || 0;
+
+            let total = qty1 + qty2;
+
+            $('#input_18_151_1').val(total).trigger('change');
+
+        } else {
+            $('#input_18_151_1').val(0).trigger('change');
+        }
+    }
+
+    // Quantity change
+    $('#input_18_149_1, #input_18_150_1').on('input change', function () {
+        updateTotalQtyNew();
+    });
+
+    // Radio button change
+    $('input[name="input_154"]').on('change', function () {
+        updateTotalQtyNew();
+    });
+
+    // Page load
+    updateTotalQtyNew();
+
+});
+
+//
+
+jQuery(document).ready(function ($) {
+
+    function updateQtyButtons() {
+
+        let qty17 = parseInt($('#input_18_17_1').val()) || 0;
+        let qty28 = parseInt($('#input_18_28_1').val()) || 0;
+
+        let radioVal = $('input[name="input_144"]:checked').val();
+
+        let minus17 = $('#field_18_17 .numberstyle-qty .qty-rem');
+        let minus28 = $('#field_18_28 .numberstyle-qty .qty-rem');
+
+        if (qty17 == 0 && qty28 == 0) {
+
+            qty17 = 1;
+            $('#input_18_17_1').val(1);
+        }
+
+        if (radioVal == '1') {
+
+            minus17.show();
+
+        } else {
+
+            if (qty17 == 0) {
+
+                qty17 = 1;
+                $('#input_18_17_1').val(1);
+            }
+
+            if (qty17 > 1) {
+                minus17.show();
+            } else {
+                minus17.hide();
+            }
+        }
+
+        if (radioVal != '1') {
+
+            if (qty17 > 1) {
+                minus17.show();
+            } else {
+                minus17.hide();
+            }
+        }
+
+        if (qty17 == 0) {
+
+            if (qty28 <= 1) {
+                minus28.hide();
+            } else {
+                minus28.show();
+            }
+
+        } else {
+
+            minus28.show();
+        }
+
+        if (qty28 == 0) {
+
+            if (radioVal != '1') {
+
+                if (qty17 <= 1) {
+                    minus17.hide();
+                } else {
+                    minus17.show();
+                }
+
+            } else {
+                minus17.show();
+            }
+        }
+
+    }
+
+    $(document).on(
+        'keyup change',
+        '#input_18_17_1, #input_18_28_1',
+        function () {
+
+            updateQtyButtons();
+        }
+    );
+
+    $(document).on(
+        'change',
+        'input[name="input_144"]',
+        function () {
+
+            updateQtyButtons();
+        }
+    );
+
+    updateQtyButtons();
+
+});
+
+jQuery(document).ready(function ($) {
+
+    function checkQtyButton() {
+        var radioValue = $('input[name="input_142"]:checked').val();
+        var qtyInput = $('#input_18_28_1');
+        var qty = parseInt(qtyInput.val()) || 0;
+        var minusBtn = $('#field_18_28 .numberstyle-qty .qty-rem');
+
+        if (radioValue == '0') { // Nee selected
+
+            // Quantity ko 0 se niche ya 0 par jaane mat do
+            if (qty <= 1) {
+                qtyInput.val(1);
+                minusBtn.hide();
+            } else {
+                minusBtn.show();
+            }
+
+        } else { // Ja selected
+            minusBtn.show();
+        }
+    }
+
+    // Radio change
+    $(document).on('change', 'input[name="input_142"]', function () {
+        checkQtyButton();
+    });
+
+    // Quantity change
+    $(document).on('input change', '#input_18_28_1', function () {
+        checkQtyButton();
+    });
+
+    // Plus / Minus button click ke baad bhi check kare
+    $(document).on('click', '#field_18_28 .numberstyle-qty .qty-add, #field_18_28 .numberstyle-qty .qty-rem', function () {
+        setTimeout(checkQtyButton, 100);
+    });
+
+    // Initial load
+    checkQtyButton();
+
+});
+
+//
+
+jQuery(function ($) {
+
+    function syncRadio(fieldChanged) {
+        var f1 = $('input[name="input_142"]:checked').val();
+        var f2 = $('input[name="input_144"]:checked').val();
+
+        if (f1 === "0" && f2 === "0") {
+
+            if (fieldChanged === "142") {
+                $('input[name="input_142"][value="1"]').prop("checked", true);
+            } else {
+                $('input[name="input_144"][value="1"]').prop("checked", true);
+            }
+        }
+    }
+
+    $('input[name="input_142"]').on('change', function () {
+        syncRadio("142");
+    });
+
+    $('input[name="input_144"]').on('change', function () {
+        syncRadio("144");
+    });
+
+});
+
+//
+
+jQuery(document).ready(function($) {
+    // 3.1 ki value monitor karo
+    $('#input_18_149_1').on('change input', function() {
+        var val = parseInt($(this).val()) || 0;
+        if (val === 0) {
+            // 3.2 ka minus button click karo to set it to 1
+            var field150 = $('#field_18_150');
+            var input150 = $('#input_18_150_1');
+            var current150 = parseInt(input150.val()) || 0;
+            
+            if (current150 === 0) {
+                // Plus button click karke 1 karo
+                field150.find('.numberstyle-qty .qty-add').trigger('click');
+            }
+        }
+    });
+
+    // 3.2 ki value monitor karo
+    $('#input_18_150_1').on('change input', function() {
+        var val = parseInt($(this).val()) || 0;
+        if (val === 0) {
+            var field149 = $('#field_18_149');
+            var input149 = $('#input_18_149_1');
+            var current149 = parseInt(input149.val()) || 0;
+            
+            if (current149 === 0) {
+                // Plus button click karke 1 karo
+                field149.find('.numberstyle-qty .qty-add').trigger('click');
+            }
+        }
+    });
+});
+
+//
+
+const target = document.querySelector('#gf_step_18_3 .gf_step_number');
+
+if (target) {
+    target.textContent = '3';
+
+    const observer = new MutationObserver(() => {
+        if (target.textContent !== '3') {
+            target.textContent = '3';
+        }
+    });
+
+    observer.observe(target, {
+        childList: true,
+        characterData: true,
+        subtree: true
+    });
+}
+	
+//
+	
+
+
+</script>
+
+
+<style>
+
+.gform-theme--framework .gf_step_hidden {
+	display: flex;
+}
+#field_18_127 .numberstyle-qty, #field_18_151 .numberstyle-qty{
+    display: none;
+}
+#field_18_153, #field_18_154{
+    margin-bottom: 0px !important;
+}
+.gotrgf_price_quantity,
+.gotrgf_price_unit {
+    display: inline;
+    white-space: nowrap;
+    margin-right: 4px;
+}
+.gotrgf_summary_line .gotrgf_pricing_column {
+    display: inline-block;
+    vertical-align: middle;
+}
+/*my styles*/
+.bestellen .innerbox #field_18_59 .gfield_label {
+    margin-bottom: 10px !important;
+    font-size: 19px !important;
+    font-weight: 500 !important;
+}
+.bestellen .innerbox #field_18_60 .gfield_label, .bestellen .innerbox #field_18_139 .gfield_label, .bestellen .innerbox #field_18_105 .gfield_label_product, .bestellen .innerbox #field_18_127 .gfield_label_product, .bestellen .innerbox #field_18_128 .gfield_label_product {
+    margin-bottom: 4px !important;
+    font-size: 19px !important;
+    font-weight: 500 !important;
+}
+.bestellen-c #field_18_105 .gform-field-label, .bestellen-c #field_18_128 .gform-field-label, .bestellen-c #field_18_127 .gform-field-label {
+    display: inline-block;
+}
+.bestellen-c #field_18_11 {
+    margin-bottom: 0px !important;
+}
+.bestellen-c #field_18_125 {
+    display: inline;
+    margin-top: 10px;
+}
+.bestellen-c #field_18_125 .gfield_radio {
+    display: flex !important;
+    gap: 10px;
+    flex-direction: row;
+}
+.bestellen-c #field_18_125 .gchoice {
+    flex: 1;
+/* elk element neemt gelijke breedte in */
+}
+.bestellen-c #field_18_125 .gchoice {
+    display: inline-block;
+    float: left;
+}
+.bestellen-c #field_18_125 .gchoice input {
+    display: none;
+}
+.bestellen-c #field_18_125 .gchoice label {
+    cursor: pointer;
+    margin: 0px;
+    background: rgba(176, 188, 161, 0.18);
+    border-radius: 106px;
+    border: 0px;
+    color: #b0bca1;
+    border-left: 0px;
+    padding: 12px;
+    border-radius: 106px;
+    text-align: center;
+    font-size: 18px;
+}
+.bestellen-c #field_18_125 .gchoice input[type=radio]:checked + label {
+    background: #b0bca1;
+    padding: 12px;
+    border-radius: 106px;
+    font-weight: 600;
+    color: #fff;
+}
+.bestellen-c #field_18_125 .gchoice:first-of-type > input[type=radio]:checked + label {
+    background: #b0bca1 !important;
+    padding: 12px;
+    border-radius: 106px;
+    color: #fff;
+}
+.bestellen-c #field_18_125 .gchoice:first-of-type > input[type=radio]:not(:checked) + label {
+    background: rgba(176, 188, 161, 0.18) !important;
+    padding: 12px;
+    border-radius: 106px;
+    border: 0px;
+    color: #b0bca1;
+}
+.page-template-page-bestellen-c-new header {
+    margin-top: 0px !important;
+}
+div#gsline_18_26 div {
+    font-weight: 700;
+    color: #758660;
+}
+div#gsline_18_26 .gotrgf_pricing_column.gotrgf_price_unit {
+    font-weight: 700 !important;
+    text-decoration: line-through;
+}
+
+div#gsline_18_26 .gotrgf_sub_row:after {
+    content: "Actie";
+    background: #fd8600;
+    border-radius: 100px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 1px 4px 2px;
+    margin-left: 3px;
+}
+.hide__elem_all .numberstyle-qty, .hide__elem_all .gfield_label {
+    display: none !important;
+}
+body.page-template-page-bestellen-c-new {
+    background: #f7f8f5;
+}
+@media only screen and (max-width: 1100px) {
+    div#gsline_18_26 .gotrgf_sub_row:after {
+        display: block;
+        width: fit-content;
+        margin-left: 0;
+    }
+}
+@media only screen and (max-width: 767px) {
+.gotrgf_summary_lines .gotrgf_summary_line:not(.page-3), .save-total-gf{
+    display:none;
+}
+.gotrgf_summary_lines .gotrgf_summary_line.page-3{
+    display:flex !important;
+}
+.downarrow-gf:before{
+    content: "";
+    background-image: url('../wp-content/themes/voip/image/up-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-position: center;
+}
+.gf-mobile-main-wrapper.active .downarrow-gf:before{
+    background-image: url('../wp-content/themes/voip/image/down-arrow.svg');
+}
+.gf-mobile-main-wrapper .gotrgf_form_overview_container:after{
+    content: "" !important;
+    margin: 0px;
+}
+.gf-mobile-main-wrapper.active .gotrgf_form_overview_container:after{
+    content: "Prijzen zijn excl. 21% BTW" !important;
+    margin: 0px 0px 10px !important;
+}
+}
+/*11-05 Gravity form start*/
+.orange-box-main {
+    font-size: 20px !important;
+    color: #242424;
+}
+.orange-box-main .orange-box,
+.save-total-gf .saving-label {
+    background: #FD8600;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1em;
+    padding: 3px 6px 0px;
+    font-weight: 700 !important;
+}
+.gotrgf_product_line:last-child {
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid #E1E1E1 !important;
+}
+.gf_page_steps {
+    gap: 10px !important;
+}
+.gf_page_steps .gf_step {
+    height: auto !important;
+    gap: 8px !important;
+}
+.gf_step::after {
+    content: '';
+    width: 45px;
+    height: 2px;
+    background: #B0BCA1;
+}
+.gf_page_steps .gf_step_active::after {
+    background: #758660;
+}
+.gf_page_steps .gf_step_hidden+.gf_step::after,
+.gf_page_steps .gf_step_last::after {
+    display: none;
+}
+.gf_page_steps .gf_step_number {
+    width: 38px !important;
+    height: 38px !important;
+    background: #B0BCA1 !important;
+}
+.gf_page_steps .gf_step_active .gf_step_number {
+    background: #758660 !important;
+}
+.gf_page_steps .gf_step_number {
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+}
+.gf_page_steps .gf_step_label {
+    color: #494949;
+    font-weight: 500;
+}
+.gf_page_steps .gf_step_label p {
+    margin: 2px 0 0 0;
+    font-weight: 300 !important;
+    font-size: 12px;
+}
+.gf_page_steps .gf_step_active .gf_step_label {
+    color: #758660;
+}
+.gf_page_steps .gf_step_active p {
+    color: #242424 !important;
+}
+.bestellen .innerbox {
+    padding: 24px !important;
+}
+.bestellen .innerbox h5.nomargin {
+    margin: 0;
+}
+body .bestellen-c .ik-wil-gf {
+    margin-top: 5px !important;
+    margin-bottom: 0px !important;
+}
+.ik-wil-gf .gchoice label {
+    background: #fff !important;
+    border: 1px solid #E1E1E1 !important;
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
+    text-align: left !important;
+}
+body .bestellen-c #field_18_125 .gchoice:first-of-type>input[type=radio]:not(:checked)+label {
+    background: transparent !important;
+}
+body .bestellen-c #field_18_125.ik-wil-gf .gchoice>input[type=radio]:checked+label {
+    background: #EBEFE7 !important;
+    border-color: #758660 !important;
+    color: #758660 !important;
+}
+.ik-wil-gf .gchoice label p {
+    font-size: 14px;
+    margin: 0 !important;
+}
+.ik-wil-gf .gchoice label {
+    color: #242424 !important;
+    font-weight: 800 !important;
+    position: relative;
+}
+.ik-wil-gf .gchoice label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background: url('../wp-content/themes/voip/image/check.svg') no-repeat center;
+    background-size: cover;
+    opacity: 0;
+}
+.ik-wil-gf .gchoice>input[type=radio]:checked+label::after {
+    opacity: 1;
+}
+.ik-wil-gf .gfield_description,
+.ik-wil-gf .gfield_description p {
+    margin-bottom: 0px !important;
+}
+.bestellen .innerbox p {
+    margin: 0 !important;
+}
+.behouden-number-gf .gfield_label {
+    font-size: 19px !important;
+    font-weight: 500 !important;
+    margin-bottom: 4px !important;
+}
+.behouden-number-gf .ginput_container_number input {
+    border-color: #B0B0B0;
+    border-radius: 5px;
+    color: #9d9d9d;
+    padding: 10px 12px !important;
+    margin: 0 !important;
+}
+.ik-wil-gf p{
+    font-size: 14px !important;
+    color: #9d9d9d !important; 
+}
+.behouden-number-gf .ginput_container_number input:focus {
+    outline: unset;
+}
+.inbegrepenuser .two-cln-gf,
+.fullbox-gf .two-cln-gf {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.inbegrepenuser .two-cln-gf .round-gf,
+.fullbox-gf .two-cln-gf .round-gf {
+    background: #f7f8f5 !important;
+    font-size: 13px !important;
+    width: fit-content;
+    padding: 2px 9px;
+    border-radius: 100px;
+    text-wrap-mode: nowrap;
+}
+.fullbox-gf .two-cln-gf .round-gf {
+    background: #fff !important;
+}
+.inbegrepenuser .two-cln-gf li:last-child,
+.fullbox-gf .two-cln-gf li:last-child {
+    color: #758660;
+    padding: 0;
+    font-weight: 500;
+    font-size: 14px !important;
+}
+.bestellen-c .inbegrepenuser ul {
+    margin: 0 !important;
+}
+.inbegrepenuser ul li,
+.fullbox-gf ul li {
+    background-image: url('../wp-content/themes/voip/image/check.svg');
+    background-size: 18px !important;
+    color: #242424;
+}
+.bestellen-c .gfield_label,
+.bestellen .subfield .gfield_label_product {
+    color: #242424 !important;
+}
+.bestellen-c .fullbox-gf {
+    grid-column: span 12 !important;
+    border-radius: 10px;
+    padding: 20px;
+    background: #F7F8F5;
+    position: relative;
+}
+.bestellen-c .fullbox-gf .gfield_description {
+    border-radius: 0;
+    padding: 0;
+    width: 100%;
+    background: transparent !important;
+}
+.bestellen-c .fullbox-gf .gekozen-gf {
+    position: absolute;
+    top: -11px;
+    right: 30px;
+    background: #FD8600;
+    border-radius: 3.8px;
+    padding: 2px 4px;
+    color: #fff;
+    font-weight: 900;
+}
+.bestellen-c .fullbox-gf .gform-field-label {
+    color: #242424;
+    font-weight: 600 !important;
+}
+.extra-breid-gf {
+    background: #F7F8F5;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: grid;
+    align-items: center;
+}
+.extra-breid-gf .gfield_label {
+    grid-column: span 8;
+    grid-row: 1 / 2;
+}
+.extra-breid-gf .gfield_label .gform-field-label {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: #242424 !important;
+}
+.extra-breid-gf .gfield_description {
+    grid-column: span 8;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center;
+    gap: 5px;
+    padding: 0 !important;
+}
+.extra-breid-gf .gfield_description span:first-child {
+    background: #fff;
+    padding: 2px 9px;
+    border-radius: 100px;
+}
+.extra-breid-gf .ginput_container {
+    grid-column: span 4;
+    grid-row: 1 / 3;
+    align-items: end;
+}
+.extra-breid-gf .ginput_container .numberstyle-qty input {
+    margin-bottom: 0 !important;
+}
+.save-total-gf {
+    background: #EBEFE7;
+    border: 1px solid #A9B39C;
+    border-radius: 15px;
+    padding: 20px 30px;
+    text-align: center;
+    margin-top: 16px;
+}
+.save-total-gf .saving-label {
+    width: fit-content;
+    margin: auto;
+    padding: 3px 6px;
+}
+.save-total-gf #saving_amount {
+    color: #758660;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.5em;
+    margin: 5px 0;
+}
+.save-total-gf p {
+    font-size: 17px;
+    color: #242424;
+    margin: 0;
+}
+.bestellen-c .innerbox {
+    grid-template-columns: repeat(12, 1fr) !important;
+    gap: 15px;
+}
+
+@media screen and (min-width: 900px) {
+    .not-full-width {
+        max-width: 780px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .bestellen-c .gform-theme--foundation .gfield--width-seven-twelfths {
+        grid-column: span 8;
+    }
+    .bestellen-c .innerbox fieldset.keuzemenuveld {
+        grid-column: span 4 !important;
+        margin-bottom: 0px !important;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+    .bestellen-c .gform-theme--foundation .nummerblokkenveld,
+    .bestellen-c .gform-theme--foundation .behouden-number-gf {
+        grid-column: span 6;
+    }
+    body .gotrgf_summary_wrapper .gotrgf_form_overview_container {
+        position: relative !important;
+        max-height: unset !important;
+        top: auto !important;
+        margin-top: 60px !important;
+    }
+    .gotrgf_form_container {
+        align-items: flex-start;
+        position: relative;
+    }
+    .gotrgf_summary_wrapper {
+        position: sticky;
+        top: 100px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .gf_page_steps {
+        flex-wrap: nowrap !important;
+    }
+    .gf_page_steps .gf_step {
+        flex-direction: column;
+        text-align: center;
+    }
+    .gf_step::after {
+        background: #B0BCA1;
+        position: absolute;
+        top: 19px;
+        left: calc(50% + 15px);
+        width: calc(100% - 10px);
+        height: 2px;
+    }
+    .gf_page_steps .gf_step_label p {
+        display: none;
+    }
+    .page-template-page-bestellen-c-new .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .bestellen-c .innerbox {
+        padding: 20px !important;
+    }
+    body .bestellen-c .keuzemenuveld {
+        margin-top: 0px;
+        margin-bottom: 0 !important;
+    }
+    .bestellen-c .innerbox p {
+        font-size: 15px;
+    }
+    .bestellen-c .innerbox h5 {
+        font-size: 19px;
+    }
+    .ik-wil-gf .gfield_radio {
+        flex-direction: column !important;
+    }
+    .gform-theme--foundation .gfield--width-full {
+        grid-column: span 12;
+    }
+    .inbegrepenuser .two-cln-gf li:last-child,
+    .fullbox-gf .two-cln-gf li:last-child {
+        font-size: 13px;
+    }
+    .extra-breid-gf .gfield_label,
+    .extra-breid-gf .gfield_description,
+    .extra-breid-gf .ginput_container {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .extra-breid-gf .ginput_container {
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+    .inbegrepenuser ul li,
+    .fullbox-gf ul li {
+        background-size: 16px !important;
+        font-size: 14px !important;
+    }
+    .gf-mobile-main-wrapper {
+        box-shadow: 0px -6px 14px 0px #00000040;
+        border-radius: 15px;
+    }
+    .gf-mobile-main-wrapper .gf-top-wrapper {
+        background: #EBEFE7;
+        padding: 7px 20px;
+        border-radius: 15px 15px 0 0;
+        border-width: 1px 1px 0px 1px;
+        border-style: solid;
+        border-color: #758660;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .gf-mobile-main-wrapper .gf-top-wrapper .bespaart-gf {
+        color: #758660;
+        font-weight: 700;
+        font-size: 18px;
+		line-height: 1.1;
+    }
+    .gf-mobile-main-wrapper .gf-top-wrapper .bespaart-gf-small {
+        font-weight: 400;
+        font-size: 14px;
+        color: #758660;
+        line-height: 1.13;
+    }
+	.gotrgf_form_overview_container > .gotrgf_summary_title > h5 {
+    font-size: 24px;
+}
+
+	.gotrgf_form_overview_container > .gotrgf_summary_title {
+		margin-top: 10px;
+		padding-bottom: 3px !important;
+	}
+
+
+    .gf-mobile-main-wrapper .downarrow-gf {
+        margin: auto 0;
+        line-height: 0;
+    }
+    .gf-mobile-main-wrapper .gf-overview-wrapper {
+        height: 100%;
+        border-radius: 0 0 15px 15px !important;
+        border-width: 0px 1px 1px 1px !important;
+        border-style: solid !important;
+        border-color: #758660 !important;
+        margin-top: -1px;
+    }
+    .gf-mobile-main-wrapper .gf-overview-wrapper .gform-theme__disable-reset {
+        margin: 0 !important;
+        box-shadow: unset !important;
+        height: 100%;
+        top: 0 !important;
+        display: flex;
+        flex-direction: column;
+    }
+    .custom-btn-gf {
+        color: #fff !important;
+        font-size: 18px !important;
+        margin-top: 5px;
+        font-weight: 700 !important;
+        background: #758660 !important;
+        border: 0px !important;
+        border-radius: 100px !important;
+        padding: 8px 25px 10px !important;
+        margin-left: auto !important;
+        margin-bottom: 10px !important;
+    }
+    .page-template-page-bestellen-c-new .bestellen-c {
+        margin: 0px 0px 160PX;
+    }
+    .page-template-page-bestellen-c-new .bestellen-c .container {
+        transform: unset !important;
+        padding-bottom: 60px;
+    }
+    .gf-mobile-main-wrapper {
+        position: fixed !important;
+        bottom: -10px !important;
+        left: 24px !important;
+        background: #fff;
+        z-index: 2;
+        width: calc(100% - 48px);
+    }
+    .bestellen .innerbox .numberstyle-qty .qty-btn {
+        z-index: 1;
+    }
+}
+@media screen and (max-width: 380px) {
+    .inbegrepenuser .two-cln-gf,
+    .fullbox-gf .two-cln-gf {
+        flex-wrap: wrap;
+    }
+}
+/*New*/
+.bestellen-c .innerbox {
+    margin-bottom: 15px;
+}
+.gform-theme__disable-reset .gotrgf_summary_line#gsline_18_26 .gotrgf_pricing_column .gotrgf_sub_row {
+    font-weight: 400;
+    color: #494949;
+    font-size: 17px;
+}
+.gform-theme__disable-reset .gotrgf_summary_line#gsline_18_26 .gotrgf_pricing_column .gotrgf_sub_row::after {
+    font-weight: 700;
+    border-radius: 5px;
+}
+.gform-theme__disable-reset .gotrgf_summary_line#gsline_18_26 .gotrgf_pricing_column .gotrgf_sub_row::after {
+        display: none;
+}
+.gform-theme__disable-reset .gotrgf_summary_line#gsline_18_26  .gotrgf_price_unit {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #494949;
+        text-decoration: unset !important;
+}
+body .bestellen-c .innerbox-extratop {
+    margin: 0 !important;
+}
+.totaal-eenmalig-duplicate-gf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -10px;
+}
+.totaal-eenmalig-duplicate-gf .gotrgf_line_part_left {
+    font-weight: 700;
+    font-size: 17px;
+    color: #000000;
+}
+.totaal-eenmalig-duplicate-gf .gotrgf_line_part_right {
+    font-weight: 700;
+    font-size: 17px;
+    color: #000000;
+}
+/*Gravity form end*/
+
+</style>
+
+
+<?php get_footer('bestellen'); ?>
