@@ -59,11 +59,11 @@
             </div>
             <div style="display:flex;gap:0.75rem;align-items:flex-start;">
               <span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--cyan);min-width:24px;">02.</span>
-              <div><p style="font-size:0.82rem;font-weight:600;margin-bottom:0.2rem;">Timeline &amp; deadline</p><p style="font-size:0.75rem;color:var(--text-muted);">Launch date or urgency level</p></div>
+              <div><p style="font-size:0.82rem;font-weight:600;margin-bottom:0.2rem;">Platform &amp; stack</p><p style="font-size:0.75rem;color:var(--text-muted);">WordPress, Shopify, custom, etc.</p></div>
             </div>
             <div style="display:flex;gap:0.75rem;align-items:flex-start;">
               <span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--cyan);min-width:24px;">03.</span>
-              <div><p style="font-size:0.82rem;font-weight:600;margin-bottom:0.2rem;">Budget range</p><p style="font-size:0.75rem;color:var(--text-muted);">Helps me scope accurately</p></div>
+              <div><p style="font-size:0.82rem;font-weight:600;margin-bottom:0.2rem;">Key requirements</p><p style="font-size:0.75rem;color:var(--text-muted);">Features, integrations, timeline</p></div>
             </div>
           </div>
         </div>
@@ -82,15 +82,9 @@
         <div id="form-status-msg"></div>
         <form id="lead-intake-form" novalidate style="display:flex;flex-direction:column;gap:1.1rem;">
 
-          <div class="form-two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-            <div class="form-group">
-              <label class="form-label" for="first_name">First Name *</label>
-              <input class="form-input" type="text" id="first_name" name="first_name" required placeholder="Jane">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last_name">Last Name *</label>
-              <input class="form-input" type="text" id="last_name" name="last_name" required placeholder="Doe">
-            </div>
+          <div class="form-group">
+            <label class="form-label" for="name">Name *</label>
+            <input class="form-input" type="text" id="name" name="name" required placeholder="Jane Doe">
           </div>
 
           <div class="form-group">
@@ -99,49 +93,9 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="project_type">Project Type *</label>
-            <select class="form-select" id="project_type" name="project_type" required>
-              <option value="" disabled selected>Select type…</option>
-              <option value="wordpress">WordPress Development</option>
-              <option value="shopify">Shopify Store</option>
-              <option value="plugin">Custom Plugin / Theme</option>
-              <option value="integration">API / Integration</option>
-              <option value="bugfix">Bug Fix / Audit</option>
-              <option value="fullstack">Full-Stack Web App</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-            <div class="form-group">
-              <label class="form-label" for="budget">Budget *</label>
-              <select class="form-select" id="budget" name="budget" required>
-                <option value="" disabled selected>Range…</option>
-                <option>Under $500</option>
-                <option>$500 – $1,500</option>
-                <option>$1,500 – $5,000</option>
-                <option>$5,000 – $15,000</option>
-                <option>$15,000+</option>
-                <option>Let's discuss</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="timeline">Timeline *</label>
-              <select class="form-select" id="timeline" name="timeline" required>
-                <option value="" disabled selected>Target…</option>
-                <option>ASAP (under 2 weeks)</option>
-                <option>2–4 weeks</option>
-                <option>1–2 months</option>
-                <option>2–4 months</option>
-                <option>Flexible</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
             <label class="form-label" for="project_brief">Project Brief *</label>
             <textarea class="form-textarea" id="project_brief" name="project_brief" required
-              placeholder="Describe what you need. What's the site/app/plugin for? Any existing code or platform? Key features, integrations, or technical requirements?"></textarea>
+              placeholder="Tell me what you need — type of site, platform (WordPress / Shopify / custom), key features, timeline, and anything else that's relevant."></textarea>
           </div>
 
           <!-- honeypot -->
@@ -160,7 +114,7 @@
 
 <footer class="site-footer"><div class="wrap footer-inner" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
   <a href="index.html" class="nav-logo" style="font-size:0.9rem;"><span class="bracket">[</span><span class="name">Code Neo</span><span class="bracket">]</span><span class="dot">_</span></a>
-  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">© 2025 Uddhav Shrimali // Code Neo</p>
+  <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);">© <span class="copyright-year">2025</span> Uddhav Shrimali // Code Neo</p>
 </div></footer>
 <script src="../src/js/main.js"></script>
 <script src="../src/js/form-handler.js"></script>
