@@ -164,18 +164,26 @@ contactForm?.addEventListener('submit', async (e) => {
     return;
   }
 
-  // ── SETUP: Replace YOUR_CONTACT_FORM_ID below with your Formspree form ID.
-  // Create a free form at https://formspree.io → Dashboard → New Form → copy the ID (e.g. xpzgkrjw)
-  const CONTACT_FORM_ID = 'YOUR_CONTACT_FORM_ID';
-
   try {
-    const res = await fetch(`https://formspree.io/f/${CONTACT_FORM_ID}`, {
+    // Web3Forms — sends directly to shrimaliuddhav@gmail.com, no backend needed
+    const payload = {
+      access_key: 'b8c7e2f1-4a9d-4b3e-8f6c-2d1a0e9b5c7f',
+      name:    data.name    || '',
+      email:   data.email   || '',
+      message: data.message || '',
+      subject: 'New Contact from Code Neo Portfolio',
+      from_name: 'Code Neo Portfolio',
+    };
+
+    const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload),
     });
 
-    if (res.ok) {
+    const json = await res.json();
+
+    if (json.success) {
       contactForm.style.display = 'none';
       if (contactStatus) {
         contactStatus.innerHTML = `
@@ -188,9 +196,8 @@ contactForm?.addEventListener('submit', async (e) => {
         gtag('event', 'generate_lead', { value: 1, currency: 'USD' });
       }
     } else {
-      const json = await res.json().catch(() => ({}));
       if (contactStatus) {
-        contactStatus.innerHTML = `<div class="error-msg">⚠️ ${json.error || 'Something went wrong. Please try again.'}</div>`;
+        contactStatus.innerHTML = `<div class="error-msg">⚠️ ${json.message || 'Something went wrong. Please try again.'}</div>`;
       }
       btn.disabled = false;
       if (btnText) btnText.textContent = 'SEND MESSAGE';
