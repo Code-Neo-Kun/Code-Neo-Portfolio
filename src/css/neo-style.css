@@ -110,6 +110,9 @@ select {
 .section-pad {
   padding: 6rem 0;
 }
+.section-pad.cal .container {
+    max-width: 800px;
+}
 
 /* ── TYPOGRAPHY ──────────────────────────────────────────── */
 .section-tag {
