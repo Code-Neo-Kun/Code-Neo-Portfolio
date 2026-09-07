@@ -101,12 +101,12 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
 });
 
 /* ── TICKER CLONE (infinite scroll) ──────────────────────── */
-const tickerInner = document.getElementById('ticker-inner');
-if (tickerInner) {
-  const clone = tickerInner.cloneNode(true);
-  clone.setAttribute('aria-hidden', 'true');
-  tickerInner.parentElement.appendChild(clone);
-}
+// const tickerInner = document.getElementById('ticker-inner');
+// if (tickerInner) {
+//   const clone = tickerInner.cloneNode(true);
+//   clone.setAttribute('aria-hidden', 'true');
+//   tickerInner.parentElement.appendChild(clone);
+// }
 
 /* ── PORTFOLIO FILTER ─────────────────────────────────────── */
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -164,8 +164,12 @@ contactForm?.addEventListener('submit', async (e) => {
     return;
   }
 
+  // ── SETUP: Replace YOUR_CONTACT_FORM_ID below with your Formspree form ID.
+  // Create a free form at https://formspree.io → Dashboard → New Form → copy the ID (e.g. xpzgkrjw)
+  const CONTACT_FORM_ID = 'YOUR_CONTACT_FORM_ID';
+
   try {
-    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID_HERE', {
+    const res = await fetch(`https://formspree.io/f/${CONTACT_FORM_ID}`, {
       method: 'POST',
       body: formData,
       headers: { 'Accept': 'application/json' },

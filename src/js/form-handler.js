@@ -1,14 +1,19 @@
+// ── SETUP: Replace YOUR_BRIEF_FORM_ID below with your Formspree form ID.
+// Create a free form at https://formspree.io → Dashboard → New Form → copy the ID (e.g. xpzgkrjw)
+// You can use the same form ID as the contact form, or create a separate one for project briefs.
+const BRIEF_FORM_ID = 'YOUR_BRIEF_FORM_ID';
+
 document.getElementById('lead-intake-form')?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;
-  const btn  = form.querySelector('[type="submit"]');
-  const msg  = document.getElementById('form-status-msg');
+  const btn = form.querySelector('[type="submit"]');
+  const msg = document.getElementById('form-status-msg');
 
   btn.disabled = true;
   btn.innerHTML = '<span style="font-family:var(--font-mono);font-size:0.7rem">// transmitting...</span>';
 
   try {
-    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID_HERE', {
+    const res = await fetch(`https://formspree.io/f/${BRIEF_FORM_ID}`, {
       method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' },
     });
     if (res.ok) {

@@ -2,15 +2,15 @@
    PORTFOLIO LISTING PAGE — portfolio.js
 ═══════════════════════════════════════════════════════════ */
 
-const cards     = Array.from(document.querySelectorAll('.pf-card'));
-const tabs      = document.querySelectorAll('.bl-tab, .sidebar-cat-btn');
-const searchEl  = document.getElementById('pf-search');
-const countEl   = document.getElementById('pf-count');
-const emptyEl   = document.getElementById('pf-empty');
+const cards = Array.from(document.querySelectorAll('.pf-card'));
+const tabs = document.querySelectorAll('.bl-tab, .sidebar-cat-btn');
+const searchEl = document.getElementById('pf-search');
+const countEl = document.getElementById('pf-count');
+const emptyEl = document.getElementById('pf-empty');
 const emptyTerm = document.getElementById('pf-empty-term');
-const clearBtn  = document.getElementById('pf-clear');
+const clearBtn = document.getElementById('pf-clear');
 
-let activeCat   = 'all';
+let activeCat = 'all';
 let searchQuery = '';
 
 /* ── FILTER ENGINE ────────────────────────────────────────── */
@@ -18,24 +18,24 @@ function filterCards() {
   let visible = 0;
 
   cards.forEach((card, i) => {
-    const cats  = card.dataset.cat   || '';
+    const cats = card.dataset.cat || '';
     const title = card.dataset.title || '';
 
-    const catMatch    = activeCat === 'all' || cats.split(' ').includes(activeCat);
+    const catMatch = activeCat === 'all' || cats.split(' ').includes(activeCat);
     const searchMatch = !searchQuery || title.includes(searchQuery);
-    const show        = catMatch && searchMatch;
+    const show = catMatch && searchMatch;
 
     if (!show) {
       card.style.transition = 'opacity 0.18s, transform 0.18s';
-      card.style.opacity    = '0';
-      card.style.transform  = 'translateY(8px)';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(8px)';
       setTimeout(() => card.classList.add('hidden'), 180);
     } else {
       card.classList.remove('hidden');
       requestAnimationFrame(() => requestAnimationFrame(() => {
         card.style.transition = `opacity 0.38s ${i * 55}ms, transform 0.38s ${i * 55}ms`;
-        card.style.opacity    = '1';
-        card.style.transform  = 'translateY(0)';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
       }));
       visible++;
     }

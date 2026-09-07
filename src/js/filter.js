@@ -13,7 +13,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
       } else {
         item.style.display = '';
         setTimeout(() => {
-          item.style.transition = `opacity 0.35s ${i*50}ms, transform 0.35s ${i*50}ms`;
+          item.style.transition = `opacity 0.35s ${i * 50}ms, transform 0.35s ${i * 50}ms`;
           item.style.opacity = '1'; item.style.transform = 'scale(1)';
         }, 20);
       }
