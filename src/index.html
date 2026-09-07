@@ -43,7 +43,7 @@
       <a href="#home" class="nav-link active">Home</a>
       <a href="#about" class="nav-link">About</a>
       <a href="#services" class="nav-link">Services</a>
-      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
       <a href="#pricing" class="nav-link">Pricing</a>
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
@@ -63,7 +63,7 @@
     <a href="#home" class="mobile-nav-link">Home</a>
     <a href="#about" class="mobile-nav-link">About</a>
     <a href="#services" class="mobile-nav-link">Services</a>
-    <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+    <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
     <a href="#pricing" class="mobile-nav-link">Pricing</a>
     <a href="#contact" class="mobile-nav-link">Contact</a>
     <a href="#contact" class="btn btn-primary mobile-cta">Hire Me</a>
@@ -628,7 +628,7 @@
           <div>
             <p class="contact-info-label">PHONE</p>
             <!-- Replace with your real phone number -->
-            <a href="tel:+YOUR_PHONE_NUMBER" class="contact-info-value">+YOUR_PHONE_NUMBER</a>
+            <a href="tel:+919023314594" class="contact-info-value">+91 9023314594</a>
           </div>
         </div>
         <div class="contact-info-item">
@@ -658,31 +658,19 @@
 
       <!-- Right form -->
       <div class="contact-form-col reveal">
-        <div class="contact-form-card">
-          <h3 class="form-heading">SEND A MESSAGE</h3>
-          <p class="form-sub">Fill out the form below, and I'll get back to you within 24 hours.</p>
-          <div id="contact-status"></div>
-          <form id="contact-form" class="contact-form" novalidate>
-            <div class="form-group">
-              <input class="form-input" type="text" name="name" id="name" placeholder="YOUR NAME" required>
-            </div>
-            <div class="form-group">
-              <input class="form-input" type="email" name="email" id="email" placeholder="YOUR EMAIL" required>
-            </div>
-            <div class="form-group">
-              <textarea class="form-input form-textarea" name="message" id="message" placeholder="YOUR MESSAGE" rows="5" required></textarea>
-            </div>
-            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-            <button type="submit" class="btn btn-primary submit-btn">
-              <span class="btn-text">SEND MESSAGE</span>
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
-            </button>
-            <div class="form-trust">
-              <span>⚡ Quick Response</span>
-              <span>💬 Free Consultation</span>
-              <span>🔒 No Spam</span>
-            </div>
-          </form>
+        <div class="contact-form-card" style="padding:0;overflow:hidden;background:transparent;border:none;box-shadow:none;">
+          <iframe
+            data-tally-src="https://tally.so/embed/pbE7X1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="500"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Contact form"
+            id="tally-form-frame"
+            style="min-height:500px;"
+          ></iframe>
         </div>
       </div>
 
@@ -741,7 +729,7 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -765,7 +753,6 @@
         <h4 class="footer-col-title">GET IN TOUCH</h4>
         <div class="footer-contact-items">
           <a href="mailto:shrimaliuddhav@gmail.com" class="footer-contact-item">shrimaliuddhav@gmail.com</a>
-          <!-- PHONE: Replace href and text with your real number, e.g. href="tel:+919876543210" -->
           <a href="tel:+9023314594" class="footer-contact-item">+91 9023314594</a>
           <span class="footer-contact-item">Available Worldwide</span>
         </div>
@@ -784,5 +771,7 @@
 </footer>
 
 <script src="js/neo-main.js"></script>
+<!-- Tally form embed script — handles dynamic height and iframe initialization -->
+<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
