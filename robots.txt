@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://codeneo.dev/sitemap.xml
+# Abuse: block common crawlers if desired
+# Disallow: /admin/
