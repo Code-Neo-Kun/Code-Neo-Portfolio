@@ -1,0 +1,689 @@
+First Paying Client
+Field Manual
+
+1 — The audit
+2 — Sellable offers
+3 — Who to sell to
+4 — Positioning & copy
+5 — Your packages
+6 — Portfolio rebuild
+7 — First 100 prospects
+8 — Outreach scripts
+9 — The sales process
+10 — Objections
+11 — Closing & getting paid
+12 — 30-day plan
+13 — Tracker & metrics
+If I were you today
+Getting your first paying freelance client
+Built from what's actually on your portfolio, your two GitHub accounts, and your public work history — not from a template. Facts about your current profiles are marked separately from my recommendations throughout.
+
+Read this before anything else
+Your portfolio site is, right now, the single biggest threat to your ability to win a client — not because it looks bad, but because it contains fabricated work and unfinished template placeholders side by side. Any prospect who looks closely will conclude you invented your experience. Sending traffic to it in its current state is worse than having no site at all.
+
+Do not send a single outreach message until Day 3 of the plan in this document. You need about 12 focused hours of cleanup first. The good news: you have genuinely strong material to replace the fake stuff with.
+
+Step 1
+Analyzing you
+What I could and couldn't see
+I read your portfolio site (home page and the portfolio/case-study index), both GitHub accounts, and your ToolNest live site in full. LinkedIn blocks automated access, so I could not read your headline, About section, or post history directly. Public third-party business directories list you as a Web Developer (previously WordPress Developer) at iSpark IT Services in Ahmedabad, with earlier time at Xipra Technology, and a Computer Engineering degree from GTU (2020–2023). Everything I say about LinkedIn below is a recommendation, not an assessment — paste me your headline and About section and I'll audit them properly.
+
+Facts: what your profiles currently claim
+Portfolio home page — "250+ Projects", "3+ Years Exp.", "~100% Satisfaction", "30+ Clients". Tech row: WordPress, Shopify, Webflow, Framer, HTML5, CSS3, JavaScript, React, PHP, Figma, MySQL, Laravel. Eleven separate services listed. Pricing: $799 / $1,299 / $2,499 packages, each including free domain and hosting setup.
+
+Portfolio/case-study page — "40+ Projects", "100% On-Time", "9 Categories", nine projects shown.
+
+GitHub (Code-Neo-Kun) — 21 repos. Bio: "Web Developer | Plugin Architect · WordPress • Shopify • PHP • JS · Exploring AI, automation & game development". Pinned/popular: WP-Job (PHP), job-portal (PHP, identical description to WP-Job), Shopify_Jag (Liquid), crm (TypeScript), cms (PHP), plus the profile config repo. Profile README is the standard generated "About Me / Tech Stack badges / Stats" template.
+
+GitHub (uddhavshrimali) — 8 repos: portfolio, web ("simple website"), java ("All Java Program"), WordPress-, mayu ("simple website"), managing ("php project"). Bio: "Front-End Dev by Day, Game Dev by Night". This reads as a student-era account.
+
+Facts: the specific problems I found
+These are not opinions. These are things a prospect can verify in sixty seconds.
+
+1. Eight of your nine portfolio projects appear to be fabricated
+Eight project cards use Unsplash stock photography as the project image (images.unsplash.com/photo-1441986300917-... and similar). None of them link to a live site. None name a client. And each carries precise performance metrics: "+40% GMV Growth", "12 Vendors", "99.9% Uptime", "+28% Conversion", "4.7% CVR", "–38% Bounce Rate", "0.9s LCP", "500+ Listings", "3× More Leads", "10k+ Records/Day", "0 Failures". The page states: "Every project here is a real problem I solved for a real client."
+
+A stock photo of a fashion model captioned as a WooCommerce marketplace you built, with an invented GMV figure attached, is the exact pattern every agency owner has been burned by. The one project that is verifiably real — ToolNest — gets buried among eight that aren't.
+
+2. Unreplaced template placeholders are live on the site
+Footer social links on both pages point to github.com/YOUR_GITHUB_USERNAME, linkedin.com/in/YOUR_LINKEDIN_USERNAME, twitter.com/YOUR_TWITTER_HANDLE.
+The portfolio page footer lists hello@codeneo.dev and a phone link of tel:+YOUR_PHONE_NUMBER.
+Open Graph and Twitter meta tags across both pages point at https://codeneo.dev/og-image.png — a domain you aren't serving the site from. Your link previews on LinkedIn and WhatsApp are almost certainly broken.
+Placeholder text left in production on a web developer's own site is the loudest possible signal about how you'll treat a client's site.
+
+3. Your numbers contradict each other
+"250+ Projects" on the home page, "40+ Projects" on the portfolio page, nine actually shown. "3+ Years Exp." with "30+ Clients" and "250+ Projects" implies roughly 83 projects a year — more than one delivered every four working days. Copyright is 2026 in one footer and 2025 in the other. Three different contact emails exist across your properties (shrimaliuddhav@gmail.com, hello@codeneo.dev, neokun007@gmail.com on GitHub).
+
+4. Your pricing doesn't match your evidence
+You're asking $799–$2,499 with free domain and hosting bundled in. That's a credible mid-market agency price, and I think you can get there — but only with proof. Right now a buyer sees $2,499 next to stock photos. Worse, "free domain and hosting" makes you liable for someone else's infrastructure for a year on a one-time fee, and it attracts exactly the price-shopping client you don't want.
+
+5. You're presenting as a generalist in a market full of generalists
+Eleven services, twelve technologies, "Turning ideas into stunning websites." WordPress, Shopify, Webflow, Framer, React, Laravel. There is nothing here that says "hire this person rather than any of the four thousand other WordPress freelancers in Ahmedabad." And your headline offer — cheap small-business websites — is the single most crowded, most price-compressed, most Fiverr-eroded corner of this market.
+
+6. Your GitHub undersells you badly
+Two accounts split your identity. Repo descriptions are absent or thin ("php project", "simple website"), and two repos carry the same description with a grammar error ("plugin that help you to create job post"). The profile README is the generated badge template — C, C#, C++, Java, Python, Oracle, Blender, Unity — which dilutes rather than concentrates. The social and donation badges are broken (the URLs contain spaces). Nothing on GitHub tells a visiting agency owner "this person writes maintainable, standards-compliant WordPress plugin code," which is the thing that would actually get you hired.
+
+What is genuinely strong — and you're hiding it
+ToolNest is your best asset and it's listed ninth. I loaded it: 67 live tools across PDF, image, text, developer, SEO, utility and finance categories, Next.js, fully client-side, no uploads to a server, real SEO metadata, real blog, real privacy and terms pages. You shipped and maintain a real product with real users. That is more than most freelancers with five years of experience can show. It should be the first thing on your site, not the last.
+
+Your plugin work is the real differentiator. From what you've built: an OTP/verification plugin with auto-detection across five form builders and a modular integration architecture; a WCAG 2.1 AA accessibility plugin with preset modes and colour-blind SVG filters built on CSS custom properties to survive theme specificity conflicts; a CSV exporter taken through multiple PHPCS and WCAG compliance rounds, handling WP_Filesystem, embedded newlines in CSV parsing, and MIME-type validation on upload; a modular WooCommerce analytics plugin; a lead CRM plus cost-estimation calculator refactored from monolith to multi-file OOP for an interior design firm; a Danish booking system audited and patched across four versions including a third-party motor API integration inside Bricks Builder; a WooCommerce sticky add-to-cart bar with full lifecycle event sync and a mobile-only init/destroy pattern; and a website redesign with a full visual design guide for a US-based cleaning company.
+
+Your honest profile
+Experience level	Roughly 3 years professional, agency-employed. You are not a beginner developer. You are a beginner seller. Those are completely different problems and the distinction should shape everything you do.
+Core technical skills	PHP 8 with PSR-4, OOP and SOLID; WordPress plugin architecture (service/repository layers, REST endpoints, WP-Cron, custom tables, migrations, clean uninstall); WooCommerce internals and lifecycle hooks; WordPress Coding Standards and PHPCS discipline; MySQL; vanilla JS and jQuery; React/Next.js/TypeScript; Elementor and Bricks Builder; WCAG 2.1 AA accessibility; third-party API and payment integration.
+Most monetizable	Custom WordPress and WooCommerce plugin development. This is the narrowest, least-crowded, highest-margin thing you can do that page-builder freelancers physically cannot.
+Strengths	You ship complete things, not demos. You think in architecture and modules rather than one-off hacks. You work to standards (PHPCS, WCAG) that most WordPress freelancers ignore. You've debugged other people's broken systems, which is a separate and valuable skill. You've handled Western clients through your employer — US, Dutch, Danish — so timezone and communication norms aren't new to you.
+Gaps	Zero public proof under your own name. No client testimonials, no reviews, no case studies with verifiable outcomes. No public presence where buyers gather. No sales experience — no discovery calls, no proposals sent, no price defended. Written English on your public profiles has small errors that cost credibility with Western buyers. You've never run the commercial side: scope, contract, deposit, invoice, chasing payment.
+Client-ready?	No — today. Yes — after roughly 12 hours of honest rebuilding. The raw material is there. The presentation is actively working against you.
+What makes you different	Most people entering freelance WordPress can assemble a theme. You can write a production plugin that passes coding standards, survives a theme's CSS specificity war, syncs with a third-party API, and uninstalls cleanly. Agencies pay a premium for that person because they can't hire them locally at your rate. That is your entire wedge.
+What to fix before you contact anyone
+Delete all eight fabricated case studies. Every one.
+Replace the four placeholder URLs and the placeholder phone number; fix the OG image path; pick one email address and use it everywhere.
+Remove "250+ Projects", "40+ Projects", "30+ Clients", "~100% Satisfaction", "100% On-Time". Keep "3+ years" — that one's true.
+Cut eleven services down to three.
+Replace the three pricing packages (see Step 5).
+Move ToolNest to the top with a live link and a screenshot.
+Rewrite the GitHub bio and the top six repo descriptions; retire or privatize the second account.
+Run every line of public copy through a grammar check.
+On showing employer work: several of your strongest builds were done at iSpark for their clients. Before you publish anything about them, check your employment terms. The safe default that almost always works: describe the problem and the technical solution in your own words, name no client, show no client branding, show code only from plugins you personally own the rights to. "Built a WooCommerce analytics module with per-module toggles and automated insight generation" is safe. "Built X for Design Jadugar" may not be. When in doubt, build a clean-room demo instead (Step 6).
+
+Step 2
+Your realistic sellable offers
+Five offers, ranked by how likely each is to produce your first payment. The first two are where I want your energy.
+
+Offer 1 — WordPress & WooCommerce custom functionality (white-label for agencies)
+What you sell A named piece of custom functionality a plugin can't do off the shelf: a checkout field that behaves a specific way, a booking flow, an OTP gate on a form, a CSV import/export pipeline, a data sync between WordPress and a CRM, a calculator that generates quotes, a custom admin report.
+
+Who buys Small Western web agencies (1–10 people) and solo web studios who sell WordPress sites but have no PHP developer on staff.
+
+Problem solved They've promised a client something Elementor can't do, and their options are refuse the work, hire a full-time dev, or find someone like you. They need it invisible, on time, and clean enough that they can maintain it later.
+
+Ideal client An agency owner who does sales and design, outsources development, and works in USD/GBP/EUR. Repeat business is the norm — one good job becomes a standing relationship.
+
+Where to find LinkedIn (title "founder"/"owner" + "web design agency"), Clutch and DesignRush directories, the WordPress/Elementor/Bricks Facebook groups, r/webdev and r/agency, Upwork agency accounts, WordCamp attendee and speaker lists.
+
+Scope 1–3 weeks, one feature, defined inputs and outputs.
+
+Package as Fixed-scope "feature build" with a written spec, or an hourly white-label retainer once trust exists.
+
+Beginner price $350–$900 fixed per feature, or $18–$28/hour. Do not go below $15/hr — it signals the wrong thing and attracts the wrong buyer.
+
+Proof needed One public plugin repo with a proper README, standards-compliant code, and a demo GIF. That's it. Agency owners read code. They don't read testimonials.
+
+Offer 2 — The WordPress rescue: paid diagnostic then fix
+What you sell A paid diagnostic on a broken, slow, or insecure WordPress/WooCommerce site — a short written report naming exactly what's wrong and what each fix costs — followed by the fix itself.
+
+Who buys Business owners whose site broke after an update, got slow, started throwing checkout errors, or whose previous developer disappeared.
+
+Problem solved They're losing orders or bookings today and don't know who to trust. They've been burned by cheap developers who made things worse.
+
+Ideal client A WooCommerce store or a service business doing real revenue through the site, where downtime costs money. Painkiller, not vitamin.
+
+Where to find Facebook groups for WooCommerce and WordPress (people post "help, my site is broken" daily), r/Wordpress and r/woocommerce, the WordPress.org support forums, Upwork jobs tagged urgent.
+
+Scope Diagnostic in 48 hours; fix typically 2–10 days.
+
+Package as Paid audit as a standalone product. This is your single best first-sale mechanism — it's a small, low-risk yes, and it puts money in your account within 72 hours of a conversation starting.
+
+Beginner price Audit $75–$125 (credited against the fix). Fix $250–$900 depending on scope.
+
+Proof needed One anonymized sample audit PDF you write yourself against a real site. That is the portfolio piece.
+
+Offer 3 — WooCommerce store operations & reporting
+What you sell Custom admin reporting, data exports, order-processing automation. Concretely: "stop exporting orders by hand every Monday."
+
+Who buys WooCommerce stores doing $10k–$100k/month where someone spends hours a week on manual spreadsheet work.
+
+Problem solved Staff hours burned on a task a plugin could do. Easy to put a number on, which makes it easy to sell.
+
+Where to find WooCommerce Facebook groups, Shopify-to-Woo migration discussions, LinkedIn e-commerce manager titles, Upwork.
+
+Scope 1–2 weeks. Price $300–$800.
+
+Proof needed Your analytics module work, presented as a clean-room demo on your own store install.
+
+Offer 4 — Accessibility compliance for WordPress (niche, growing, underserved)
+What you sell A WCAG 2.1 AA audit and remediation on a WordPress site.
+
+Who buys Agencies with public-sector, education, healthcare or EU clients; businesses that received a demand letter or a compliance requirement. The European Accessibility Act has made this a live purchase decision for a lot of European businesses.
+
+Why you You've built a WCAG 2.1 AA plugin with colour-blind SVG filters and preset modes. Almost no WordPress freelancer can say that. This is the thinnest competition of any offer here.
+
+Scope Audit 3–5 days, remediation 1–3 weeks. Price Audit $150–$300, remediation $500–$1,500.
+
+Proof needed A public accessibility audit you write on a volunteer site — a local NGO, a school. Ask nothing in return but permission to publish it.
+
+Offer 5 — Local Ahmedabad businesses (your fallback, not your strategy)
+What you sell Complete websites for local clinics, gyms, coaching centres, boutiques.
+
+Honest assessment Fastest path to a payment, worst path to a business. Rates are ₹15,000–₹50,000, the sales cycle involves in-person meetings and haggling, and you'll be maintaining their hosting forever. Take it if you need a first testimonial fast and a warm introduction appears. Don't build your positioning around it — and note that it puts you in direct competition with your own employer.
+
+Step 3
+Your ideal client
+Here's what the candidate client types actually look like for you, and why I'm picking the one I'm picking.
+
+Client type	Their problem	Fit for you
+Small web agencies	More work than developers; can't do custom PHP; need invisible, reliable overflow capacity	Best. Repeat work, they speak dev, no hand-holding, they judge you on code
+WooCommerce store owners	Broken checkout, slow site, manual data work, missing reports	Strong. Urgent, budgeted, measurable
+Plugin / theme companies	Support backlog, feature overflow, compatibility bugs	Strong but slower to break into; excellent long-term
+SaaS startups	Marketing site, integrations	Weak. They want React/Node, rarely WordPress, and they want a track record
+Coaches / consultants	Funnel, booking, payments	Medium. Low budgets, heavy scope creep, lots of emotional involvement in design
+Local businesses	No site or an outdated one	Medium. Low rates, high effort, but easy first testimonial
+Your Ideal Client Profile
+Primary ICP — the small Western WordPress agency
+
+Who: Owner or technical lead of a 1–10 person web design agency or solo studio
+Where: US, UK, Canada, Australia, Netherlands, Germany, Nordics (your employer already serves this market, so the working patterns are familiar)
+Revenue: $150k–$1.5M/year; project budgets $2,000–$15,000
+Stack: WordPress with Elementor, Bricks, or a custom theme; sometimes WooCommerce
+Team: Designers and marketers, no in-house PHP developer
+Trigger to buy: They just sold a project containing something they can't build; or a client's site broke and they're firefighting
+Where they hang out: LinkedIn, agency-owner Facebook groups, Slack/Discord communities, WordCamps, Clutch profiles
+Buys: $400–$2,000 per project, repeatedly, once trust is set
+Decision maker: The owner. One person. Usually decides in under a week.
+Objection they'll raise: "How do I know you'll actually deliver and not vanish?" — which is exactly why the paid diagnostic and the public code repo are your answers.
+Secondary ICP: WooCommerce store owner, $10k–$100k monthly revenue, 5–50 employees, already spending on plugins, with one specific operational bottleneck they can describe in a sentence.
+
+Step 4
+Positioning and rewritten copy
+Everything below is written to one idea: you are the developer agencies call when WordPress needs to do something WordPress doesn't do. Not a website builder. A problem solver with PHP.
+
+LinkedIn headline
+Pick one. The first is my recommendation.
+
+WordPress & WooCommerce developer — I build the custom plugins and integrations page builders can't handle. White-label work for agencies.
+
+I fix broken WooCommerce stores and build custom WordPress functionality. PHP · WooCommerce · REST APIs · Accessibility.
+
+Custom WordPress plugin developer · WooCommerce integrations · Agency white-label · Ahmedabad → working with agencies in the US & EU
+
+LinkedIn About section
+Replace your current About with this, adjusting anything I've stated that isn't accurate.
+Most WordPress problems aren't design problems. They're the moment a client asks for something the page builder can't do — a booking flow with its own rules, a checkout that behaves differently for wholesale customers, a sync between WordPress and their CRM, an export nobody wants to build by hand every Monday.
+
+That's the work I do.
+
+I'm a WordPress and WooCommerce developer with three years of professional experience, mostly building custom plugins in PHP 8 — PSR-4, OOP, WordPress Coding Standards, code that another developer can pick up and maintain after I'm gone.
+
+Things I've built: an OTP verification plugin that auto-detects five different form builders; a WCAG 2.1 AA accessibility plugin with preset modes and colour-blind filters; a modular WooCommerce analytics system; a lead CRM with a quote calculator for an interior design firm; a booking system integrated with a third-party vehicle API. I also built and run ToolNest, 67 free browser-based tools built in Next.js — no signup, no server uploads.
+
+I work white-label with agencies who sell WordPress but don't have a PHP developer on the team, and directly with WooCommerce store owners who need something specific built or something broken fixed.
+
+If you've got a WordPress problem you've been told is "not possible," send me the details — I'll tell you honestly whether it is.
+
+Portfolio site introduction (replaces your hero)
+Headline: WordPress that does what your client actually asked for
+
+Subhead: I build custom WordPress and WooCommerce plugins, integrations, and fixes — the work that page builders can't reach. Three years of production PHP. Agencies welcome.
+
+Buttons: See how I work · Book a 20-minute call
+
+Note what's gone: "stunning", "high-converting", "dream website", "transform your vision". Every one of those words appears on ten thousand freelancer sites and communicates nothing.
+
+Freelance bio (Upwork / marketplaces / directories, ~100 words)
+WordPress and WooCommerce developer, 3 years professional, specialising in custom plugins and integrations — the things off-the-shelf plugins and page builders can't do. I write PHP 8 to WordPress Coding Standards: PSR-4, OOP, clean uninstall, code your next developer won't curse. Recent work includes an OTP verification plugin supporting five form builders, a WCAG 2.1 AA accessibility plugin, a WooCommerce analytics module, and a booking system integrated with a third-party API. I also built ToolNest, a 67-tool web app in Next.js. I work well white-label with agencies. Send me the problem and I'll tell you what it takes.
+
+Short personal pitch (for calls, DMs, and "so what do you do?")
+"I'm a WordPress developer, but specifically the custom side — plugins and integrations. Agencies usually call me when a client asks for something their page builder can't do, or when a WooCommerce store breaks and nobody can work out why."
+
+Your three services (cut from eleven)
+Custom plugin development — Functionality that doesn't exist off the shelf: booking flows, calculators, custom checkout behaviour, admin reporting, third-party integrations. Built as a proper plugin, not theme-file hacks, so it survives your next theme change.
+
+WooCommerce integrations & automation — Connect your store to the systems you already use. Payment gateways, CRM sync, automated exports, order-processing workflows. Stop doing by hand what the store could do by itself.
+
+Site rescue & performance — Broken after an update, slow, insecure, or abandoned by the last developer. I start with a paid diagnostic so you know exactly what's wrong and what each fix costs before you commit to anything.
+
+GitHub
+Bio: "WordPress & WooCommerce plugin developer · PHP 8, PSR-4, WP Coding Standards · Building ToolNest"
+
+Actions: Retire or make private the uddhavshrimali account — a second profile full of "simple website" and "All Java Program" repos halves your credibility. Pin exactly six repos, each with a real description, a real README, installation steps, a screenshot or GIF, and a licence. Delete or privatize duplicates like WP-Job/job-portal. Replace the badge-wall README with about eight lines: what you build, who you build it for, three pinned projects, how to reach you.
+
+Upwork and Fiverr
+Upwork — worth it, with a narrow filter. Apply only to jobs mentioning "custom plugin", "WooCommerce customization", "fix WordPress", "PHP developer WordPress". Skip anything asking for a full site build; you'll be underbid by agencies with 200 reviews. Expect 8–12 proposals per interview and 3–4 interviews per contract while you have no reviews. Budget 60 Connects/month. Your first two contracts exist to buy reviews — price them at the low end deliberately, then raise.
+
+Fiverr — set it up, don't rely on it. One gig, tightly scoped: "I will fix your WordPress or WooCommerce error." Basic $40 / Standard $90 / Premium $180. It's a passive lead source and a place to point people who want to pay with a card and no contract. It will not build the business.
+
+Also worth 30 minutes each: Codeable (WordPress-only, curated, high rates, has an entrance exam — apply once you have public repos), and your own listing on the WordPress.org support forums answering questions in the plugin development sub-forum.
+
+Step 5
+Your packages
+Three packages. Two are entry points designed to make saying yes easy, and one is the real project. Every price here assumes zero reviews; raise by 30–50% after your third paid job.
+
+Package A — Site Diagnostic $95
+For Anyone with a WordPress or WooCommerce site that's slow, broken, insecure, or inherited from a developer who's gone.
+
+Includes Full technical audit: performance and Core Web Vitals, plugin conflicts and abandoned plugins, security exposure, error log review, WooCommerce checkout flow check, mobile and accessibility spot-check.
+
+Deliverable A written PDF report — every issue found, ranked by business impact, each with a plain-English explanation of the consequence, a fix, and a fixed price. Plus a 20-minute call to walk through it.
+
+Timeline 48 hours. Revisions N/A — one follow-up call for questions.
+
+Add-ons Competitor comparison +$40. Staging-site setup +$60.
+
+How you explain the value "You don't have to trust me yet. Pay me ninety-five dollars, get a report that tells you exactly what's wrong with your site and what each fix costs. If you want me to do the fixes, I take the ninety-five off the price. If you want to hand the report to your own developer, that's completely fine — it's yours."
+
+Why this exists It converts a stranger into a paying customer at a price nobody needs to think hard about. It is the highest-leverage single item in this document.
+
+Package B — Custom Feature Build $450–$900
+For Agencies and store owners who need one specific piece of functionality that doesn't exist off the shelf.
+
+Includes A written spec you sign off before I start. Development as a proper standalone plugin, PHP 8, PSR-4, WordPress Coding Standards. Testing on a staging site. Deployment. A short handover document. 30 days of bug support after launch.
+
+Deliverables The plugin (source included, you own it), handover doc, a screen recording of it working.
+
+Timeline 7–14 days depending on scope. Revisions Two rounds within the signed spec. Anything outside the spec is quoted separately — that's how we both stay honest.
+
+Add-ons Rush delivery (half the timeline) +40%. Extended support, 3 months +$120. Admin settings UI +$150. Multisite compatibility +$200.
+
+How you explain the value "Building it as a plugin instead of dropping code into the theme means it survives your next theme change and the next developer can read it. That's why it's $600 and not $200 — you're paying for it to still work in two years."
+
+Package C — WooCommerce Rescue & Optimization $650
+For WooCommerce stores that are slow, losing orders, or throwing errors at checkout.
+
+Includes Everything in the diagnostic, plus the fixes: plugin conflicts resolved, checkout flow debugged and tested end to end, database cleaned, caching and image optimization configured, Core Web Vitals work, security hardening, a backup system set up.
+
+Deliverables Before/after PageSpeed and Core Web Vitals numbers, a list of every change made, a 15-minute handover recording.
+
+Timeline 10–14 days. Revisions Unlimited on the listed items for 14 days after delivery.
+
+Add-ons Monthly care plan $120/month (updates, backups, uptime monitoring, 1 hour of changes). Ongoing CRO work quoted separately.
+
+How you explain the value "If your store does thirty thousand a month and checkout is failing for even three percent of customers, that's nine hundred dollars a month walking out. The fix is a one-time six-fifty."
+
+Three pricing rules. One: never bundle free domain and hosting into a one-time fee — you're taking on a year of liability and attracting the buyer who'll call you at midnight about their email. Two: your $2,499 tier can come back, but only once you have three named clients who'll vouch for you. Three: quote in USD for Western clients and INR for local ones, and never let a Western client see the INR number.
+
+Step 6
+Rebuilding your portfolio
+Remove entirely
+All eight stock-photo case studies: E-Commerce Fashion Store, Business Consulting Website, Shopify Fashion Brand Storefront, CRM ↔ WordPress REST API Sync Plugin, Real Estate Agency Website, High-Converting Ad Landing Page, Custom WooCommerce Payment Gateway, Luxury Jewelry Shopify Store. Also remove: all project-count and satisfaction statistics, the Shopify/Webflow/Framer/Laravel logos unless you'd genuinely take that work tomorrow, and eight of the eleven services.
+
+I know deleting your portfolio down to one project feels like going backwards. It isn't. One verifiable project beats nine unverifiable ones, every time. Three real ones beat anything.
+
+Showcase
+ToolNest, first and largest. Live link, real screenshots, and the honest story: 67 tools, Next.js/React/TypeScript, entirely client-side so no user file ever hits a server, built and maintained solo. Frame it as evidence, not as a client project: "Nobody paid me to build this. I built it because I wanted to know whether I could ship and maintain a real product on my own. It's been live and growing since."
+
+Build these three — they're your actual portfolio
+Each is 2–4 days of work, each is public, each maps directly to an offer, and each is 100% yours with no NDA question.
+
+Build 1 — A real open-source WordPress plugin (3 days)
+Solve one narrow, genuinely annoying problem. Good candidates: a WooCommerce "abandoned cart CSV export with recovery links" plugin; a "bulk edit WooCommerce product meta from a CSV" plugin; a "front-end order status lookup by email + order number" plugin. Requirements: clean PSR-4 structure, passes PHPCS against WordPress standards, settings page, proper uninstall, a real README with installation and screenshots, a licence, and a tagged release. Submit it to the WordPress.org plugin directory — the review process itself is a credential, and having a listed plugin puts you ahead of most freelancers on earth.
+
+Demonstrates: you write maintainable production PHP. Sells: Offer 1.
+
+Build 2 — A public sample audit (1 day)
+Find a real, slow, publicly accessible WordPress site — a local business, a small charity, anything. Run the full diagnostic. Write the report exactly as you'd deliver it to a paying client: PageSpeed and Core Web Vitals numbers, plugin conflicts, security exposure, accessibility failures, each with plain-English impact and a fixed price. Anonymize the site (call it "a 14-page WordPress site for a Seattle-area service business"). Publish the PDF on your site.
+
+Demonstrates: exactly what a buyer receives for $95. Sells: Package A — this document IS the sales asset, and it's the one I most want you to have finished.
+
+Build 3 — A recorded WooCommerce fix (2 days)
+Install a local WooCommerce store, deliberately break it (plugin conflict, slow query, checkout JS error), then record yourself finding and fixing it. Ten minutes, screen only, narrated. Put it on YouTube unlisted and embed it.
+
+Demonstrates: debugging ability and communication under pressure — the two things a nervous client is actually buying. Sells: Package C.
+
+Case study structure — use this exact shape for every project
+The situation — one sentence. "A WooCommerce store was manually exporting 400+ orders to a spreadsheet every Monday."
+The problem — what it cost them. Time, money, orders, risk.
+Constraints — what made it hard. This is the part everyone skips and it's the part that proves you were there.
+What I built — technical, specific, 3–5 sentences.
+The hard part — the one thing that nearly broke. "Theme CSS was overriding the plugin's styles, so I moved everything to CSS custom properties scoped to a container rather than fighting specificity." This single section is worth more than every metric on your current site.
+Result — measurable if you measured it, plain description if you didn't. Never invent a number. "Their Monday export went from two hours to one click" is stronger than "+40% GMV" precisely because it's obviously true.
+Stack — the list.
+Proof — live link, GitHub link, screenshot, or a 30-second GIF. Something clickable.
+For each project you need: one hero screenshot, 2–3 detail screenshots (admin UI, settings, output), one GIF or short video of it working. Screenshots of admin screens beat stock photography every single time — they're unfakeable, and buyers know it.
+
+Step 7
+Your first 100 prospects
+The goal is 100 qualified, researched prospects in your tracker within 10 days. Not 100 names — 100 people where you've written down a specific observation about their business.
+
+Channel	Target	How to find	Qualify on	Daily
+LinkedIn	Agency owners, 1–10 staff	Search "web design agency" AND ("WordPress" OR "Elementor"), filter People → Owner/Founder, target US/UK/CA/AU/NL	Posts about being busy, hiring, or client work; agency site runs WordPress	10 connects + 5 DMs
+Cold email	WooCommerce store owners	Find stores via BuiltWith free search or WooCommerce showcase; get email from the site's contact page, not a scraper	Site is measurably slow or broken — you must have a specific finding	10
+Facebook groups	People posting problems	"WordPress Help", "WooCommerce Help & Share", "Elementor Community", "Bricks Builder Official"	Anyone posting an error they can't solve	Answer 3 fully, free, no pitch
+Reddit	Same	r/Wordpress, r/woocommerce, r/webdev, r/agency — sort by New	Unanswered technical questions	2 substantive answers
+Upwork	Custom dev jobs only	Saved searches: "custom WordPress plugin", "WooCommerce customization", "fix WordPress site", "PHP WordPress developer"	Client has payment verified, hire rate above 50%, budget $300+	3 proposals
+Clutch / DesignRush	Small agencies	Filter: WordPress, under 10 employees, US/UK/AU	They sell WordPress but list no PHP/backend capability	5 added to list
+WP.org forums	Plugin developers	Plugin support sub-forums	Developers with a support backlog — a real hiring signal	2 helpful replies
+Local (Ahmedabad)	Businesses with weak sites	Google Maps, your own neighbourhood, wedding/clinic/gym listings	4+ star rating (they have customers) but a broken or missing site	3 walk-ins or calls/week
+Warm network	Ex-colleagues, batchmates, GTU alumni	Your own phone contacts and LinkedIn connections	Anyone who works at or knows an agency	3 messages — do this in week 1
+Referrals	After job #1	Ask at delivery, not at the end of the relationship	Any satisfied client	Ask every single time
+Daily volume that actually works: 10 LinkedIn connection requests, 5 LinkedIn DMs (to people who accepted earlier), 10 cold emails, 3 Upwork proposals, 5 helpful community answers, and all follow-ups due that day. That's roughly 2.5 focused hours and about 33 new touches a day. At that rate you hit 100 prospects in week two and you'll have had real conversations before week three. Your warm network is the highest-conversion channel on this list and most people skip it out of embarrassment — do it in week one.
+
+Step 8
+Outreach scripts
+Every script assumes you've spent 3–5 minutes on their site first and have one specific observation. Without that observation, don't send the message. The research is not a garnish; it's the whole thing.
+
+LinkedIn connection request (under 300 characters)
+To an agency owner
+Hi Marcus — saw Northline's work for the dental clients, the booking flow on the Ridgeway site is clean. I do custom WordPress plugin work white-label for agencies, mostly the stuff Elementor can't reach. Happy to connect either way.
+
+No ask. No pitch. The specific detail is what gets it accepted.
+
+LinkedIn DM (send 2–3 days after they accept)
+Thanks for connecting, Marcus.
+
+Quick context in case it's ever useful: I'm a WordPress/WooCommerce developer and I work white-label for agencies — custom plugins, integrations, the requests that come in where the honest answer is "the page builder can't do that."
+
+Recent example: an agency needed OTP verification on client forms but each client used a different form builder. I built one plugin that auto-detects five of them, so they deploy the same thing everywhere.
+
+Not pitching you on anything today. If a custom request lands on your desk and you'd rather not turn it down, I'm here. Want me to send over a couple of things I've built so you've got it on file?
+
+The close is deliberately tiny. "Want me to send something?" is a far easier yes than "can we jump on a call?"
+
+Cold email — the store owner version
+Subject: your checkout on mobile
+Hi Sarah,
+
+I was looking at kinfolkceramics.com and ran it through PageSpeed — your product pages are scoring 34 on mobile, with about 4.2 seconds to largest contentful paint. The main cause looks like uncompressed product images and three plugins loading on every page that only need to load on the shop pages.
+
+That's fixable in a few days. On a store your size it usually moves the needle on mobile conversion, because mobile shoppers leave at around the three-second mark.
+
+I do this for WooCommerce stores. If it's useful, I can send you a free one-page summary of what I found — no obligation, and you're welcome to hand it to whoever maintains the site.
+
+Want me to send it?
+Neo
+
+Note the structure: specific finding → why it costs them money → you can fix it → a free, low-friction next step. No introduction of yourself in paragraph one. Nobody cares who you are until you've shown you looked.
+
+Cold email — the agency version
+Subject: custom WordPress work, white-label
+Hi Daniel,
+
+Saw on Clutch that Beacon Lane does mostly WordPress builds for healthcare clients. Guessing you occasionally get asked for something a builder can't do — custom booking rules, a CRM sync, an intake form with conditional logic that actually holds up.
+
+That's what I do. Custom WordPress plugins in PHP 8, built to WordPress Coding Standards, white-label so it goes out under your name. Three years of it.
+
+Two things I've built, if you want to look at the code: [GitHub link] and [GitHub link].
+
+No pitch — just want to be the name you have on file when one of these lands. Worth a 15-minute call, or should I just send my rates?
+Neo
+
+Follow-up 1 — 4 days later
+Hi Sarah — following up on the mobile speed issue on your product pages. Still happy to send that one-page summary if it's useful. If now's not the time, just say so and I'll leave it there.
+
+Follow-up 2 — 7 days after that, lead with new value
+Hi Sarah — one more thing I noticed and then I'll stop.
+
+Your cart page loads a script from an abandoned-cart plugin that hasn't been updated in two years. Aside from the speed cost, unmaintained plugins are the most common way WooCommerce stores get compromised.
+
+Worth 15 minutes to walk through? Either way, that one's worth checking.
+
+Follow-up 3 — 10 days later, the close-the-loop
+Hi Sarah — I'll assume the timing isn't right and stop reaching out.
+
+If the site speed becomes a priority later, my details are below. Genuinely good luck with the store.
+
+This one gets replies surprisingly often, because it removes all pressure. But send it meaning it — if they don't respond, they come off your list.
+
+Instagram / X DM (short, for local businesses and small brands)
+Hi — quick note, your site's contact form is throwing an error on submit (tested it just now on mobile). Not sure if you knew. I do WordPress fixes, happy to tell you what's causing it either way.
+
+Upwork proposal
+Job: "Need custom WooCommerce plugin for wholesale pricing tiers"
+Three questions before I quote, because the answers change the build significantly:
+
+1. Should wholesale pricing apply per-product, per-category, or a global percentage off retail?
+2. Do wholesale customers self-register and await approval, or do you assign the role manually?
+3. Does this need to play nicely with coupons and existing sale prices, or override them?
+
+I ask because the usual failure with tiered pricing plugins is the interaction with sale prices — you get a customer seeing a wholesale price above the public sale price, which is an awkward support ticket.
+
+I'm a WordPress/WooCommerce developer, three years, mostly custom plugins in PHP 8 to WordPress Coding Standards. Related work: [GitHub link to a relevant plugin].
+
+Rough shape: 7–10 days, built as a standalone plugin so it survives theme changes, with an admin settings page and a full uninstall routine. I'll send a fixed quote once I have your answers.
+
+— Neo
+
+Why this wins: it opens with questions, not credentials. It shows you've thought about the failure mode they haven't hit yet. Most proposals on that job will open with "Dear Sir, I have 5 years experience in WordPress." Yours will be the only one that sounds like a developer thinking about their problem.
+
+Step 9
+The sales process
+Prospect → Reply → Discovery call → Proposal → Negotiation → Deposit → Contract → Project → Referral ask. Keep the whole thing under two weeks. Momentum dies fast.
+
+The moment they reply
+Respond within two hours if you possibly can — speed reads as competence. Answer whatever they asked, then propose the call with a specific, small frame:
+
+Happy to dig into this. Easiest thing is 20 minutes on a call — I'll ask enough questions to tell you honestly whether I'm the right fit and roughly what it would cost. If I'm not the right fit I'll say so. Does Thursday 4pm or Friday 11am your time work? (I'm in India, IST, but I hold evening hours so most US and UK times are fine.)
+
+Two options, never an open "when works for you?". Address the timezone before they worry about it.
+
+Discovery call — 20 to 30 minutes
+Your job on this call is to diagnose, not to pitch. You should talk about 30% of the time. Take notes visibly.
+
+Opening (60 seconds)
+"Thanks for making time. Here's what I'd like to do with the next twenty minutes: I'll ask you a bunch of questions about what's going on and what you're trying to achieve. At the end I'll tell you honestly whether I think I'm the right person, and if I am, roughly what it looks like and what it costs. If I'm not, I'll say that too and probably point you somewhere better. Sound okay? Great — so tell me what's happening."
+
+Understanding the business and the problem
+"Tell me about the business — what do you sell, and who to?"
+"Walk me through what's happening right now. When did it start?"
+"What's it costing you? Time, orders, money, stress?" (Make them say the number. It's the number your price will be compared against.)
+"What have you already tried?"
+"Who built the site originally, and are they still around?"
+"If this were solved tomorrow, what would be different for you?"
+"What happens if you do nothing for six months?"
+Budget — ask it directly, early, and without apology
+"Have you set a budget range for this?"
+
+If they say no, or bounce it back to you: "Fair enough. So you're not waiting on a proposal to find out — work like this typically runs between four hundred and a thousand dollars depending on scope. Is that in the range you were thinking, or well off?"
+
+If they flinch: "No problem — let me ask it the other way round. What would you be comfortable spending to make this go away?"
+
+Asking about money early is the single biggest difference between freelancers who make a living and freelancers who do a lot of free calls. Never spend two hours on a proposal for someone whose budget you haven't tested.
+
+Timeline and decision-making
+"When do you need this done, and is that date driven by something specific?"
+"Besides you, who else needs to sign off?"
+"How do you normally make a decision like this — is it you, or does it go past a partner?"
+"If I send you a proposal tomorrow, what's your process from there?"
+Are they serious? The signals
+Real	Not real
+Names a number, even a rough one	"Whatever's cheapest" / dodges budget three times
+Has a date and a reason for it	"No rush, whenever"
+Describes the problem in concrete detail	Vague, keeps changing what the problem is
+Gives you access, credentials, context	Won't share access before quoting
+Asks about your process and timeline	Only asks about price
+One decision maker on the call	"I'll have to check with a few people" and won't name them
+Has paid a developer before	Has only ever had a relative build it
+Two or more red flags: still be helpful, but don't invest hours in a proposal. Send a one-page quote instead.
+
+Transitioning into your offer
+"Okay, let me play back what I've heard so I know I've got it right. [Restate their problem in their own words, including the cost they named.] Is that fair? … Right. So here's what I'd do about that. [Two or three sentences on approach.] That's about [timeline], and it lands at [price]. How does that sit with you?"
+
+Then stop talking. Say the price and be silent. The silence after a number is unbearable and most beginners fill it by discounting themselves. Don't. Count to ten in your head if you have to.
+
+Asking for the sale
+"Do you want to go ahead?"
+
+Or, gentler and just as effective: "Want me to send this over as a proper proposal so you've got it in writing?"
+
+Or, my favourite for a first client: "What would need to be true for you to say yes to this?"
+
+Step 10
+Handling objections
+Two rules underneath every response below. First: never defend your price immediately — ask a question first, because "too expensive" almost always means "I don't yet understand what I'm getting." Second: being willing to walk away is the only real leverage a beginner has, so mean it when you use it.
+
+"You're too expensive."
+"That's fair — can I ask what you were expecting? … Okay. So the gap is about three hundred dollars. Two options. I can reduce the scope to fit your number — we'd drop the admin settings page and I'd configure it directly, which works fine but means you'd come back to me for changes. Or we keep the full scope and split it into two payments. Which would you rather?"
+
+You've moved from defending to problem-solving, and both options end in a sale. You never discounted.
+
+"I can find someone cheaper."
+"You definitely can — there are people on Fiverr doing this for fifty dollars, and sometimes that works out fine. The times it doesn't, it's usually because the code went into the theme instead of a plugin, so it disappeared at the next theme update, or nobody could read it afterwards. If your budget's fifty dollars, honestly go try it — worst case you come back. If you'd rather it be done once and stay done, that's what I'm quoting."
+
+No panic, no bad-mouthing, and you've handed them the mental image of the cheap version failing.
+
+"You don't have enough experience."
+"I've got three years professionally, but I'll be straight with you — I'm new to freelancing under my own name, so you won't find a wall of reviews. Here's how I'd de-risk it for you. Start with the ninety-five dollar diagnostic. You get a full written report either way. If the work's good, we carry on; if it isn't, you've lost ninety-five dollars and you've still got a useful document. And in the meantime, here's code I've written — [repo link]. Read it. It'll tell you more than any testimonial would."
+
+Never pretend to more experience than you have. Naming the gap first and immediately answering it is more persuasive than any claim.
+
+"Send me your portfolio."
+"Sure — quick question first so I send the relevant things rather than everything: is this for a WooCommerce build, a custom feature, or fixing something that's broken? … Perfect, sending two things that match. One's live, one's the source code."
+
+"Send me your portfolio" is usually a polite brush-off. Turning it into a question restarts the conversation.
+
+"I'll think about it."
+"Of course. What's the part you want to think about — is it the price, the timing, or whether I'm the right person? I ask because if it's something I can clear up now, that's easier than you sitting with it."
+
+Then genuinely accept the answer and set a specific next step: "Let's do this — I'll check in Thursday. If it's a no by then just tell me, it won't offend me."
+
+"Can you do it for free first?"
+"I don't do free builds — it tends to go badly for both sides. But I hear what you're actually asking, which is how do you know I'm any good before committing real money. So: the ninety-five dollar diagnostic. Small enough that it's not a real risk, and you get a document worth having regardless of what you do next. Fair?"
+
+Never work free. A free trial establishes that your work has no price, and the client who asks for it is the client who'll push on everything else.
+
+"Can you start now?"
+"I can start Monday. To lock that in I need two things — the fifty percent deposit and site access. Send those over today and Monday's yours. Want me to send the invoice now?"
+
+Urgency is a gift. Convert it immediately into a deposit — never into work started on a promise.
+
+"We already have a developer."
+"Good — that's usually a sign things are being looked after. I'm not trying to replace anyone. Where I usually fit is overflow: your developer's mid-project and something urgent comes in, or a job needs a specific WooCommerce or plugin skillset. Keep me on file for those. Can I send you one page with my rates and what I cover, so it's there if you ever need it?"
+
+This is a good outcome, not a rejection. Agencies with a developer are exactly your ICP — their developer gets overloaded.
+
+"I don't have a big budget."
+"Understood. What can you work with? … Okay, with three hundred I can't do the full build, but I can do [the specific narrower piece] which solves the most painful part. The rest we do later if it's worth it. Want me to scope that version?"
+
+Shrink the scope, never the rate. If you cut your rate once, that's your rate with them forever.
+
+"Can you guarantee results?"
+"I guarantee the work, not the market. So: I'll guarantee the plugin does exactly what the spec says, that it's tested, and that I'll fix any bug in it free for thirty days. What I won't do is promise you a revenue increase, because that depends on your traffic, your pricing, your product — things I don't control. Anyone who guarantees you a conversion number is guessing, and you should be wary of them."
+
+Refusing to over-promise is itself a trust signal, and it's the honest answer.
+
+Step 11
+Closing and getting paid
+Four closes that suit you
+The summary close. Restate their problem in their words, state your solution, state the price, ask "do you want to go ahead?" — works because they hear their own words back.
+
+The small-step close. "Let's start with the diagnostic and decide the rest from there." Lowest friction; the one I'd use for most first clients.
+
+The option close. "Two ways to do this: the full version at $850, or a reduced version at $500 that leaves out the settings UI. Which fits better?" — moves them from whether to which.
+
+The calendar close. "I've got capacity starting the 14th. If you want that slot, I need the deposit by Friday. Otherwise the next window is the 28th." Only use this when it's true.
+
+When and how to send a proposal
+Send within 24 hours of the call, always. One to two pages. Long proposals lose deals.
+
+What you told me — their problem, in their words, including the cost they named
+What I'll build — specific deliverables, bulleted
+What's not included — the most important section in the document; it's what stops scope creep before it starts
+Timeline — with named milestones
+Price — one number, payment terms stated
+What I need from you — access, content, sign-off points
+Next step — "Reply 'approved' and I'll send the invoice"
+Deposits and payment
+Under $500: 100% upfront. Small jobs aren't worth chasing.
+$500–$2,000: 50% deposit, 50% on delivery before you hand over final files.
+Over $2,000: 40% / 30% at midpoint / 30% on delivery.
+Never start without money in your account. Not "invoice sent" — money received. This rule has no exceptions and it's the one beginners break first.
+Receiving payment from abroad: Wise or Payoneer for USD/GBP/EUR (Wise usually has better rates); PayPal only if they insist, since fees are high; Razorpay or a direct bank transfer for Indian clients. Understand that exporting services from India has GST and FIRC implications — talk to a CA once before your income gets meaningful, not after.
+If a client goes quiet on a final payment: you hold the final deployment. Work stays on staging until paid. This is normal practice and you should say it upfront so it never feels like a threat later.
+Scope, revisions, and creep
+Scope creep is what will actually hurt you, far more than pricing. Three defences:
+
+A written spec, approved before you start. No spec, no start. Every deliverable listed, and an explicit "not included" list.
+Two revision rounds, defined. "A revision is a change to something in the spec. A new requirement is a new quote." Say this in the proposal, not the first time it happens.
+The change-order sentence. When they ask for something extra — and they will, usually framed as "just a small thing" — the reply is always: "Happy to do that. It's outside the original scope, so it'd be an extra [$X] and add [Y] days. Want me to add it?" Cheerful, never resentful, every single time. Clients respect it. The freelancers who get destroyed are the ones who say yes four times and explode on the fifth.
+Deadlines
+Add 30% buffer to whatever you honestly estimate, then commit to that. Deliver early and you're a hero; deliver late once and the relationship never fully recovers. Give milestone updates every 2–3 days even when there's nothing dramatic to report — silence is what makes clients anxious, and anxious clients micromanage.
+
+Step 12
+Your 30-day plan
+This assumes roughly 2–3 hours on weekdays and 5–6 on weekends around your job. No outreach happens before Day 5 — you'd be burning prospects on a broken site.
+
+Week 1 — Stop the bleeding, build the proof
+Day	Do this	Target
+1	Delete all 8 fake case studies. Remove all fabricated stats. Fix 4 placeholder URLs, placeholder phone, OG image path. Consolidate to one email.	Zero fabricated content live
+2	Rewrite hero, About, and services (11 → 3). Replace pricing with Packages A/B/C. Put ToolNest first with a live link and 3 screenshots.	Site honest and specific
+3	GitHub: new bio, pin 6 repos, write real descriptions and READMEs for each. Delete or privatize duplicates. Retire the second account.	6 pinned repos, real READMEs
+4	Rewrite LinkedIn headline + About. Add a banner. Set "Open to" freelance. Message 5 ex-colleagues asking if they know agencies needing overflow dev.	5 warm messages sent
+5	Build 2: write the sample audit on a real public site. Full report, anonymized, as a PDF.	Audit PDF published
+6	Set up: Google Sheet tracker, Calendly, Wise/Payoneer, proposal template, contract template, email signature.	Infrastructure done
+7	Research 25 prospects into the tracker with a specific observation for each. No messages yet.	25 researched
+Week 2 — Start talking to people
+Day	Do this	Target
+8	First outreach day. LinkedIn connects + cold emails. Answer 3 community questions.	10 connects, 5 emails, 3 answers
+9	Outreach. Start Build 1 (the open-source plugin) — scope and scaffold.	10 connects, 10 emails, plugin scaffolded
+10	Outreach. Build 1 core functionality. First Upwork proposals.	10 connects, 10 emails, 3 proposals
+11	Outreach + first follow-ups due. Build 1 continues.	10 connects, 10 emails, all follow-ups
+12	Outreach. Finish Build 1: README, screenshots, tagged release. Publish.	Plugin public
+13	Research 40 more prospects. Submit plugin to WordPress.org. Post about it on LinkedIn.	65 total prospects
+14	Review: count sent, replies, rate. Rewrite the worst-performing script. Rehearse the discovery call out loud twice.	Metrics logged
+Week 3 — Conversations into calls
+Day	Do this	Target
+15–19	Daily rhythm: 10 LinkedIn connects, 5 DMs, 10 cold emails, 3 Upwork proposals, 5 community answers, every follow-up due. Take every call offered within 48 hours.	~33 touches/day; 2+ calls booked this week
+16	Additionally: Build 3 — record the WooCommerce debugging video. Publish and embed.	Video live
+18	Additionally: send your first real proposal. Same day as the call.	1+ proposal sent
+20	Research 35 more prospects to reach 100. Ask me to role-play any objection that caught you out this week.	100 prospects total
+21	Review: full metrics. Which channel produced replies? Double it next week, cut the weakest.	Channel decision made
+Week 4 — Close
+Day	Do this	Target
+22–26	Same daily rhythm, weighted to whatever worked. Every proposal followed up within 3 days. Every "thinking about it" gets the direct question.	3+ proposals out, 3+ calls
+23	Additionally: re-contact everyone who went quiet in weeks 2–3 with the new-value follow-up.	Full re-engagement pass
+25	Additionally: write and publish one technical post — "How I built [plugin]" — on LinkedIn and Dev.to. This is proof, not branding.	1 post published
+27	Deliver any won work. Over-communicate. Ask for a testimonial and a referral at handover.	Testimonial requested
+28	Go through every "no" and every non-reply. Some are now warm. Send the soft close-the-loop.	Full list cleared
+29	Update the portfolio with anything delivered. Raise prices 20% if you've closed one.	Site current
+30	Full review. Contacted, replies, calls, proposals, closes, revenue. Then set month 2 targets from real numbers instead of guesses.	Month 2 plan written
+By Day 30, if you hit the targets: roughly 250–350 prospects contacted, 25–45 replies, 5–10 discovery calls, 3–6 proposals. Whether that closes into paid work depends on your market, your execution, and luck — I can't promise you a client by any date, and anyone who does is selling you something. What I can tell you is that at those volumes you'll have real data about what's working, which is the thing that actually compounds.
+
+Step 13
+Your tracker
+One Google Sheet. Three tabs: Prospects, Pipeline, Weekly Metrics.
+
+Tab 1 — Prospects
+Column	What goes in it
+Name	First and last
+Company	Business name
+Website	URL
+Type	Agency / Store / Plugin co. / Local
+Email	Direct if possible, not info@
+LinkedIn	Profile URL
+Problem identified	The most important column. The specific thing you found. If it's blank, don't contact them.
+Service offered	Which package
+Channel	Where you found them
+Date contacted	Date
+Follow-up date	Auto: +4 days, then +7, then +10
+Response	None / Not now / Interested / Referred / No
+Call booked	Y/N + date
+Proposal sent	Y/N + date
+Price quoted	Amount
+Status	New / Contacted / Following up / In conversation / Call booked / Proposal out / Won / Lost / Dead
+Reason lost	Price / Timing / Trust / Went elsewhere / Ghosted / Not a fit
+Next action	One verb and a date. "Send follow-up 2 — Oct 14"
+Notes	Anything personal they mentioned. Use it later.
+Conditional formatting: Won green, Lost grey, and any row where the follow-up date is today or earlier turns red. Sort by that column every morning — it becomes your to-do list.
+
+Tab 2 — Pipeline
+Only rows at "In conversation" or beyond. Columns: Name, Company, Stage, Value, Probability (25% in conversation / 50% call done / 75% proposal out / 90% verbally agreed), Weighted value, Next action, Next action date, Days since last contact. When "days since last contact" passes 5, you act.
+
+Tab 3 — Weekly metrics
+Metric	Formula	Healthy for a beginner
+Prospects contacted	Count this week	100–150
+Response rate	Replies ÷ contacted	8–15% — below 5% means your research or your opening line is too generic
+Positive response rate	Interested ÷ contacted	2–5%
+Calls booked	Count	1–3/week by week 3
+Call → proposal	Proposals ÷ calls	Above 60% — below that you're not qualifying on the call
+Proposals sent	Count	1–2/week by week 4
+Close rate	Won ÷ proposals	20–35% starting out
+Average project value	Revenue ÷ jobs won	Track it and push it up every quarter
+Revenue	Received, not invoiced	The only number that's real
+Follow-ups sent	Count	Should be 1.5–2× new contacts — most deals live in follow-up
+How to read these: low response rate is a message problem. Good response but no calls is a credibility problem — fix the portfolio. Calls but no proposals means you're not qualifying. Proposals but no closes is a pricing or trust problem. Each symptom points at exactly one fix.
+
+If I were starting from your position today
+Next 24 hours, in this order. Nothing here requires learning anything new.
+
+Hours 0–2 — Delete. Open your portfolio and remove all eight stock-photo case studies and every fabricated statistic: "250+ Projects", "40+ Projects", "30+ Clients", "~100% Satisfaction", "100% On-Time". Keep only ToolNest. Yes, the site will look thin. Thin and true beats full and false, and every hour that fake content stays live is an hour you could be caught.
+Hour 3 — Fix the placeholders. The four YOUR_GITHUB_USERNAME-style social URLs, tel:+YOUR_PHONE_NUMBER, hello@codeneo.dev, the codeneo.dev/og-image.png meta paths, and the 2025/2026 copyright mismatch. Fifteen minutes of work that's been costing you every visitor.
+Hour 4 — Rewrite the top of the page. Paste in the hero, the three services, and the three packages from Steps 4 and 5. Delete the other eight services and the old pricing tiers.
+Hour 5 — Make ToolNest the hero. Three real screenshots, the live link, and the honest story. Your strongest asset should not be ninth on the page.
+Hour 6 — GitHub. New bio, six pinned repos with real descriptions. Set uddhavshrimali repos to private. Fix "plugin that help you to create job post".
+Hour 7 — LinkedIn. New headline, new About, both from Step 4. Turn on "Open to work — freelance."
+Hour 8 — Five warm messages. Ex-colleagues, GTU batchmates, anyone you know at an agency: "I've started taking custom WordPress and WooCommerce work on the side — plugins, integrations, fixing broken sites. If you ever hear of an agency that needs overflow dev help, I'd appreciate the introduction." Your warm network has the highest conversion rate of any channel and it costs you nothing but the twenty seconds of awkwardness.
+Hour 9 — Pick one real site and write the audit. Any slow public WordPress site. Run PageSpeed, check the plugins, check for errors, write the report as if someone paid $95 for it. This becomes both your best portfolio piece and your best sales asset.
+Hour 10 — Build the tracker from Step 13 and research your first ten prospects into it, each with a specific observation.
+Then come back and we'll run the role-play until the objections stop catching you.
+
+Prepared from Uddhav Shrimali's public portfolio, GitHub profiles, ToolNest, and stated project history. LinkedIn could not be read directly. No experience, client, or achievement in this document was invented; where something couldn't be verified, it's marked as such.
