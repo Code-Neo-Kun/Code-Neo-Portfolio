@@ -37,7 +37,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYDWMVR4J0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-GYDWMVR4J0');
   </script>
@@ -159,7 +159,8 @@
     <div class="ticker-wrap">
       <p class="ticker-label">TOOLS &amp; TECHNOLOGIES</p>
       <div class="ticker-track">
-        <div class="ticker-items" id="ticker-inner">
+        <div class="ticker-items" id="ticker-inner" aria-hidden="true">
+          <!-- Set 1 -->
           <div class="ticker-item">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress"
               width="28" height="28">
@@ -219,6 +220,81 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel"
               width="28" height="28">
             <span>Laravel</span>
+          </div>
+          <div class="ticker-item">
+            <svg width="28" height="28" fill="none" stroke="var(--accent)" stroke-width="2" viewBox="0 0 24 24"
+              style="opacity:0.7">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+            <span>Data Analytics</span>
+          </div>
+          <!-- Set 2 — duplicate for seamless infinite loop -->
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt=""
+              width="28" height="28">
+            <span>WordPress</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/shopify.svg" alt="" width="28"
+              height="28" style="filter:invert(1)">
+            <span>Shopify</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/webflow.svg" alt="" width="28"
+              height="28" style="filter:invert(1)">
+            <span>Webflow</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/framer.svg" alt="" width="28"
+              height="28" style="filter:invert(1)">
+            <span>Framer</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" width="28"
+              height="28">
+            <span>HTML5</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="" width="28"
+              height="28">
+            <span>CSS3</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""
+              width="28" height="28">
+            <span>JavaScript</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" width="28"
+              height="28">
+            <span>React</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="" width="28"
+              height="28">
+            <span>PHP</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="" width="28"
+              height="28">
+            <span>Figma</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" width="28"
+              height="28">
+            <span>MySQL</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="" width="28"
+              height="28">
+            <span>Laravel</span>
+          </div>
+          <div class="ticker-item" aria-hidden="true">
+            <svg width="28" height="28" fill="none" stroke="var(--accent)" stroke-width="2" viewBox="0 0 24 24"
+              style="opacity:0.7">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+            <span>Data Analytics</span>
           </div>
         </div>
       </div>
@@ -628,14 +704,15 @@
           </div>
           <div class="project-info">
             <h3 class="project-title">ToolNest — Free Online Tools</h3>
-            <p class="project-desc">62+ free browser-based tools for images, PDFs, text, and developer utilities. No signup, no file uploads to server. 100k+ monthly users.</p>
+            <p class="project-desc">62+ free browser-based tools for images, PDFs, text, and developer utilities. No
+              signup, no file uploads to server. 100k+ monthly users.</p>
             <div class="project-tags">
               <span class="ptag">Next.js</span>
               <span class="ptag">JavaScript</span>
               <span class="ptag">Vercel</span>
             </div>
-            <a href="https://tool-nest-virid.vercel.app/" target="_blank" rel="noopener" class="project-link">View Live <svg width="14"
-                height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <a href="https://tool-nest-virid.vercel.app/" target="_blank" rel="noopener" class="project-link">View Live
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M7 17L17 7M7 7h10v10" />
               </svg></a>
           </div>
@@ -880,7 +957,8 @@
             </a>
           </div>
           <a href="https://buymeacoffee.com/uddhavshrimali" target="_blank" rel="noopener" aria-label="Buy Me a Coffee">
-            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height:36px;width:auto;border-radius:6px;margin-top:1rem;">
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+              style="height:36px;width:auto;border-radius:6px;margin-top:1rem;">
           </a>
         </div>
 
