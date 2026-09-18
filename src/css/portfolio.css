@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    PORTFOLIO PAGES — portfolio.css
-   Extends neo-style.css + blog.css (all tokens available)
+   Extends neo-style.css (all tokens available)
 ═══════════════════════════════════════════════════════════ */
 
 /* ── PORTFOLIO LISTING LAYOUT ────────────────────────────── */
@@ -955,5 +955,170 @@
 
   .pf-card-body {
     padding: 1.25rem;
+  }
+}
+
+/* ── SIDEBAR FILTER CATEGORIES ───────────────────────────── */
+.sidebar-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.sidebar-cat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-3);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: left;
+}
+
+.sidebar-cat-btn:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: rgba(249, 115, 22, 0.15);
+}
+
+.sidebar-cat-btn.active {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: rgba(249, 115, 22, 0.25);
+  font-weight: 600;
+}
+
+.sidebar-cat-count {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-4);
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.1rem 0.5rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.sidebar-cat-btn.active .sidebar-cat-count,
+.sidebar-cat-btn:hover .sidebar-cat-count {
+  background: rgba(249, 115, 22, 0.12);
+  border-color: rgba(249, 115, 22, 0.25);
+  color: var(--accent);
+}
+
+/* ── SIDEBAR TECH STACK TAGS ─────────────────────────────── */
+.sidebar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.sidebar-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-3);
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.25rem 0.6rem;
+  transition: all var(--transition);
+  cursor: default;
+}
+
+.sidebar-tag:hover {
+  background: var(--accent-light);
+  border-color: rgba(249, 115, 22, 0.25);
+  color: var(--accent);
+}
+
+/* ── CARD CATEGORY BADGE POSITIONING ─────────────────────── */
+.pf-card-img .project-cat-badge {
+  position: absolute;
+  top: 0.875rem;
+  left: 0.875rem;
+  z-index: 2;
+}
+
+/* ── FILTER TABS: MOBILE SCROLL ──────────────────────────── */
+@media (max-width: 640px) {
+  .bl-filter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bl-filter-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .bl-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bl-tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .bl-search {
+    width: 100%;
+  }
+
+  .bl-search-wrap {
+    width: 100%;
+  }
+}
+
+/* ── PAGE HERO LAYOUT FIX ────────────────────────────────── */
+/* Force block flow so stats always sit below the text */
+.page-hero .container {
+  display: block;
+}
+
+.page-hero .pf-hero-stats {
+  margin-top: 2.5rem;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center;
+  gap: 2rem;
+  width: fit-content;
+  max-width: 100%;
+  overflow: visible;
+}
+
+/* Ensure stat items don't collapse */
+.page-hero .bhs-item {
+  flex-shrink: 0;
+  text-align: center;
+  min-width: 60px;
+}
+
+.page-hero .bhs-divider {
+  display: block !important;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .page-hero .pf-hero-stats {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+    padding: 1rem 1.25rem;
   }
 }
