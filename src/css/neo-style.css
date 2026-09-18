@@ -1267,6 +1267,14 @@ select {
   line-height: 1;
 }
 
+.price-suffix {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-3);
+  align-self: flex-end;
+  margin-bottom: 0.1rem;
+}
+
 .pricing-ideal {
   font-size: 0.82rem;
   color: var(--text-3);
