@@ -219,3 +219,69 @@ document.getElementById('back-to-top')?.addEventListener('click', (e) => {
 
 /* ── INIT ─────────────────────────────────────────────────── */
 onScroll();
+
+/* ── SCROLL-PAN: height-aware image pan on hover ─────────────
+   Works on both .project-img--scroll (homepage) and
+   .pf-card-img--scroll (portfolio listing page).
+
+   Speed: 120 px/s — feels like a slow, deliberate page scroll.
+   Duration is calculated per-image so a 400 px travel takes
+   ~3.3 s and a 1200 px travel takes ~10 s.
+─────────────────────────────────────────────────────────── */
+(function initScrollPan() {
+  const PX_PER_SEC = 120;                      // scroll speed constant
+  const EASE = 'cubic-bezier(0.4, 0, 0.2, 1)';
+
+  /* Query both homepage and portfolio listing variants */
+  const containers = document.querySelectorAll(
+    '.project-img--scroll, .pf-card-img--scroll'
+  );
+
+  containers.forEach(container => {
+    const img = container.querySelector('img');
+    if (!img) return;
+
+    /* ── compute travel once the image has loaded ── */
+    function getTravel() {
+      const containerH = container.offsetHeight;
+      if (!containerH) return 0;
+
+      /* rendered height = natural aspect ratio scaled to container width */
+      const renderedH = img.naturalHeight
+        ? Math.round(img.naturalWidth > 0
+            ? (img.naturalHeight / img.naturalWidth) * container.offsetWidth
+            : img.offsetHeight)
+        : img.offsetHeight;
+
+      return Math.max(0, renderedH - containerH);
+    }
+
+    function panDown() {
+      const travel = getTravel();
+      if (travel <= 0) return;
+
+      const duration = travel / PX_PER_SEC;
+      img.style.transition = `transform ${duration.toFixed(2)}s ${EASE}`;
+      img.style.transform  = `translateY(-${travel}px)`;
+    }
+
+    function panUp() {
+      /* snap back quickly (0.6 s) so the card resets cleanly */
+      img.style.transition = `transform 0.6s ${EASE}`;
+      img.style.transform  = 'translateY(0)';
+    }
+
+    /* Attach to the card element (hover area) if available, else container */
+    const hoverTarget = container.closest('.project-card, .pf-card') || container;
+
+    hoverTarget.addEventListener('mouseenter', panDown);
+    hoverTarget.addEventListener('mouseleave', panUp);
+
+    /* If image isn't loaded yet, re-compute on load */
+    if (!img.complete || img.naturalHeight === 0) {
+      img.addEventListener('load', () => {
+        /* nothing to do proactively; next mouseenter will recalculate */
+      }, { once: true });
+    }
+  });
+})();

@@ -1088,6 +1088,29 @@ select {
   transform: scale(1.06);
 }
 
+/* ── SCROLL-PAN VARIANT (used on homepage & portfolio cards) ─
+   JS in neo-main.js drives the translateY animation.
+   CSS only sets up the container/image geometry.
+─────────────────────────────────────────────────────────── */
+.project-img--scroll,
+.pf-card-img--scroll {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img--scroll img,
+.pf-card-img--scroll img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;          /* natural height — lets tall screenshots be tall   */
+  object-fit: unset;     /* override any inherited object-fit                */
+  transform: translateY(0);
+  will-change: transform;
+  transition: transform 0s; /* duration set by JS on hover */
+}
+
 .project-overlay {
   position: absolute;
   inset: 0;
