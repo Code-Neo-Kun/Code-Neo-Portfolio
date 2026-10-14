@@ -54,6 +54,19 @@ function filterCards() {
   }
 }
 
+/* ── UPDATE SIDEBAR COUNTS ────────────────────────────────── */
+function updateCounts() {
+  document.querySelectorAll('.sidebar-cat-btn').forEach(btn => {
+    const cat = btn.dataset.cat;
+    if (!cat) return;
+    const count = cat === 'all'
+      ? cards.length
+      : cards.filter(c => (c.dataset.cat || '').split(' ').includes(cat)).length;
+    const badge = btn.querySelector('.sidebar-cat-count');
+    if (badge) badge.textContent = count;
+  });
+}
+
 /* ── SET ACTIVE CATEGORY ──────────────────────────────────── */
 function setCategory(cat) {
   activeCat = cat;
@@ -63,6 +76,8 @@ function setCategory(cat) {
     b.classList.toggle('active', b.dataset.cat === cat));
   filterCards();
 }
+
+updateCounts();
 
 tabs.forEach(t => { if (t.dataset.cat) t.addEventListener('click', () => setCategory(t.dataset.cat)); });
 
